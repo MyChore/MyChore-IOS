@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FD33CE252A69063A00F4E5AE /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FD33CE242A69063A00F4E5AE /* Alamofire */; };
+		FD33CE282A69067800F4E5AE /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FD33CE272A69067800F4E5AE /* SnapKit */; };
+		FD33CE2D2A6906F200F4E5AE /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = FD33CE2C2A6906F200F4E5AE /* KakaoSDK */; };
+		FD33CE302A69077000F4E5AE /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD33CE2F2A69077000F4E5AE /* Color+.swift */; };
 		FDDCCF532A55930400FEDF8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDCCF522A55930400FEDF8E /* AppDelegate.swift */; };
 		FDDCCF552A55930400FEDF8E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDCCF542A55930400FEDF8E /* SceneDelegate.swift */; };
 		FDDCCF572A55930400FEDF8E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDCCF562A55930400FEDF8E /* ViewController.swift */; };
@@ -16,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FD33CE2F2A69077000F4E5AE /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 		FDDCCF4F2A55930400FEDF8E /* MyChore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyChore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDDCCF522A55930400FEDF8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FDDCCF542A55930400FEDF8E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,12 +36,92 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD33CE252A69063A00F4E5AE /* Alamofire in Frameworks */,
+				FD33CE2D2A6906F200F4E5AE /* KakaoSDK in Frameworks */,
+				FD33CE282A69067800F4E5AE /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FD33CE1B2A69054000F4E5AE /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				FD33CE202A6905B600F4E5AE /* Model */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		FD33CE1C2A69057400F4E5AE /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				FD33CE222A6905CD00F4E5AE /* View */,
+				FD33CE212A6905C700F4E5AE /* ViewModel */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		FD33CE1D2A69058200F4E5AE /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				FD33CE1E2A69058C00F4E5AE /* Network */,
+				FD33CE1F2A69059300F4E5AE /* Service */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		FD33CE1E2A69058C00F4E5AE /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		FD33CE1F2A69059300F4E5AE /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		FD33CE202A6905B600F4E5AE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FD33CE212A6905C700F4E5AE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		FD33CE222A6905CD00F4E5AE /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FD33CE2E2A69074000F4E5AE /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				FD33CE312A69087700F4E5AE /* Extension */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		FD33CE312A69087700F4E5AE /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				FD33CE2F2A69077000F4E5AE /* Color+.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		FDDCCF462A55930400FEDF8E = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +141,10 @@
 		FDDCCF512A55930400FEDF8E /* MyChore */ = {
 			isa = PBXGroup;
 			children = (
+				FD33CE1B2A69054000F4E5AE /* Domain */,
+				FD33CE1C2A69057400F4E5AE /* Presentation */,
+				FD33CE1D2A69058200F4E5AE /* Data */,
+				FD33CE2E2A69074000F4E5AE /* Utility */,
 				FDDCCF522A55930400FEDF8E /* AppDelegate.swift */,
 				FDDCCF542A55930400FEDF8E /* SceneDelegate.swift */,
 				FDDCCF562A55930400FEDF8E /* ViewController.swift */,
@@ -83,6 +172,11 @@
 			dependencies = (
 			);
 			name = MyChore;
+			packageProductDependencies = (
+				FD33CE242A69063A00F4E5AE /* Alamofire */,
+				FD33CE272A69067800F4E5AE /* SnapKit */,
+				FD33CE2C2A6906F200F4E5AE /* KakaoSDK */,
+			);
 			productName = MyChore;
 			productReference = FDDCCF4F2A55930400FEDF8E /* MyChore.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +205,11 @@
 				Base,
 			);
 			mainGroup = FDDCCF462A55930400FEDF8E;
+			packageReferences = (
+				FD33CE232A69063A00F4E5AE /* XCRemoteSwiftPackageReference "Alamofire" */,
+				FD33CE262A69067800F4E5AE /* XCRemoteSwiftPackageReference "SnapKit" */,
+				FD33CE2B2A6906F200F4E5AE /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
+			);
 			productRefGroup = FDDCCF502A55930400FEDF8E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -139,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FDDCCF572A55930400FEDF8E /* ViewController.swift in Sources */,
+				FD33CE302A69077000F4E5AE /* Color+.swift in Sources */,
 				FDDCCF532A55930400FEDF8E /* AppDelegate.swift in Sources */,
 				FDDCCF552A55930400FEDF8E /* SceneDelegate.swift in Sources */,
 			);
@@ -358,6 +458,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FD33CE232A69063A00F4E5AE /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		FD33CE262A69067800F4E5AE /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		FD33CE2B2A6906F200F4E5AE /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FD33CE242A69063A00F4E5AE /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FD33CE232A69063A00F4E5AE /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		FD33CE272A69067800F4E5AE /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FD33CE262A69067800F4E5AE /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		FD33CE2C2A6906F200F4E5AE /* KakaoSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FD33CE2B2A6906F200F4E5AE /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDK;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FDDCCF472A55930400FEDF8E /* Project object */;
 }
