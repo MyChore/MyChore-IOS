@@ -12,6 +12,7 @@ class LoginViewController: UIViewController {
     
     let logoTitleLabel = UILabel()
     let logoImageView = UIImageView()
+    let messageImageView = UIImageView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,11 +29,14 @@ class LoginViewController: UIViewController {
         logoTitleLabel.font = UIFont.systemFont(ofSize: 22)
         
         logoImageView.image = UIImage(named: "login_logotype")
+        
+        messageImageView.image = UIImage(named: "login_message")
     }
     
     private func setUpView() {
         self.view.addSubview(logoTitleLabel)
         self.view.addSubview(logoImageView)
+        self.view.addSubview(messageImageView)
     }
     
     private func setUpConstraint() {
@@ -43,6 +47,11 @@ class LoginViewController: UIViewController {
         
         logoImageView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(302)
+            make.centerX.equalToSuperview()
+        }
+        
+        messageImageView.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(642)
             make.centerX.equalToSuperview()
         }
     }
