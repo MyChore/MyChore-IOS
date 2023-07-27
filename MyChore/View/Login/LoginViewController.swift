@@ -13,6 +13,11 @@ class LoginViewController: UIViewController {
     let logoTitleLabel = UILabel()
     let logoImageView = UIImageView()
     let messageImageView = UIImageView()
+    
+    // 임시 버튼 - 추후 카카오, 애플 로그인으로 변경 예정
+    let kakaoButton = UIButton()
+    let appleButton = UIButton()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,12 +36,20 @@ class LoginViewController: UIViewController {
         logoImageView.image = UIImage(named: "login_logotype")
         
         messageImageView.image = UIImage(named: "login_message")
+        
+        kakaoButton.setImage(UIImage(named: "login_kakao"), for: .normal)
+        kakaoButton.addTarget(self, action: #selector(login), for: .touchDown)
+        
+        appleButton.setImage(UIImage(named: "login_apple"), for: .normal)
+        appleButton.addTarget(self, action: #selector(login), for: .touchDown)
     }
     
     private func setUpView() {
         self.view.addSubview(logoTitleLabel)
         self.view.addSubview(logoImageView)
         self.view.addSubview(messageImageView)
+        self.view.addSubview(kakaoButton)
+        self.view.addSubview(appleButton)
     }
     
     private func setUpConstraint() {
@@ -54,6 +67,21 @@ class LoginViewController: UIViewController {
             make.top.equalToSuperview().offset(642)
             make.centerX.equalToSuperview()
         }
+        
+        kakaoButton.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(703)
+            make.centerX.equalToSuperview()
+        }
+        
+        appleButton.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(765)
+            make.centerX.equalToSuperview()
+        }
+    }
+    
+    
+    @objc private func login() {
+        print("버튼 동작")
     }
     
 }
