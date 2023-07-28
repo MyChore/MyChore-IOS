@@ -121,46 +121,46 @@ class ChoreAddMainViewController: UIViewController {
     
     func setConstraints() {
         choreNameLabel.snp.makeConstraints { make in
-            make.top.equalTo(self.view.safeAreaLayoutGuide).offset(10)
-            make.left.equalTo(self.view.safeAreaLayoutGuide).offset(20)
+            make.top.equalTo(self.view.safeAreaLayoutGuide).offset(20)
+            make.left.equalTo(self.view.safeAreaLayoutGuide).offset(24)
         }
         choreTextField.snp.makeConstraints { make in
-            make.top.equalTo(choreNameLabel.snp.bottom).offset(3)
-            make.left.equalTo(self.view.safeAreaLayoutGuide).offset(21)
-            make.right.equalTo(self.view.safeAreaLayoutGuide).offset(-21)
+            make.top.equalTo(choreNameLabel.snp.bottom).offset(14)
+            make.left.equalTo(self.view.safeAreaLayoutGuide).offset(26)
+            make.right.equalTo(self.view.safeAreaLayoutGuide).offset(-63)
         }
         textUnderLineView.snp.makeConstraints { make in
             make.height.equalTo(2)
-            make.top.equalTo(choreTextField.snp.bottom).offset(2)
-            make.left.equalTo(self.view.safeAreaLayoutGuide).offset(21)
-            make.right.equalTo(self.view.safeAreaLayoutGuide).offset(-21)
+            make.top.equalTo(choreTextField.snp.bottom).offset(6)
+            make.left.equalTo(self.view.safeAreaLayoutGuide).offset(25)
+            make.right.equalTo(self.view.safeAreaLayoutGuide).offset(-23)
         }
         firstLine.snp.makeConstraints { make in
             make.height.equalTo(2)
-            make.top.equalTo(textUnderLineView.snp.bottom).offset(18)
-            make.left.equalTo(self.view.safeAreaLayoutGuide).offset(21)
-            make.right.equalTo(self.view.safeAreaLayoutGuide).offset(-21)
+            make.top.equalTo(textUnderLineView.snp.bottom).offset(16)
+            make.left.equalTo(self.view.safeAreaLayoutGuide).offset(24)
+            make.right.equalTo(self.view.safeAreaLayoutGuide).offset(-24)
         }
         placeIconView.snp.makeConstraints { make in
             make.height.width.equalTo(32)
-            make.top.equalTo(firstLine.snp.bottom).offset(18)
+            make.top.equalTo(firstLine.snp.bottom).offset(16)
             make.left.equalTo(self.view.safeAreaLayoutGuide).offset(16)
         }
         placeLabel.snp.makeConstraints { make in
             make.centerY.equalTo(placeIconView.snp.centerY)
-            make.left.equalTo(placeIconView.snp.right).offset(5)
+            make.left.equalTo(placeIconView.snp.right).offset(8)
         }
         placeButton1.snp.makeConstraints { make in
             make.height.equalTo(38)
             make.width.equalTo(72)
-            make.top.equalTo(placeIconView.snp.bottom).offset(5)
+            make.top.equalTo(placeIconView.snp.bottom).offset(11)
             make.left.equalTo(self.view.safeAreaLayoutGuide).offset(24)
         }
         secondLine.snp.makeConstraints { make in
             make.height.equalTo(2)
             make.top.equalTo(placeButton1.snp.bottom).offset(18)
-            make.left.equalTo(self.view.safeAreaLayoutGuide).offset(21)
-            make.right.equalTo(self.view.safeAreaLayoutGuide).offset(-21)
+            make.left.equalTo(self.view.safeAreaLayoutGuide).offset(24)
+            make.right.equalTo(self.view.safeAreaLayoutGuide).offset(-24)
         }
     }
 }
