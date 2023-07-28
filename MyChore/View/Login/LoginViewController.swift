@@ -81,7 +81,9 @@ class LoginViewController: UIViewController {
     
     
     @objc private func login() {
-        print("버튼 동작")
+        let agreementVC = AgreementViewController()
+        
+        self.navigationController?.pushViewController(agreementVC, animated: true)
     }
     
 }
