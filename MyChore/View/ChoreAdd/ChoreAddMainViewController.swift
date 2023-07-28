@@ -6,6 +6,7 @@
 //
 
 import UIKit
+
 import SnapKit
 
 class ChoreAddMainViewController: UIViewController {
@@ -19,7 +20,8 @@ class ChoreAddMainViewController: UIViewController {
         setUpView()
         setConstraints()
     }
-
+    
+    // 네비게이션바
     func initNavigation() {
         let backButton = UIBarButtonItem(image: UIImage(named: "icon_back"), style: .plain, target: self, action: #selector(backMainPage))
         backButton.tintColor = UIColor.mcGrey800
@@ -44,12 +46,6 @@ class ChoreAddMainViewController: UIViewController {
     @objc func sendData() {
         print("페이지 pop")
     }
-   
-    let sectionLineView: UIView = {
-        let sectionLineView = UIView()
-        sectionLineView.backgroundColor = UIColor.mcGrey100
-        return sectionLineView
-    }()
     
     lazy var choreNameLabel: UILabel = {
         let choreNameLabel = UILabel()
@@ -74,13 +70,53 @@ class ChoreAddMainViewController: UIViewController {
         return textUnderLineView
     }()
     
-    lazy var firstLine = sectionLineView
+    lazy var firstLine: UIView = {
+        let firstLine = UIView()
+        firstLine.backgroundColor = UIColor.mcGrey100
+        return firstLine
+    }()
+    
+    lazy var placeIconView: UIImageView = {
+        let placeIconView = UIImageView()
+        placeIconView.image = UIImage(named: "icon_place")
+        return placeIconView
+    }()
+    
+    lazy var placeLabel: UILabel = {
+        let placeLabel = UILabel()
+        placeLabel.text = "장소"
+        placeLabel.font = UIFont.systemFont(ofSize: 20)
+        return placeLabel
+    }()
+    
+    let placeButton: UIButton = {
+        let placeButton = UIButton()
+        placeButton.backgroundColor = UIColor.mcGrey200
+        placeButton.layer.cornerRadius = 10.0
+        
+        placeButton.setTitle("거실", for: .normal)
+        placeButton.setTitleColor(UIColor.mcGrey800, for: .normal)
+        
+        return placeButton
+    }()
+    
+    lazy var placeButton1 = placeButton
+    
+    lazy var secondLine: UIView = {
+        let secondLine = UIView()
+        secondLine.backgroundColor = UIColor.mcGrey100
+        return secondLine
+    }()
     
     func setUpView() {
         view.addSubview(choreNameLabel)
         view.addSubview(choreTextField)
         view.addSubview(textUnderLineView)
         view.addSubview(firstLine)
+        view.addSubview(placeIconView)
+        view.addSubview(placeLabel)
+        view.addSubview(placeButton1)
+        view.addSubview(secondLine)
     }
     
     func setConstraints() {
@@ -102,6 +138,27 @@ class ChoreAddMainViewController: UIViewController {
         firstLine.snp.makeConstraints { make in
             make.height.equalTo(2)
             make.top.equalTo(textUnderLineView.snp.bottom).offset(18)
+            make.left.equalTo(self.view.safeAreaLayoutGuide).offset(21)
+            make.right.equalTo(self.view.safeAreaLayoutGuide).offset(-21)
+        }
+        placeIconView.snp.makeConstraints { make in
+            make.height.width.equalTo(32)
+            make.top.equalTo(firstLine.snp.bottom).offset(18)
+            make.left.equalTo(self.view.safeAreaLayoutGuide).offset(16)
+        }
+        placeLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(placeIconView.snp.centerY)
+            make.left.equalTo(placeIconView.snp.right).offset(5)
+        }
+        placeButton1.snp.makeConstraints { make in
+            make.height.equalTo(38)
+            make.width.equalTo(72)
+            make.top.equalTo(placeIconView.snp.bottom).offset(5)
+            make.left.equalTo(self.view.safeAreaLayoutGuide).offset(24)
+        }
+        secondLine.snp.makeConstraints { make in
+            make.height.equalTo(2)
+            make.top.equalTo(placeButton1.snp.bottom).offset(18)
             make.left.equalTo(self.view.safeAreaLayoutGuide).offset(21)
             make.right.equalTo(self.view.safeAreaLayoutGuide).offset(-21)
         }
