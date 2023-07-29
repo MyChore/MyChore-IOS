@@ -47,6 +47,7 @@ class ChoreAddMainViewController: UIViewController {
         print("페이지 pop")
     }
     
+    // Mark: - Views 정의
     lazy var choreNameLabel: UILabel = {
         let choreNameLabel = UILabel()
         choreNameLabel.text = "집안일 이름"
@@ -121,6 +122,19 @@ class ChoreAddMainViewController: UIViewController {
         return furnitureLabel
     }()
     
+    lazy var furnitureSelectedLabel: UILabel = {
+        let furnitureSelectedLabel = UILabel()
+        furnitureSelectedLabel.text = "지정안함"
+        furnitureSelectedLabel.font = UIFont.systemFont(ofSize: 16)
+        return furnitureSelectedLabel
+    }()
+    
+    lazy var furnitureNextBtn: UIButton = {
+        let furnitureNextBtn = UIButton()
+        furnitureNextBtn.setImage(UIImage(named: "icon_mininext"), for: .normal)
+        return furnitureNextBtn
+    }()
+    
     lazy var thirdLine: UIView = {
         let thirdLine = UIView()
         thirdLine.backgroundColor = UIColor.mcGrey100
@@ -169,6 +183,31 @@ class ChoreAddMainViewController: UIViewController {
         return alarmLabel
     }()
     
+    lazy var alarmTimePicker: UIDatePicker = {
+        let alarmTimePicker = UIDatePicker()
+        alarmTimePicker.preferredDatePickerStyle = .compact
+        alarmTimePicker.datePickerMode = .time
+        alarmTimePicker.locale = Locale(identifier: "en_US")
+        alarmTimePicker.tintColor = UIColor.mcMainGreen
+        // datePicker에 처음 나타나는 날짜
+        /*
+        if selectedDateData == "" {
+            alarmTimePicker.date = Date()
+        }
+        else {
+            alarmTimePicker.date = selectedFormatter.date(from: selectedDateData) ?? Date()
+        }*/
+        return alarmTimePicker
+    }()
+    
+    lazy var alarmSwitch: UISwitch = {
+        let alarmSwitch = UISwitch()
+        alarmSwitch.onTintColor = UIColor.mcMainGreen
+        alarmSwitch.tintColor = UIColor.mcMainGreen
+        alarmSwitch.isOn = false
+        return alarmSwitch
+    }()
+    
     lazy var fifthLine: UIView = {
         let fifthLine = UIView()
         fifthLine.backgroundColor = UIColor.mcGrey100
@@ -186,6 +225,19 @@ class ChoreAddMainViewController: UIViewController {
         repeatLabel.text = "반복"
         repeatLabel.font = UIFont.systemFont(ofSize: 20)
         return repeatLabel
+    }()
+    
+    lazy var repeatSelectedLabel: UILabel = {
+        let repeatSelectedLabel = UILabel()
+        repeatSelectedLabel.text = "지정안함"
+        repeatSelectedLabel.font = UIFont.systemFont(ofSize: 16)
+        return repeatSelectedLabel
+    }()
+    
+    lazy var repeatNextBtn: UIButton = {
+        let repeatNextBtn = UIButton()
+        repeatNextBtn.setImage(UIImage(named: "icon_mininext"), for: .normal)
+        return repeatNextBtn
     }()
     
     lazy var sixthLine: UIView = {
@@ -207,12 +259,26 @@ class ChoreAddMainViewController: UIViewController {
         return managerLabel
     }()
     
+    lazy var managerSelectedLabel: UILabel = {
+        let managerSelectedLabel = UILabel()
+        managerSelectedLabel.text = "지정안함"
+        managerSelectedLabel.font = UIFont.systemFont(ofSize: 16)
+        return managerSelectedLabel
+    }()
+    
+    lazy var managerNextBtn: UIButton = {
+        let managerNextBtn = UIButton()
+        managerNextBtn.setImage(UIImage(named: "icon_mininext"), for: .normal)
+        return managerNextBtn
+    }()
+    
     lazy var seventhLine: UIView = {
         let seventhLine = UIView()
         seventhLine.backgroundColor = UIColor.mcGrey100
         return seventhLine
     }()
     
+    // Mark: - view 요소 추가 함수
     func setUpView() {
         view.addSubview(choreNameLabel)
         view.addSubview(choreTextField)
@@ -224,6 +290,8 @@ class ChoreAddMainViewController: UIViewController {
         view.addSubview(secondLine)
         view.addSubview(furnitureIconView)
         view.addSubview(furnitureLabel)
+        view.addSubview(furnitureSelectedLabel)
+        view.addSubview(furnitureNextBtn)
         view.addSubview(thirdLine)
         view.addSubview(dateIconView)
         view.addSubview(dateLabel)
@@ -231,15 +299,22 @@ class ChoreAddMainViewController: UIViewController {
         view.addSubview(fourthLine)
         view.addSubview(alarmIconView)
         view.addSubview(alarmLabel)
+        view.addSubview(alarmTimePicker)
+        view.addSubview(alarmSwitch)
         view.addSubview(fifthLine)
         view.addSubview(repeatIconView)
         view.addSubview(repeatLabel)
+        view.addSubview(repeatSelectedLabel)
+        view.addSubview(repeatNextBtn)
         view.addSubview(sixthLine)
         view.addSubview(managerIconView)
         view.addSubview(managerLabel)
+        view.addSubview(managerSelectedLabel)
+        view.addSubview(managerNextBtn)
         view.addSubview(seventhLine)
     }
     
+    // Mark: - constraints 설정 함수
     func setConstraints() {
         choreNameLabel.snp.makeConstraints { make in
             make.top.equalTo(self.view.safeAreaLayoutGuide).offset(20)
@@ -248,7 +323,7 @@ class ChoreAddMainViewController: UIViewController {
         choreTextField.snp.makeConstraints { make in
             make.top.equalTo(choreNameLabel.snp.bottom).offset(14)
             make.left.equalTo(self.view.safeAreaLayoutGuide).offset(26)
-            make.right.equalTo(self.view.safeAreaLayoutGuide).offset(-63)
+            make.right.equalTo(self.view.safeAreaLayoutGuide).offset(-23)
         }
         textUnderLineView.snp.makeConstraints { make in
             make.height.equalTo(2)
@@ -292,6 +367,14 @@ class ChoreAddMainViewController: UIViewController {
             make.centerY.equalTo(furnitureIconView.snp.centerY)
             make.left.equalTo(furnitureIconView.snp.right).offset(8)
         }
+        furnitureSelectedLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(furnitureIconView.snp.centerY)
+            make.right.equalTo(furnitureNextBtn.snp.left)
+        }
+        furnitureNextBtn.snp.makeConstraints { make in
+            make.centerY.equalTo(furnitureIconView.snp.centerY)
+            make.right.equalTo(self.view.safeAreaLayoutGuide).offset(-19)
+        }
         thirdLine.snp.makeConstraints { make in
             make.height.equalTo(2)
             make.top.equalTo(furnitureIconView.snp.bottom).offset(14)
@@ -326,6 +409,14 @@ class ChoreAddMainViewController: UIViewController {
             make.centerY.equalTo(alarmIconView.snp.centerY)
             make.left.equalTo(alarmIconView.snp.right).offset(8)
         }
+        alarmTimePicker.snp.makeConstraints { make in
+            make.centerY.equalTo(alarmIconView.snp.centerY)
+            make.right.equalTo(alarmSwitch.snp.left).offset(-16)
+        }
+        alarmSwitch.snp.makeConstraints { make in
+            make.centerY.equalTo(alarmIconView.snp.centerY)
+            make.right.equalTo(self.view.safeAreaLayoutGuide).offset(-24)
+        }
         fifthLine.snp.makeConstraints { make in
             make.height.equalTo(2)
             make.top.equalTo(alarmIconView.snp.bottom).offset(14)
@@ -341,6 +432,14 @@ class ChoreAddMainViewController: UIViewController {
             make.centerY.equalTo(repeatIconView.snp.centerY)
             make.left.equalTo(repeatIconView.snp.right).offset(8)
         }
+        repeatSelectedLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(repeatIconView.snp.centerY)
+            make.right.equalTo(repeatNextBtn.snp.left)
+        }
+        repeatNextBtn.snp.makeConstraints { make in
+            make.centerY.equalTo(repeatIconView.snp.centerY)
+            make.right.equalTo(self.view.safeAreaLayoutGuide).offset(-19)
+        }
         sixthLine.snp.makeConstraints { make in
             make.height.equalTo(2)
             make.top.equalTo(repeatIconView.snp.bottom).offset(14)
@@ -355,6 +454,14 @@ class ChoreAddMainViewController: UIViewController {
         managerLabel.snp.makeConstraints { make in
             make.centerY.equalTo(managerIconView.snp.centerY)
             make.left.equalTo(managerIconView.snp.right).offset(8)
+        }
+        managerSelectedLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(managerIconView.snp.centerY)
+            make.right.equalTo(managerNextBtn.snp.left)
+        }
+        managerNextBtn.snp.makeConstraints { make in
+            make.centerY.equalTo(managerIconView.snp.centerY)
+            make.right.equalTo(self.view.safeAreaLayoutGuide).offset(-19)
         }
         seventhLine.snp.makeConstraints { make in
             make.height.equalTo(2)
