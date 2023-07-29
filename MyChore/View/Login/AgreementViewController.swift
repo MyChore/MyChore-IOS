@@ -106,10 +106,10 @@ class AgreementViewController: UIViewController {
         
         self.view.addSubview(titleLabel)
         self.view.addSubview(allAgreeStackView)
-//        self.view.addSubview(agree1StackView)
-//        self.view.addSubview(agree2StackView)
-//        self.view.addSubview(agree3StackView)
-//        self.view.addSubview(agree4StackView)
+        self.view.addSubview(agree1StackView)
+        self.view.addSubview(agree2StackView)
+        self.view.addSubview(agree3StackView)
+        self.view.addSubview(agree4StackView)
     }
     
     private func setUpConstraint() {
@@ -119,31 +119,34 @@ class AgreementViewController: UIViewController {
         }
         
         allAgreeStackView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(280)
+            make.top.equalTo(titleLabel.snp.bottom).offset(74)
             make.left.equalToSuperview().offset(25)
+            make.right.equalToSuperview().offset(-24)
         }
         
-//        agree1StackView.snp.makeConstraints { make in
-//            make.top.equalToSuperview().offset(280)
-//            make.left.equalToSuperview().offset(25)
-//        }
-//
-//        agree2StackView.snp.makeConstraints { make in
-//            make.top.equalToSuperview().offset(280)
-//            make.left.equalToSuperview().offset(25)
-//        }
-//
-//        agree3StackView.snp.makeConstraints { make in
-//            make.top.equalToSuperview().offset(280)
-//            make.left.equalToSuperview().offset(25)
-//        }
-//
-//        agree4StackView.snp.makeConstraints { make in
-//            make.top.equalToSuperview().offset(280)
-//            make.left.equalToSuperview().offset(25)
-//        }
-        
-        
+        agree1StackView.snp.makeConstraints { make in
+            make.top.equalTo(allAgreeStackView.snp.bottom).offset(45)
+            make.left.equalToSuperview().offset(25)
+            make.right.equalToSuperview().offset(-24)
+        }
+
+        agree2StackView.snp.makeConstraints { make in
+            make.top.equalTo(agree1StackView.snp.bottom).offset(22)
+            make.left.equalToSuperview().offset(25)
+            make.right.equalToSuperview().offset(-24)
+        }
+
+        agree3StackView.snp.makeConstraints { make in
+            make.top.equalTo(agree2StackView.snp.bottom).offset(22)
+            make.left.equalToSuperview().offset(25)
+            make.right.equalToSuperview().offset(-24)
+        }
+
+        agree4StackView.snp.makeConstraints { make in
+            make.top.equalTo(agree3StackView.snp.bottom).offset(22)
+            make.left.equalToSuperview().offset(25)
+            make.right.equalToSuperview().offset(-24)
+        }
     }
     
 }
