@@ -22,12 +22,12 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setUp()
-        setUpView()
-        setUpConstraint()
+        setup()
+        setupView()
+        setupConstraint()
     }
     
-    private func setUp() {
+    private func setup() {
         self.view.backgroundColor = UIColor.white
         
         logoTitleLabel.text = "집안일도 내게 맞춰서"
@@ -44,7 +44,7 @@ class LoginViewController: UIViewController {
         appleButton.addTarget(self, action: #selector(login), for: .touchDown)
     }
     
-    private func setUpView() {
+    private func setupView() {
         self.view.addSubview(logoTitleLabel)
         self.view.addSubview(logoImageView)
         self.view.addSubview(messageImageView)
@@ -52,7 +52,7 @@ class LoginViewController: UIViewController {
         self.view.addSubview(appleButton)
     }
     
-    private func setUpConstraint() {
+    private func setupConstraint() {
         logoTitleLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(252)
             make.centerX.equalToSuperview()

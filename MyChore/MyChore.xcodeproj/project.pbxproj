@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		73600DE82A72B59C00F9FE87 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73600DE72A72B59C00F9FE87 /* LoginViewController.swift */; };
 		73600DEA2A72C84100F9FE87 /* AgreementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73600DE92A72C84100F9FE87 /* AgreementViewController.swift */; };
+		73600DFE2A7B5C7600F9FE87 /* NicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73600DFD2A7B5C7600F9FE87 /* NicknameViewController.swift */; };
+		73600E022A7B749700F9FE87 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73600E012A7B749700F9FE87 /* String+.swift */; };
 		FD33CE252A69063A00F4E5AE /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FD33CE242A69063A00F4E5AE /* Alamofire */; };
 		FD33CE282A69067800F4E5AE /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FD33CE272A69067800F4E5AE /* SnapKit */; };
 		FD33CE2D2A6906F200F4E5AE /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = FD33CE2C2A6906F200F4E5AE /* KakaoSDK */; };
@@ -24,6 +26,8 @@
 /* Begin PBXFileReference section */
 		73600DE72A72B59C00F9FE87 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = View/Login/LoginViewController.swift; sourceTree = SOURCE_ROOT; };
 		73600DE92A72C84100F9FE87 /* AgreementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AgreementViewController.swift; path = View/Login/AgreementViewController.swift; sourceTree = SOURCE_ROOT; };
+		73600DFD2A7B5C7600F9FE87 /* NicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NicknameViewController.swift; path = View/Login/NicknameViewController.swift; sourceTree = SOURCE_ROOT; };
+		73600E012A7B749700F9FE87 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		FD33CE2F2A69077000F4E5AE /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 		FDDCCF4F2A55930400FEDF8E /* MyChore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyChore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDDCCF522A55930400FEDF8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -54,6 +58,7 @@
 			children = (
 				73600DE72A72B59C00F9FE87 /* LoginViewController.swift */,
 				73600DE92A72C84100F9FE87 /* AgreementViewController.swift */,
+				73600DFD2A7B5C7600F9FE87 /* NicknameViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -132,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				FD33CE2F2A69077000F4E5AE /* Color+.swift */,
+				73600E012A7B749700F9FE87 /* String+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -253,9 +259,11 @@
 			files = (
 				FDDCCF572A55930400FEDF8E /* ViewController.swift in Sources */,
 				FD33CE302A69077000F4E5AE /* Color+.swift in Sources */,
+				73600E022A7B749700F9FE87 /* String+.swift in Sources */,
 				FDDCCF532A55930400FEDF8E /* AppDelegate.swift in Sources */,
 				73600DEA2A72C84100F9FE87 /* AgreementViewController.swift in Sources */,
 				73600DE82A72B59C00F9FE87 /* LoginViewController.swift in Sources */,
+				73600DFE2A7B5C7600F9FE87 /* NicknameViewController.swift in Sources */,
 				FDDCCF552A55930400FEDF8E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

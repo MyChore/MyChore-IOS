@@ -36,22 +36,21 @@ class AgreementViewController: UIViewController {
     
     let nextButton = UIButton()
     
-    var agreeArray: [Bool] = []
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setup()
-        setupLayout()
-        setUpConstraint()
+        setupView()
+        setupConstraint()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        lineView.layer.backgroundColor = UIColor.mcGrey300.cgColor
     }
     
     private func setup() {
-        for _ in 0..<4 {
-            agreeArray.append(false)
-        }
-        
         [allAgreeCheckBox, agree1CheckBox, agree2CheckBox, agree3CheckBox, agree4CheckBox].forEach {
             $0.layer.borderColor = UIColor.mcGrey500.cgColor
             $0.layer.borderWidth = 1
@@ -85,9 +84,7 @@ class AgreementViewController: UIViewController {
             allAgreeStackView.addArrangedSubview($0)
         }
         
-        lineView.layer.backgroundColor = UIColor.mcGrey300.cgColor
-        lineView.layer.borderColor = UIColor.mcGrey300.cgColor
-        lineView.layer.borderWidth = 2
+        
         
         agree1Label.text = "만 14세 이상입니다."
         agree1Label.font = UIFont.systemFont(ofSize: 16)
@@ -127,7 +124,7 @@ class AgreementViewController: UIViewController {
         nextButton.layer.cornerRadius = 10
     }
     
-    private func setupLayout() {
+    private func setupView() {
         self.view.backgroundColor = UIColor.white
         
         self.view.addSubview(titleLabel)
@@ -140,7 +137,7 @@ class AgreementViewController: UIViewController {
         self.view.addSubview(nextButton)
     }
     
-    private func setUpConstraint() {
+    private func setupConstraint() {
         titleLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(162)
             make.left.equalToSuperview().offset(20)
@@ -156,6 +153,7 @@ class AgreementViewController: UIViewController {
             make.top.equalTo(allAgreeStackView.snp.bottom).offset(12)
             make.left.equalToSuperview().offset(25)
             make.right.equalToSuperview().offset(-24)
+            make.height.equalTo(1)
         }
         
         agree1StackView.snp.makeConstraints { make in
@@ -229,8 +227,10 @@ class AgreementViewController: UIViewController {
         
         if check {
             nextButton.isEnabled = true
+            nextButton.backgroundColor = UIColor.mcMainGreen
         }else {
             nextButton.isEnabled = false
+            nextButton.backgroundColor = UIColor.mcGrey400
         }
     }
     
