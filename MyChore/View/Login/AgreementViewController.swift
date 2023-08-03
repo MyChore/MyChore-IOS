@@ -64,17 +64,6 @@ class AgreementViewController: UIViewController {
             
             $0.adjustsImageWhenHighlighted = false
             
-//            $0.configurationUpdateHandler = {
-//                switch $0.state {
-//                case .disabled:
-//                    $0.imageView?.tintAdjustmentMode = .normal
-//                    break
-//                default:
-//                    $0.imageView?.tintAdjustmentMode = .normal
-//                    break
-//                }
-//            }
-            
             $0.addTarget(self, action: #selector(aggreAction), for: .touchDown)
         }
         
@@ -127,6 +116,15 @@ class AgreementViewController: UIViewController {
         [agree4Label, agree4CheckBox].forEach {
             agree4StackView.addArrangedSubview($0)
         }
+        
+        nextButton.setTitle("다음", for: .normal)
+        nextButton.titleLabel?.font = UIFont.systemFont(ofSize: 20)
+        nextButton.tintColor = UIColor.white
+        nextButton.backgroundColor = UIColor.mcMainGreen
+        nextButton.isEnabled = false
+        
+        nextButton.addTarget(self, action: #selector(nextAction), for: .touchDown)
+        nextButton.layer.cornerRadius = 10
     }
     
     private func setupLayout() {
@@ -139,6 +137,7 @@ class AgreementViewController: UIViewController {
         self.view.addSubview(agree2StackView)
         self.view.addSubview(agree3StackView)
         self.view.addSubview(agree4StackView)
+        self.view.addSubview(nextButton)
     }
     
     private func setUpConstraint() {
@@ -182,18 +181,62 @@ class AgreementViewController: UIViewController {
             make.left.equalToSuperview().offset(25)
             make.right.equalToSuperview().offset(-24)
         }
+        
+        nextButton.snp.makeConstraints { make in
+            make.bottom.equalToSuperview().offset(-21)
+            make.left.equalToSuperview().offset(25)
+            make.right.equalToSuperview().offset(-24)
+            make.height.equalTo(58)
+        }
     }
     
     
     
     @objc private func aggreAction(_ sender: UIButton) {
         if sender == allAgreeCheckBox {
-            
+            if sender.isSelected {
+                [allAgreeCheckBox, agree1CheckBox, agree2CheckBox, agree3CheckBox, agree4CheckBox].forEach {
+                    $0.isSelected = false
+                    $0.backgroundColor = UIColor.white
+                }
+            }else {
+                [allAgreeCheckBox, agree1CheckBox, agree2CheckBox, agree3CheckBox, agree4CheckBox].forEach {
+                    $0.isSelected = true
+                    $0.backgroundColor = UIColor.mcMainGreen
+                }
+            }
+        }else {
+            if sender.isSelected {
+                sender.isSelected = false
+                sender.backgroundColor = UIColor.white
+            }else {
+                sender.isSelected = true
+                sender.backgroundColor = UIColor.mcMainGreen
+            }
         }
         
-        sender.backgroundColor = UIColor.mcMainGreen
+        checkAgree()
     }
     
     
+    private func checkAgree() {
+        var check = true
+        [agree1CheckBox, agree2CheckBox, agree3CheckBox].forEach {
+            if $0.isSelected == false {
+                check = false
+            }
+        }
+        
+        if check {
+            nextButton.isEnabled = true
+        }else {
+            nextButton.isEnabled = false
+        }
+    }
+    
+    
+    @objc private func nextAction() {
+        print("다음")
+    }
     
 }
