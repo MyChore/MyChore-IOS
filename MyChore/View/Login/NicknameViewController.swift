@@ -171,7 +171,9 @@ class NicknameViewController: UIViewController {
     }
     
     @objc private func nextAction() {
-        print("다음")
+        let userInfoViewController = UserInfoViewController()
+        
+        self.navigationController?.pushViewController(userInfoViewController, animated: true)
     }
 
 }

@@ -236,7 +236,9 @@ class AgreementViewController: UIViewController {
     
     
     @objc private func nextAction() {
-        print("다음")
+        let nicknameViewController = NicknameViewController()
+        
+        self.navigationController?.pushViewController(nicknameViewController, animated: true)
     }
     
 }
