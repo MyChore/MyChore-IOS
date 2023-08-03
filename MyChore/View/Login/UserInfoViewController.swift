@@ -8,6 +8,10 @@
 import UIKit
 
 class UserInfoViewController: UIViewController {
+    //추후 mvvm로 변경 예정
+    private var isGender = false
+    private var isBirth = false
+    
     
     private let titleLabel = UILabel()
     
@@ -58,6 +62,7 @@ class UserInfoViewController: UIViewController {
             $0.setTitleColor(.black, for: .normal)
             $0.layer.cornerRadius = 10
             $0.isSelected = false
+            $0.addTarget(self, action: #selector(checkGender), for: .touchDown)
         }
         
         femaleButton.setTitle("여성", for: .normal)
@@ -67,11 +72,17 @@ class UserInfoViewController: UIViewController {
         birthLabel.font = UIFont.systemFont(ofSize: 22)
         
         
+        var tag = 0
+        
         [yearTextField, monthTextField, dayTextField].forEach {
             $0.font = UIFont.systemFont(ofSize: 22)
             $0.layer.cornerRadius = 10
             $0.layer.borderWidth = 1
             $0.layer.borderColor = UIColor.mcGrey500.cgColor
+            $0.keyboardType = .numberPad
+            $0.tag = tag
+            $0.delegate = self
+            tag += 1
         }
         
         yearTextField.placeholder = "YYYY"
@@ -120,6 +131,7 @@ class UserInfoViewController: UIViewController {
             make.top.equalTo(genderLabel.snp.bottom).offset(14)
             make.left.equalToSuperview().offset(24)
             make.right.equalToSuperview().offset(-250)
+            make.height.equalTo(38)
         }
         
         birthLabel.snp.makeConstraints { make in
@@ -142,8 +154,82 @@ class UserInfoViewController: UIViewController {
         }
     }
     
+    @objc private func checkGender(_ sender: UIButton) {
+        [femaleButton, maleButton].forEach {
+            if sender == $0 {
+                $0.backgroundColor = .mcMainGreen
+                $0.setTitleColor(.white, for: .normal)
+                $0.isSelected = true
+            }else {
+                $0.backgroundColor = UIColor.mcGrey200
+                $0.setTitleColor(.black, for: .normal)
+                $0.isSelected = false
+            }
+        }
+        isGender = true
+        checkInfo()
+    }
+    
+    private func checkInfo() {
+        if isGender && isBirth {
+            nextButton.isEnabled = true
+            nextButton.backgroundColor = UIColor.mcMainGreen
+        }else {
+            nextButton.isEnabled = false
+            nextButton.backgroundColor = UIColor.mcGrey400
+        }
+    }
 
     @objc private func nextAction() {
         print("다음")
+    }
+}
+
+extension UserInfoViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let text = textField.text else {return false}
+        
+        let utf8Char = string.cString(using: .utf8)
+        let isBackSpace = strcmp(utf8Char, "\\b")
+        
+        if isBackSpace == -92 {
+            return true
+        }
+        
+        if textField.tag == 0 {
+            if text.count > 3 {
+                return false
+            }
+        }else {
+            if text.count > 1 {
+                return false
+            }
+        }
+        return true
+    }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        textField.layer.borderColor = UIColor.mcMainGreen.cgColor
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        var check = true
+        [yearTextField, monthTextField, dayTextField].forEach {
+            if let text = $0.text {
+                if text.isEmpty {
+                    check = false
+                }else {
+                    if $0.tag == 0 {
+                        if text.count < 4 {
+                            check = false
+                        }
+                    }
+                }
+            }
+        }
+        
+        isBirth = check
+        checkInfo()
     }
 }
