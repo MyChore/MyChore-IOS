@@ -24,6 +24,8 @@ class NicknameViewController: UIViewController {
     
     private let infoLabel = UILabel()
     
+    private let nextButton = UIButton()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +63,16 @@ class NicknameViewController: UIViewController {
         infoLabel.isHidden = true
         infoLabel.font = UIFont.systemFont(ofSize: 12)
         infoLabel.textColor = UIColor.mcMainGreen
+        
+        
+        nextButton.setTitle("다음", for: .normal)
+        nextButton.titleLabel?.font = UIFont.systemFont(ofSize: 20)
+        nextButton.tintColor = UIColor.white
+        nextButton.backgroundColor = UIColor.mcGrey400
+        nextButton.isEnabled = false
+        
+        nextButton.addTarget(self, action: #selector(nextAction), for: .touchDown)
+        nextButton.layer.cornerRadius = 10
     }
     
     private func setupView() {
@@ -73,6 +85,7 @@ class NicknameViewController: UIViewController {
         self.view.addSubview(nicknameTextField)
         self.view.addSubview(lineView)
         self.view.addSubview(infoLabel)
+        self.view.addSubview(nextButton)
     }
     
     private func setupConstraint() {
@@ -122,6 +135,13 @@ class NicknameViewController: UIViewController {
             make.right.equalToSuperview().offset(-24)
         }
         
+        nextButton.snp.makeConstraints { make in
+            make.bottom.equalToSuperview().offset(-21)
+            make.left.equalToSuperview().offset(25)
+            make.right.equalToSuperview().offset(-24)
+            make.height.equalTo(58)
+        }
+        
     }
     
     @objc private func imageAdd() {
@@ -135,15 +155,24 @@ class NicknameViewController: UIViewController {
             infoLabel.text = succesText
             infoLabel.textColor = UIColor.mcMainGreen
             infoLabel.isHidden = false
+            
+            nextButton.isEnabled = true
+            nextButton.backgroundColor = UIColor.mcMainGreen
         }else {
             lineView.backgroundColor = UIColor.red
             
             infoLabel.text = waringText
             infoLabel.textColor = UIColor.red
             infoLabel.isHidden = false
+            
+            nextButton.isEnabled = false
+            nextButton.backgroundColor = UIColor.mcGrey400
         }
     }
     
+    @objc private func nextAction() {
+        print("다음")
+    }
 
 }
 

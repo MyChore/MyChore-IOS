@@ -10,13 +10,13 @@ import SnapKit
 
 class LoginViewController: UIViewController {
     
-    let logoTitleLabel = UILabel()
-    let logoImageView = UIImageView()
-    let messageImageView = UIImageView()
+    private let logoTitleLabel = UILabel()
+    private let logoImageView = UIImageView()
+    private let messageImageView = UIImageView()
     
     // 임시 버튼 - 추후 카카오, 애플 로그인으로 변경 예정
-    let kakaoButton = UIButton()
-    let appleButton = UIButton()
+    private let kakaoButton = UIButton()
+    private let appleButton = UIButton()
     
 
     override func viewDidLoad() {

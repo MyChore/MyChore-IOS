@@ -10,31 +10,31 @@ import SnapKit
 
 class AgreementViewController: UIViewController {
     
-    let titleLabel = UILabel()
+    private let titleLabel = UILabel()
     
-    let allAgreeStackView = UIStackView()
-    let allAgreeLabel = UILabel()
-    let allAgreeCheckBox = UIButton()
+    private let allAgreeStackView = UIStackView()
+    private let allAgreeLabel = UILabel()
+    private let allAgreeCheckBox = UIButton()
     
-    let lineView = UIView()
+    private let lineView = UIView()
     
-    let agree1StackView = UIStackView()
-    let agree1Label = UILabel()
-    let agree1CheckBox = UIButton()
+    private let agree1StackView = UIStackView()
+    private let agree1Label = UILabel()
+    private let agree1CheckBox = UIButton()
     
-    let agree2StackView = UIStackView()
-    let agree2Label = UILabel()
-    let agree2CheckBox = UIButton()
+    private let agree2StackView = UIStackView()
+    private let agree2Label = UILabel()
+    private let agree2CheckBox = UIButton()
     
-    let agree3StackView = UIStackView()
-    let agree3Label = UILabel()
-    let agree3CheckBox = UIButton()
+    private let agree3StackView = UIStackView()
+    private let agree3Label = UILabel()
+    private let agree3CheckBox = UIButton()
     
-    let agree4StackView = UIStackView()
-    let agree4Label = UILabel()
-    let agree4CheckBox = UIButton()
+    private let agree4StackView = UIStackView()
+    private let agree4Label = UILabel()
+    private let agree4CheckBox = UIButton()
     
-    let nextButton = UIButton()
+    private let nextButton = UIButton()
     
     
 
@@ -117,7 +117,7 @@ class AgreementViewController: UIViewController {
         nextButton.setTitle("다음", for: .normal)
         nextButton.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         nextButton.tintColor = UIColor.white
-        nextButton.backgroundColor = UIColor.mcMainGreen
+        nextButton.backgroundColor = UIColor.mcGrey400
         nextButton.isEnabled = false
         
         nextButton.addTarget(self, action: #selector(nextAction), for: .touchDown)
