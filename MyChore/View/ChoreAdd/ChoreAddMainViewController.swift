@@ -132,8 +132,15 @@ class ChoreAddMainViewController: UIViewController {
     lazy var furnitureNextBtn: UIButton = {
         let furnitureNextBtn = UIButton()
         furnitureNextBtn.setImage(UIImage(named: "icon_mininext"), for: .normal)
+        furnitureNextBtn.addTarget(self, action: #selector(furnitureSelect), for: .touchDown)
         return furnitureNextBtn
     }()
+    
+    @objc private func furnitureSelect() {
+        let furnitureSelectVC = FurnitureSelectViewController()
+        
+        self.navigationController?.pushViewController(furnitureSelectVC, animated: true)
+    }
     
     lazy var thirdLine: UIView = {
         let thirdLine = UIView()
@@ -189,14 +196,6 @@ class ChoreAddMainViewController: UIViewController {
         alarmTimePicker.datePickerMode = .time
         alarmTimePicker.locale = Locale(identifier: "en_US")
         alarmTimePicker.tintColor = UIColor.mcMainGreen
-        // datePicker에 처음 나타나는 날짜
-        /*
-        if selectedDateData == "" {
-            alarmTimePicker.date = Date()
-        }
-        else {
-            alarmTimePicker.date = selectedFormatter.date(from: selectedDateData) ?? Date()
-        }*/
         return alarmTimePicker
     }()
     
@@ -237,8 +236,15 @@ class ChoreAddMainViewController: UIViewController {
     lazy var repeatNextBtn: UIButton = {
         let repeatNextBtn = UIButton()
         repeatNextBtn.setImage(UIImage(named: "icon_mininext"), for: .normal)
+        repeatNextBtn.addTarget(self, action: #selector(repeatSelect), for: .touchDown)
         return repeatNextBtn
     }()
+    
+    @objc private func repeatSelect() {
+        let repeatSelectVC = RepeatSelectViewController()
+        
+        self.navigationController?.pushViewController(repeatSelectVC, animated: true)
+    }
     
     lazy var sixthLine: UIView = {
         let sixthLine = UIView()
@@ -269,8 +275,15 @@ class ChoreAddMainViewController: UIViewController {
     lazy var managerNextBtn: UIButton = {
         let managerNextBtn = UIButton()
         managerNextBtn.setImage(UIImage(named: "icon_mininext"), for: .normal)
+        managerNextBtn.addTarget(self, action: #selector(managerSelect), for: .touchDown)
         return managerNextBtn
     }()
+    
+    @objc private func managerSelect() {
+        let managerSelectVC = ManagerSelectViewController()
+        
+        self.navigationController?.pushViewController(managerSelectVC, animated: true)
+    }
     
     lazy var seventhLine: UIView = {
         let seventhLine = UIView()
@@ -471,7 +484,7 @@ class ChoreAddMainViewController: UIViewController {
         }
     }
 }
-
+/*
 import SwiftUI
 
 struct ViewControllerRepresentable: UIViewControllerRepresentable {
@@ -491,4 +504,4 @@ struct ViewPreview: PreviewProvider {
             ViewControllerRepresentable()
     }
 }
-
+*/
