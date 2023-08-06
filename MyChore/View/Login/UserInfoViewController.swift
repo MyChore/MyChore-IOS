@@ -181,7 +181,9 @@ class UserInfoViewController: UIViewController {
     }
 
     @objc private func nextAction() {
-        print("다음")
+        let teamCodeVC = TeamCodeViewController()
+        
+        self.navigationController?.pushViewController(teamCodeVC, animated: true)
     }
 }
 
