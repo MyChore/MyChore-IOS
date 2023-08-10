@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		73600DE82A72B59C00F9FE87 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73600DE72A72B59C00F9FE87 /* LoginViewController.swift */; };
+		73600DEA2A72C84100F9FE87 /* AgreementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73600DE92A72C84100F9FE87 /* AgreementViewController.swift */; };
+		73600DFE2A7B5C7600F9FE87 /* NicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73600DFD2A7B5C7600F9FE87 /* NicknameViewController.swift */; };
+		73600E022A7B749700F9FE87 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73600E012A7B749700F9FE87 /* String+.swift */; };
+		73600E052A7B7D6600F9FE87 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 73600E042A7B7D6600F9FE87 /* IQKeyboardManagerSwift */; };
+		73600E072A7B801E00F9FE87 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73600E062A7B801E00F9FE87 /* UserInfoViewController.swift */; };
+		73600E092A7F707800F9FE87 /* TeamCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73600E082A7F707800F9FE87 /* TeamCodeViewController.swift */; };
 		FD33CE252A69063A00F4E5AE /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FD33CE242A69063A00F4E5AE /* Alamofire */; };
 		FD33CE282A69067800F4E5AE /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FD33CE272A69067800F4E5AE /* SnapKit */; };
 		FD33CE2D2A6906F200F4E5AE /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = FD33CE2C2A6906F200F4E5AE /* KakaoSDK */; };
@@ -20,6 +27,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		73600DE72A72B59C00F9FE87 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = View/Login/LoginViewController.swift; sourceTree = SOURCE_ROOT; };
+		73600DE92A72C84100F9FE87 /* AgreementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AgreementViewController.swift; path = View/Login/AgreementViewController.swift; sourceTree = SOURCE_ROOT; };
+		73600DFD2A7B5C7600F9FE87 /* NicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NicknameViewController.swift; path = View/Login/NicknameViewController.swift; sourceTree = SOURCE_ROOT; };
+		73600E012A7B749700F9FE87 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		73600E062A7B801E00F9FE87 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserInfoViewController.swift; path = View/Login/UserInfoViewController.swift; sourceTree = SOURCE_ROOT; };
+		73600E082A7F707800F9FE87 /* TeamCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TeamCodeViewController.swift; path = View/Login/TeamCodeViewController.swift; sourceTree = SOURCE_ROOT; };
 		FD33CE2F2A69077000F4E5AE /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 		FDDCCF4F2A55930400FEDF8E /* MyChore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyChore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDDCCF522A55930400FEDF8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +50,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD33CE252A69063A00F4E5AE /* Alamofire in Frameworks */,
+				73600E052A7B7D6600F9FE87 /* IQKeyboardManagerSwift in Frameworks */,
 				FD33CE2D2A6906F200F4E5AE /* KakaoSDK in Frameworks */,
 				FD33CE282A69067800F4E5AE /* SnapKit in Frameworks */,
 			);
@@ -45,6 +59,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		73600DE62A72B57C00F9FE87 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				73600DE72A72B59C00F9FE87 /* LoginViewController.swift */,
+				73600DE92A72C84100F9FE87 /* AgreementViewController.swift */,
+				73600DFD2A7B5C7600F9FE87 /* NicknameViewController.swift */,
+				73600E062A7B801E00F9FE87 /* UserInfoViewController.swift */,
+				73600E082A7F707800F9FE87 /* TeamCodeViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		FD33CE1B2A69054000F4E5AE /* Domain */ = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +128,7 @@
 		FD33CE222A6905CD00F4E5AE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				73600DE62A72B57C00F9FE87 /* Login */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -118,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				FD33CE2F2A69077000F4E5AE /* Color+.swift */,
+				73600E012A7B749700F9FE87 /* String+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -176,6 +204,7 @@
 				FD33CE242A69063A00F4E5AE /* Alamofire */,
 				FD33CE272A69067800F4E5AE /* SnapKit */,
 				FD33CE2C2A6906F200F4E5AE /* KakaoSDK */,
+				73600E042A7B7D6600F9FE87 /* IQKeyboardManagerSwift */,
 			);
 			productName = MyChore;
 			productReference = FDDCCF4F2A55930400FEDF8E /* MyChore.app */;
@@ -209,6 +238,7 @@
 				FD33CE232A69063A00F4E5AE /* XCRemoteSwiftPackageReference "Alamofire" */,
 				FD33CE262A69067800F4E5AE /* XCRemoteSwiftPackageReference "SnapKit" */,
 				FD33CE2B2A6906F200F4E5AE /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
+				73600E032A7B7D6600F9FE87 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = FDDCCF502A55930400FEDF8E /* Products */;
 			projectDirPath = "";
@@ -239,7 +269,13 @@
 			files = (
 				FDDCCF572A55930400FEDF8E /* ViewController.swift in Sources */,
 				FD33CE302A69077000F4E5AE /* Color+.swift in Sources */,
+				73600E022A7B749700F9FE87 /* String+.swift in Sources */,
 				FDDCCF532A55930400FEDF8E /* AppDelegate.swift in Sources */,
+				73600E092A7F707800F9FE87 /* TeamCodeViewController.swift in Sources */,
+				73600E072A7B801E00F9FE87 /* UserInfoViewController.swift in Sources */,
+				73600DEA2A72C84100F9FE87 /* AgreementViewController.swift in Sources */,
+				73600DE82A72B59C00F9FE87 /* LoginViewController.swift in Sources */,
+				73600DFE2A7B5C7600F9FE87 /* NicknameViewController.swift in Sources */,
 				FDDCCF552A55930400FEDF8E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -395,6 +431,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -423,6 +460,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -460,6 +498,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		73600E032A7B7D6600F9FE87 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
 		FD33CE232A69063A00F4E5AE /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
@@ -487,6 +533,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		73600E042A7B7D6600F9FE87 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 73600E032A7B7D6600F9FE87 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
 		FD33CE242A69063A00F4E5AE /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FD33CE232A69063A00F4E5AE /* XCRemoteSwiftPackageReference "Alamofire" */;
