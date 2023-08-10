@@ -148,22 +148,23 @@ class ManagerCollectionViewCell: UICollectionViewCell {
     }
 }
 
-import SwiftUI
 
-struct ViewControllerRepresentable: UIViewControllerRepresentable {
-    typealias UIViewControllerType = ManagerSelectViewController //뷰 컨트롤러 이름
-    
-    func makeUIViewController(context: Context) -> ManagerSelectViewController {
-            return ManagerSelectViewController() // 뷰컨트롤러 이름
-        }
-
-        func updateUIViewController(_ uiViewController: ManagerSelectViewController, context: Context) {
-        }
-}
-
-@available(iOS 16.0.0, *)
-struct ViewPreview: PreviewProvider {
-    static var previews: some View {
-            ViewControllerRepresentable()
-    }
-}
+//import SwiftUI
+//
+//struct ViewControllerRepresentable: UIViewControllerRepresentable {
+//    typealias UIViewControllerType = ManagerSelectViewController //뷰 컨트롤러 이름
+//
+//    func makeUIViewController(context: Context) -> ManagerSelectViewController {
+//            return ManagerSelectViewController() // 뷰컨트롤러 이름
+//        }
+//
+//        func updateUIViewController(_ uiViewController: ManagerSelectViewController, context: Context) {
+//        }
+//}
+//
+//@available(iOS 16.0.0, *)
+//struct ViewPreview: PreviewProvider {
+//    static var previews: some View {
+//            ViewControllerRepresentable()
+//    }
+//}
