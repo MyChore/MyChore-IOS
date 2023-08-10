@@ -203,9 +203,19 @@ class ChoreAddMainViewController: UIViewController {
         let alarmSwitch = UISwitch()
         alarmSwitch.onTintColor = UIColor.mcMainGreen
         alarmSwitch.tintColor = UIColor.mcMainGreen
-        alarmSwitch.isOn = false
+        alarmSwitch.isOn = true
+        alarmSwitch.addTarget(self, action: #selector(alarmSwitchEvent(sender:)), for: .valueChanged)
         return alarmSwitch
     }()
+    
+    @objc func alarmSwitchEvent(sender: UISwitch) {
+        if sender.isOn {
+            alarmTimePicker.alpha = 1
+        }
+        else {
+            alarmTimePicker.alpha = 0
+        }
+    }
     
     lazy var fifthLine: UIView = {
         let fifthLine = UIView()
