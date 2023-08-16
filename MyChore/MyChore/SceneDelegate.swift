@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         window?.makeKeyAndVisible()
         
-        let rootViewController = MypageMainViewController()
+        let rootViewController = UserInfoChangeViewController()
         
         let navigationController = UINavigationController(rootViewController: rootViewController)
         

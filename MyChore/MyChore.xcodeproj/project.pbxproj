@@ -14,6 +14,8 @@
 		73600E052A7B7D6600F9FE87 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 73600E042A7B7D6600F9FE87 /* IQKeyboardManagerSwift */; };
 		73600E072A7B801E00F9FE87 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73600E062A7B801E00F9FE87 /* UserInfoViewController.swift */; };
 		73600E092A7F707800F9FE87 /* TeamCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73600E082A7F707800F9FE87 /* TeamCodeViewController.swift */; };
+		7390EF552A8B45410042A0A3 /* UserInfoChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7390EF542A8B45410042A0A3 /* UserInfoChangeViewController.swift */; };
+		7390EF572A8C8EF60042A0A3 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7390EF562A8C8EF60042A0A3 /* UIButton+.swift */; };
 		7397F2A62A8A79490032CC21 /* MypageMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7397F2A52A8A79480032CC21 /* MypageMainViewController.swift */; };
 		FD33CE252A69063A00F4E5AE /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FD33CE242A69063A00F4E5AE /* Alamofire */; };
 		FD33CE282A69067800F4E5AE /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FD33CE272A69067800F4E5AE /* SnapKit */; };
@@ -34,6 +36,8 @@
 		73600E012A7B749700F9FE87 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		73600E062A7B801E00F9FE87 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserInfoViewController.swift; path = View/Login/UserInfoViewController.swift; sourceTree = SOURCE_ROOT; };
 		73600E082A7F707800F9FE87 /* TeamCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TeamCodeViewController.swift; path = View/Login/TeamCodeViewController.swift; sourceTree = SOURCE_ROOT; };
+		7390EF542A8B45410042A0A3 /* UserInfoChangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserInfoChangeViewController.swift; path = View/Mypage/UserInfoChangeViewController.swift; sourceTree = SOURCE_ROOT; };
+		7390EF562A8C8EF60042A0A3 /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		7397F2A52A8A79480032CC21 /* MypageMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MypageMainViewController.swift; path = View/Mypage/MypageMainViewController.swift; sourceTree = SOURCE_ROOT; };
 		FD33CE2F2A69077000F4E5AE /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 		FDDCCF4F2A55930400FEDF8E /* MyChore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyChore.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				7397F2A52A8A79480032CC21 /* MypageMainViewController.swift */,
+				7390EF542A8B45410042A0A3 /* UserInfoChangeViewController.swift */,
 			);
 			path = Mypage;
 			sourceTree = "<group>";
@@ -157,6 +162,7 @@
 			children = (
 				FD33CE2F2A69077000F4E5AE /* Color+.swift */,
 				73600E012A7B749700F9FE87 /* String+.swift */,
+				7390EF562A8C8EF60042A0A3 /* UIButton+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -283,7 +289,9 @@
 				73600E022A7B749700F9FE87 /* String+.swift in Sources */,
 				FDDCCF532A55930400FEDF8E /* AppDelegate.swift in Sources */,
 				73600E092A7F707800F9FE87 /* TeamCodeViewController.swift in Sources */,
+				7390EF552A8B45410042A0A3 /* UserInfoChangeViewController.swift in Sources */,
 				73600E072A7B801E00F9FE87 /* UserInfoViewController.swift in Sources */,
+				7390EF572A8C8EF60042A0A3 /* UIButton+.swift in Sources */,
 				73600DEA2A72C84100F9FE87 /* AgreementViewController.swift in Sources */,
 				73600DE82A72B59C00F9FE87 /* LoginViewController.swift in Sources */,
 				73600DFE2A7B5C7600F9FE87 /* NicknameViewController.swift in Sources */,
