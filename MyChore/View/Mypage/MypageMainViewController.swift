@@ -128,6 +128,8 @@ extension MypageMainViewController: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.row {
         case 0:
             //알림
+            let notificationVC = NotificationSettingViewController()
+            self.navigationController?.pushViewController(notificationVC, animated: true)
             break
         case 1:
             //공지사항
