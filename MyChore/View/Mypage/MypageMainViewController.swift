@@ -9,6 +9,9 @@ import UIKit
 import SnapKit
 
 class MypageMainViewController: UIViewController {
+    private let titleList = ["알림", "공지사항", "문의하기", "정보"]
+    private let titleImageList = ["notification", "notice", "qa", "info"]
+
     
     private let logoutButton = UIBarButtonItem()
     
@@ -51,8 +54,15 @@ class MypageMainViewController: UIViewController {
         profileChangeButton.titleLabel?.font = .systemFont(ofSize: 14)
         profileChangeButton.layer.cornerRadius = 10
         
+        profileChangeButton.addTarget(self, action: #selector(changeMyInfo), for: .touchDown)
+        
         pageTableView.backgroundColor = .white
-
+        pageTableView.dataSource = self
+        pageTableView.delegate = self
+        pageTableView.register(MyPageCell.self, forCellReuseIdentifier: "cell")
+        
+        pageTableView.separatorInset.left = 35
+        pageTableView.separatorInset.right = 35
     }
     
     private func setupView() {
@@ -90,5 +100,29 @@ class MypageMainViewController: UIViewController {
             make.bottom.equalToSuperview()
         }
     }
+    
+    @objc private func changeMyInfo() {
+        pageTableView.reloadData()
+    }
 
+}
+
+extension MypageMainViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MyPageCell
+        
+        cell.setupTitle(title: titleList[indexPath.row], image: titleImageList[indexPath.row])
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
+    
+    
 }
