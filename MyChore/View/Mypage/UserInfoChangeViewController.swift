@@ -53,8 +53,11 @@ class UserInfoChangeViewController: UIViewController {
         
         let backImageButton = UIButton()
         backImageButton.setImage(UIImage(named: "back"), for: .normal)
+        backImageButton.addTarget(self, action:  #selector(backAction), for: .touchDown)
         
         backButton.customView = backImageButton
+        
+        
         
         completeButton.title = "완료"
         completeButton.tintColor = .mcMainGreen
@@ -264,6 +267,11 @@ class UserInfoChangeViewController: UIViewController {
         let userInfoViewController = UserInfoViewController()
         
         self.navigationController?.pushViewController(userInfoViewController, animated: true)
+    }
+    
+    
+    @objc private func backAction() {
+        self.navigationController?.popViewController(animated: true)
     }
 
 }

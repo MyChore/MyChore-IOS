@@ -31,6 +31,7 @@ class InfoViewController: UIViewController {
         
         let backImageButton = UIButton()
         backImageButton.setImage(UIImage(named: "back"), for: .normal)
+        backImageButton.addTarget(self, action:  #selector(backAction), for: .touchDown)
         
         backButton.customView = backImageButton
         self.navigationItem.leftBarButtonItem = backButton
@@ -55,6 +56,11 @@ class InfoViewController: UIViewController {
             make.trailing.equalToSuperview()
             make.bottom.equalToSuperview()
         }
+    }
+    
+    
+    @objc private func backAction() {
+        self.navigationController?.popViewController(animated: true)
     }
 
 }
