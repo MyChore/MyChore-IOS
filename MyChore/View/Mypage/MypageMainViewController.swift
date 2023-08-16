@@ -124,5 +124,26 @@ extension MypageMainViewController: UITableViewDelegate, UITableViewDataSource {
         return 50
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 0:
+            //알림
+            break
+        case 1:
+            //공지사항
+            break
+        case 2:
+            //문의하기
+            break
+        case 3:
+            //정보
+            let infoVC = InfoViewController()
+            self.navigationController?.pushViewController(infoVC, animated: true)
+            break
+        default:
+            break
+        }
+    }
+    
     
 }
