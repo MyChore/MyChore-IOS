@@ -22,11 +22,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         window?.makeKeyAndVisible()
         
-        let rootViewController = LoginViewController()
+        var navigationController = UINavigationController()
         
-        let navigationController = UINavigationController(rootViewController: rootViewController)
+        if LoginViewModel.shared.loadToken() {
+            // 메인 연결
+            APIManger.shared.setHeaders()
+        }else {
+            let rootViewController = LoginViewController()
+            navigationController = UINavigationController(rootViewController: rootViewController)
+        }
         
         window?.rootViewController = navigationController
+        
         
     }
     

@@ -23,6 +23,7 @@ class LoginViewModel: ObservableObject {
     @Published var refreshToken: String?
     @Published var isJoin: Bool?
     @Published var isOverlap: Bool?
+    @Published var isLoadToken: Bool?
     
     private var emailAgreeCheck = false
     private var profileImage: UIImage?
@@ -63,6 +64,15 @@ class LoginViewModel: ObservableObject {
         }.store(in: &anyCancelLabels)
     }
     
+    func getIsLoadToken(completion: @escaping (Bool) -> Void) {
+        $isLoadToken.filter { isLoadToken in
+            isLoadToken != nil
+        }.sink { isLoadToken in
+            completion(isLoadToken!)
+        }.store(in: &anyCancelLabels)
+    }
+
+    
     func setEmailAgreeCheck(check: Bool) {
         self.emailAgreeCheck = check
         print(self.emailAgreeCheck)
@@ -82,7 +92,6 @@ class LoginViewModel: ObservableObject {
     
     func setBirth(birth: String) {
         self.birth = birth
-        print(self.birth)
     }
     
     
@@ -90,6 +99,31 @@ class LoginViewModel: ObservableObject {
 
 
 extension LoginViewModel {
+    func saveToken() {
+        let token = LoginRepModel(accessToken: self.accessToken!, refreshToken: self.refreshToken!)
+        
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(token) {
+           UserDefaults.standard.setValue(encoded, forKey: "UserToken")
+        }
+    }
+    
+    func loadToken() -> Bool {
+        if UserDefaults.standard.value(forKey: "UserToken") != nil {
+            if let userTokenData = UserDefaults.standard.object(forKey: "UserToken") as? Data {
+                let decoder = JSONDecoder()
+                if let userToken = try? decoder.decode(LoginRepModel.self, from: userTokenData) {
+                    self.accessToken = userToken.accessToken
+                    self.refreshToken = userToken.refreshToken
+                    
+                    return true
+                }
+            }
+        }
+        return false
+    }
+    
+    
     func loginWithKakao() {
         loginService.loginWithKakao { email in
             self.userEmail = email
@@ -107,6 +141,7 @@ extension LoginViewModel {
                 if let data = response.data {
                     self.accessToken = data.accessToken
                     self.refreshToken = data.refreshToken
+                    self.saveToken()
                     self.isJoin = true
                 }
             }else {
@@ -138,6 +173,7 @@ extension LoginViewModel {
                 if let data = response.data {
                     self.accessToken = data.accessToken
                     self.refreshToken = data.refreshToken
+                    self.saveToken()
                 }
             }else {
                 self.accessToken = ""

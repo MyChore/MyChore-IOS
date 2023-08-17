@@ -13,9 +13,13 @@ private let BASE_URL = "http://3.39.106.144:8080/"
 
 class APIManger  {
     static let shared = APIManger()
-    
     private var headers: HTTPHeaders?
     
+    func setHeaders() {
+        LoginViewModel.shared.getAccessToken { token in
+            self.headers = ["Authorization": token]
+        }
+    }
 }
 
 extension APIManger {
