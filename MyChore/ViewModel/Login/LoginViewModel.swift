@@ -21,6 +21,8 @@ class LoginViewModel: ObservableObject {
     @Published var accessToken: String?
     @Published var refreshToken: String?
     
+    private var emailAgreeCheck = false
+    
     func getUserEmail(completion: @escaping (String) -> Void) {
         $userEmail.filter { userEmail in
             userEmail != nil
@@ -35,6 +37,11 @@ class LoginViewModel: ObservableObject {
         }.sink { accessToken in
             completion(accessToken!)
         }.store(in: &anyCancelLabels)
+    }
+    
+    func setEmailAgreeCheck(check: Bool) {
+        self.emailAgreeCheck = check
+        print(self.emailAgreeCheck)
     }
     
 }
