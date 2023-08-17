@@ -17,9 +17,9 @@ class FirebaseStorageManager {
         let metaData = StorageMetadata()
         metaData.contentType = "image/jpeg"
         
-        let imageName = UUID().uuidString + String(Date().timeIntervalSince1970)
+        let imageName = pathRoot
         
-        let firebaseReference = Storage.storage().reference().child("\(imageName)")
+        let firebaseReference = Storage.storage().reference().child(imageName)
         firebaseReference.putData(imageData, metadata: metaData) { metaData, error in
             firebaseReference.downloadURL { url, _ in
                 completion(url)

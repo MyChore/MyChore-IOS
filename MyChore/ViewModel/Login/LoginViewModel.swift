@@ -164,7 +164,9 @@ extension LoginViewModel {
         }
     }
     
-    func uploadImage(image: UIImage) {
+    func uploadImage() {
+        guard let image = profileImage else {return}
+        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyMMdd_HHmmssss"
         let pathRoot = dateFormatter.string(from: Date())
@@ -172,6 +174,7 @@ extension LoginViewModel {
         FirebaseStorageManager.shared.uploadImage(image: image, pathRoot: pathRoot) { imageUrl in
             if let imageUrl = imageUrl {
                 self.imageUrl = imageUrl.description
+                print(imageUrl)
             }
         }
     }

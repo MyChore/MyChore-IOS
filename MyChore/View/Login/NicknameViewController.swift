@@ -210,9 +210,7 @@ class NicknameViewController: UIViewController {
             LoginViewModel.shared.setNickname(nickname: nickname)
         }
         
-        if let image = profileImageView.image {
-            LoginViewModel.shared.uploadImage(image: image)
-        }
+        LoginViewModel.shared.uploadImage()
         
         let userInfoViewController = UserInfoViewController()
         self.navigationController?.pushViewController(userInfoViewController, animated: true)
