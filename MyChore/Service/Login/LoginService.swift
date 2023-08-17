@@ -47,14 +47,14 @@ class LoginService {
         }
     }
     
-    
-    
-    
-    
-    func login(userEmail: String, provider: String, completion: @escaping (GeneralResponseModel<LoginRepModel>) -> Void) {
-        let parameter = LoginReqModel(email: userEmail, provider: provider)
-        
+    func login(parameter: LoginReqModel, completion: @escaping (GeneralResponseModel<LoginRepModel>) -> Void) {
         APIManger.shared.postData(urlEndpointString: "users/login", responseDataType: LoginRepModel.self, requestDataType: LoginReqModel.self, parameter: parameter) { response in
+            completion(response)
+        }
+    }
+    
+    func join(parameter: JoinReqModel, completion: @escaping (GeneralResponseModel<LoginRepModel>) -> Void) {
+        APIManger.shared.postData(urlEndpointString: "users", responseDataType: LoginRepModel.self, requestDataType: JoinReqModel.self, parameter: parameter) { response in
             completion(response)
         }
     }

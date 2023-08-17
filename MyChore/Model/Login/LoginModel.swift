@@ -14,3 +14,9 @@ struct LoginReqModel: Codable {
 struct LoginRepModel: Codable {
     let accessToken, refreshToken: String
 }
+
+struct JoinReqModel: Codable {
+    let email, birth, gender, nickname, provider : String
+    let imgUrl: String?
+    let is14Over, isAcceptEmail: Bool
+}

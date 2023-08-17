@@ -21,12 +21,14 @@ class LoginViewModel: ObservableObject {
     @Published var isLogin: Bool?
     @Published var accessToken: String?
     @Published var refreshToken: String?
+    @Published var isJoin: Bool?
     
     private var emailAgreeCheck = false
     private var profileImage: UIImage?
     private var nickname: String?
     private var gender: String?
     private var birth: String?
+    
     
     func getUserEmail(completion: @escaping (String) -> Void) {
         $userEmail.filter { userEmail in
@@ -41,6 +43,14 @@ class LoginViewModel: ObservableObject {
             accessToken != nil
         }.sink { accessToken in
             completion(accessToken!)
+        }.store(in: &anyCancelLabels)
+    }
+    
+    func getIsJoin(completion: @escaping (Bool) -> Void) {
+        $isJoin.filter { isJoin in
+            isJoin != nil
+        }.sink { isJoin in
+            completion(isJoin!)
         }.store(in: &anyCancelLabels)
     }
     
@@ -65,6 +75,8 @@ class LoginViewModel: ObservableObject {
         self.birth = birth
         print(self.birth)
     }
+    
+    
 }
 
 
@@ -79,7 +91,27 @@ extension LoginViewModel {
     }
     
     func login() {
-        loginService.login(userEmail: self.userEmail!, provider: self.provider?.rawValue ?? "") { response in
+        let parameter = LoginReqModel(email: userEmail!, provider: provider?.rawValue ?? "")
+        
+        loginService.login(parameter: parameter) { response in
+            if response.statusCode == 200 {
+                if let data = response.data {
+                    self.accessToken = data.accessToken
+                    self.refreshToken = data.refreshToken
+                    self.isJoin = true
+                }
+            }else {
+                self.accessToken = ""
+                self.refreshToken = ""
+                self.isJoin = false
+            }
+        }
+    }
+    
+    func join() {
+        let parameter = JoinReqModel(email: userEmail!, birth: birth!, gender: gender!, nickname: nickname!, provider: provider?.rawValue ?? "", imgUrl: nil, is14Over: true, isAcceptEmail: emailAgreeCheck)
+        
+        loginService.join(parameter: parameter) { response in
             if response.statusCode == 200 {
                 if let data = response.data {
                     self.accessToken = data.accessToken

@@ -25,6 +25,7 @@ class TeamCodeViewController: UIViewController {
         setup()
         setupView()
         setupConstraint()
+        setupObserver()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -103,12 +104,23 @@ class TeamCodeViewController: UIViewController {
     @objc private func nextAction() {
         if let teamCode = teamCodeTextField.text {
             if teamCode == "" {
-                print("메인 화면으로 넘어가기")
+                LoginViewModel.shared.join()
             }else {
                 print("Alert 창 띄우기")
             }
         }else {
-            print("메인 화면으로 넘어가기")
+            LoginViewModel.shared.join()
+        }
+    }
+    
+    private func setupObserver() {
+        LoginViewModel.shared.getAccessToken { token in
+            if token == "" {
+                print("회원 가입 실패")
+            }else {
+                // 메인 화면으로 넘어가기
+                print("회원 가입 성공 -> 메인화면으로 넘어가기")
+            }
         }
     }
 
