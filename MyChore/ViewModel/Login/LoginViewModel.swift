@@ -123,6 +123,21 @@ extension LoginViewModel {
         return false
     }
     
+    func getNewToken() {
+        if let refreshToken = refreshToken {
+            APIManger.shared.setRefreshToken(refreshToken: refreshToken)
+        }
+        
+        loginService.getNewToken { response in
+            if response.statusCode == 200 {
+                if let newToken = response.data {
+                    self.accessToken = newToken
+                    self.saveToken()
+                }
+            }
+        }
+    }
+    
     
     func loginWithKakao() {
         loginService.loginWithKakao { email in

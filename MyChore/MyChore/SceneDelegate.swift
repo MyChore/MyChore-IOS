@@ -24,14 +24,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         var navigationController = UINavigationController()
         
-//        if LoginViewModel.shared.loadToken() {
-//            // 메인 연결
-//            print("메인으로 가라")
-//            APIManger.shared.setHeaders()
-//        }else {
+        if LoginViewModel.shared.loadToken() {
+            // 메인 연결
+            APIManger.shared.setObserver()
+            
+            
+            MypageViewModel.shared.requestMyprofile()
+            
+            
+            let rootViewController = MypageMainViewController()
+            navigationController = UINavigationController(rootViewController: rootViewController)
+        }else {
             let rootViewController = NicknameViewController()
             navigationController = UINavigationController(rootViewController: rootViewController)
-//        }
+        }
         
         window?.rootViewController = navigationController
         

@@ -15,10 +15,14 @@ class APIManger  {
     static let shared = APIManger()
     private var headers: HTTPHeaders?
     
-    func setHeaders() {
+    func setObserver() {
         LoginViewModel.shared.getAccessToken { token in
             self.headers = ["Authorization": token]
         }
+    }
+    
+    func setRefreshToken(refreshToken: String) {
+        self.headers = ["Authorization": refreshToken]
     }
 }
 

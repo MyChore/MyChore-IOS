@@ -7,6 +7,8 @@
 
 import UIKit
 import SnapKit
+import Kingfisher
+
 
 class MypageMainViewController: UIViewController {
     private let titleList = ["알림", "공지사항", "문의하기", "정보"]
@@ -28,6 +30,7 @@ class MypageMainViewController: UIViewController {
         setup()
         setupView()
         setupConstraint()
+        setupObserver()
     }
     
     private func setup() {
@@ -46,7 +49,7 @@ class MypageMainViewController: UIViewController {
         profileImageView.layer.cornerRadius = 50
         
         nicknameLabel.font = .systemFont(ofSize: 24)
-        nicknameLabel.text = "삼공님"
+        nicknameLabel.text = "닉네임"
         
         profileChangeButton.backgroundColor = .mcMainGreen
         profileChangeButton.tintColor = .white
@@ -100,6 +103,17 @@ class MypageMainViewController: UIViewController {
             make.bottom.equalToSuperview()
         }
     }
+    
+    private func setupObserver() {
+        MypageViewModel.shared.getUserInfo { [self] userInfo in
+            nicknameLabel.text = userInfo.nickname
+            
+            if let imgUrl = userInfo.imgUrl {
+                profileImageView.kf.setImage(with: URL(string: imgUrl))
+            }
+        }
+    }
+    
     
     @objc private func changeMyInfo() {
         pageTableView.reloadData()

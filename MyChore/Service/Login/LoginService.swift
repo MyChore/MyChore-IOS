@@ -68,4 +68,10 @@ class LoginService {
             completion(response)
         }
     }
+    
+    func getNewToken(completion: @escaping (GeneralResponseModel<String>) -> Void) {
+        APIManger.shared.getData(urlEndpointString: "users/token", responseDataType: String.self, parameter: nil) { response in
+            completion(response)
+        }
+    }
 }
