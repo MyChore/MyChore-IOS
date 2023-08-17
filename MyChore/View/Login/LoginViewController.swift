@@ -81,8 +81,13 @@ class LoginViewController: UIViewController {
     }
     
     private func setupObserver() {
-        LoginViewModel.shared.getUserEmail { email in
-            print(email)
+        LoginViewModel.shared.getAccessToken { token in
+            if token == "" {
+                let agreementVC = AgreementViewController()
+                self.navigationController?.pushViewController(agreementVC, animated: true)
+            }else {
+                // 메인 화면으로 넘어가기
+            }
         }
     }
     

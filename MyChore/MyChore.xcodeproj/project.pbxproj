@@ -26,6 +26,7 @@
 		7390EF6B2A8DE8160042A0A3 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7390EF6A2A8DE8160042A0A3 /* LoginService.swift */; };
 		7390EF6D2A8DF74E0042A0A3 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7390EF6C2A8DF74E0042A0A3 /* APIManager.swift */; };
 		7390EF732A8DF7DF0042A0A3 /* GeneralModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7390EF722A8DF7DF0042A0A3 /* GeneralModel.swift */; };
+		7390EF762A8DFC4A0042A0A3 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7390EF752A8DFC4A0042A0A3 /* LoginModel.swift */; };
 		7397F2A62A8A79490032CC21 /* MypageMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7397F2A52A8A79480032CC21 /* MypageMainViewController.swift */; };
 		FD33CE252A69063A00F4E5AE /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FD33CE242A69063A00F4E5AE /* Alamofire */; };
 		FD33CE282A69067800F4E5AE /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FD33CE272A69067800F4E5AE /* SnapKit */; };
@@ -58,6 +59,7 @@
 		7390EF6A2A8DE8160042A0A3 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginService.swift; path = Service/Login/LoginService.swift; sourceTree = SOURCE_ROOT; };
 		7390EF6C2A8DF74E0042A0A3 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = APIManager.swift; path = Service/Login/APIManager.swift; sourceTree = SOURCE_ROOT; };
 		7390EF722A8DF7DF0042A0A3 /* GeneralModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GeneralModel.swift; path = Model/General/GeneralModel.swift; sourceTree = SOURCE_ROOT; };
+		7390EF752A8DFC4A0042A0A3 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginModel.swift; path = Model/Login/LoginModel.swift; sourceTree = SOURCE_ROOT; };
 		7397F2A52A8A79480032CC21 /* MypageMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MypageMainViewController.swift; path = View/Mypage/MypageMainViewController.swift; sourceTree = SOURCE_ROOT; };
 		FD33CE2F2A69077000F4E5AE /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 		FDDCCF4F2A55930400FEDF8E /* MyChore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyChore.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,6 +140,14 @@
 			path = General;
 			sourceTree = "<group>";
 		};
+		7390EF742A8DFC410042A0A3 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				7390EF752A8DFC4A0042A0A3 /* LoginModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		7397F2A22A8A79100032CC21 /* Mypage */ = {
 			isa = PBXGroup;
 			children = (
@@ -195,6 +205,7 @@
 		FD33CE202A6905B600F4E5AE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7390EF742A8DFC410042A0A3 /* Login */,
 				7390EF712A8DF7C60042A0A3 /* General */,
 			);
 			path = Model;
@@ -367,6 +378,7 @@
 				7390EF552A8B45410042A0A3 /* UserInfoChangeViewController.swift in Sources */,
 				7390EF732A8DF7DF0042A0A3 /* GeneralModel.swift in Sources */,
 				73600E072A7B801E00F9FE87 /* UserInfoViewController.swift in Sources */,
+				7390EF762A8DFC4A0042A0A3 /* LoginModel.swift in Sources */,
 				7390EF5C2A8D0AD40042A0A3 /* MyPageCell.swift in Sources */,
 				7390EF572A8C8EF60042A0A3 /* UIButton+.swift in Sources */,
 				7390EF6B2A8DE8160042A0A3 /* LoginService.swift in Sources */,

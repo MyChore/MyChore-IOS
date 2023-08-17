@@ -10,7 +10,7 @@ import Foundation
 struct GeneralResponseModel<T: Codable>: Codable {
     let data: T?
     let status, message: String?
-    let statusCode: Int?
+    let statusCode: Int
 }
 
 

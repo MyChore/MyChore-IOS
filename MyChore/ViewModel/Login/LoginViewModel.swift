@@ -18,12 +18,22 @@ class LoginViewModel: ObservableObject {
     
     @Published var userEmail: String?
     @Published var isLogin: Bool?
+    @Published var accessToken: String?
+    @Published var refreshToken: String?
     
     func getUserEmail(completion: @escaping (String) -> Void) {
         $userEmail.filter { userEmail in
             userEmail != nil
         }.sink { userEmail in
             completion(userEmail!)
+        }.store(in: &anyCancelLabels)
+    }
+    
+    func getAccessToken(completion: @escaping (String) -> Void) {
+        $accessToken.filter { accessToken in
+            accessToken != nil
+        }.sink { accessToken in
+            completion(accessToken!)
         }.store(in: &anyCancelLabels)
     }
     
@@ -34,10 +44,23 @@ extension LoginViewModel {
     func loginWithKakao() {
         loginService.loginWithKakao { email in
             self.userEmail = email
+            self.provider = .KAKAO
+            
+            self.login()
         }
     }
     
     func login() {
-        
+        loginService.login(userEmail: self.userEmail!, provider: self.provider?.rawValue ?? "") { response in
+            if response.statusCode == 200 {
+                if let data = response.data {
+                    self.accessToken = data.accessToken
+                    self.refreshToken = data.refreshToken
+                }
+            }else {
+                self.accessToken = ""
+                self.refreshToken = ""
+            }
+        }
     }
 }

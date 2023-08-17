@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum LoginProvicer {
+enum LoginProvicer: String {
     case APPPLE
     case KAKAO
 }

@@ -46,4 +46,16 @@ class LoginService {
             }
         }
     }
+    
+    
+    
+    
+    
+    func login(userEmail: String, provider: String, completion: @escaping (GeneralResponseModel<LoginRepModel>) -> Void) {
+        let parameter = LoginReqModel(email: userEmail, provider: provider)
+        
+        APIManger.shared.postData(urlEndpointString: "users/login", responseDataType: LoginRepModel.self, requestDataType: LoginReqModel.self, parameter: parameter) { response in
+            completion(response)
+        }
+    }
 }
