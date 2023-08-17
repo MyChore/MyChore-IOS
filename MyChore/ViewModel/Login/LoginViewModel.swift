@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import UIKit
 
 class LoginViewModel: ObservableObject {
     static let shared = LoginViewModel()
@@ -22,6 +23,7 @@ class LoginViewModel: ObservableObject {
     @Published var refreshToken: String?
     
     private var emailAgreeCheck = false
+    private var profileImage: UIImage?
     
     func getUserEmail(completion: @escaping (String) -> Void) {
         $userEmail.filter { userEmail in
@@ -42,6 +44,10 @@ class LoginViewModel: ObservableObject {
     func setEmailAgreeCheck(check: Bool) {
         self.emailAgreeCheck = check
         print(self.emailAgreeCheck)
+    }
+    
+    func setProfileImage(image: UIImage) {
+        self.profileImage = image
     }
     
 }

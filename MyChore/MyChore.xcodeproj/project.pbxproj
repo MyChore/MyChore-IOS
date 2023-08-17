@@ -538,6 +538,7 @@
 				DEVELOPMENT_TEAM = 643M65W7HH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MyChore/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "프로필 사진 선택을 위해 사진에 접근합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -567,6 +568,7 @@
 				DEVELOPMENT_TEAM = 643M65W7HH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MyChore/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "프로필 사진 선택을 위해 사진에 접근합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

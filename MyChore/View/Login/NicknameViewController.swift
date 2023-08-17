@@ -8,6 +8,9 @@
 import UIKit
 
 class NicknameViewController: UIViewController {
+    private var bottomConstraint: NSLayoutConstraint?
+
+    
     private let succesText = "사용 가능한 닉네임입니다"
     private let waringText = "한글/영어/밑줄/숫자만 사용할 수 있습니다. (8글자 이내)"
     
@@ -146,6 +149,10 @@ class NicknameViewController: UIViewController {
     
     @objc private func imageAdd() {
         print("이미지 추가")
+        let imagePicker = UIImagePickerController()
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.delegate = self
+        present(imagePicker, animated: true)
     }
     
     func infoChange(check: Bool) {
@@ -200,5 +207,20 @@ extension NicknameViewController: UITextFieldDelegate {
                 return true
             }
         }
+    }
+}
+
+extension NicknameViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            self.profileImageView.image = pickedImage
+            
+            LoginViewModel.shared.setProfileImage(image: pickedImage)
+        }
+        dismiss(animated: true, completion: nil)
+    }
+        
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
     }
 }
