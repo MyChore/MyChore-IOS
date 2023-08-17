@@ -25,6 +25,7 @@ class LoginViewController: UIViewController {
         setup()
         setupView()
         setupConstraint()
+        setupObserver()
     }
     
     private func setup() {
@@ -79,11 +80,15 @@ class LoginViewController: UIViewController {
         }
     }
     
+    private func setupObserver() {
+        LoginViewModel.shared.getUserEmail { email in
+            print(email)
+        }
+    }
+    
     
     @objc private func login() {
-        let agreementVC = AgreementViewController()
-        
-        self.navigationController?.pushViewController(agreementVC, animated: true)
+        LoginViewModel.shared.loginWithKakao()
     }
     
 }

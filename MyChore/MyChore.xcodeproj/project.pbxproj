@@ -21,6 +21,11 @@
 		7390EF5E2A8D2DD30042A0A3 /* CGFloat+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7390EF5D2A8D2DD30042A0A3 /* CGFloat+.swift */; };
 		7390EF602A8D37660042A0A3 /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7390EF5F2A8D37660042A0A3 /* InfoCell.swift */; };
 		7390EF622A8D37C80042A0A3 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7390EF612A8D37C80042A0A3 /* InfoViewController.swift */; };
+		7390EF652A8DE6EE0042A0A3 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7390EF642A8DE6EE0042A0A3 /* LoginViewModel.swift */; };
+		7390EF682A8DE7470042A0A3 /* LoginProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7390EF672A8DE7470042A0A3 /* LoginProvider.swift */; };
+		7390EF6B2A8DE8160042A0A3 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7390EF6A2A8DE8160042A0A3 /* LoginService.swift */; };
+		7390EF6D2A8DF74E0042A0A3 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7390EF6C2A8DF74E0042A0A3 /* APIManager.swift */; };
+		7390EF732A8DF7DF0042A0A3 /* GeneralModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7390EF722A8DF7DF0042A0A3 /* GeneralModel.swift */; };
 		7397F2A62A8A79490032CC21 /* MypageMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7397F2A52A8A79480032CC21 /* MypageMainViewController.swift */; };
 		FD33CE252A69063A00F4E5AE /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FD33CE242A69063A00F4E5AE /* Alamofire */; };
 		FD33CE282A69067800F4E5AE /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FD33CE272A69067800F4E5AE /* SnapKit */; };
@@ -48,6 +53,11 @@
 		7390EF5D2A8D2DD30042A0A3 /* CGFloat+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+.swift"; sourceTree = "<group>"; };
 		7390EF5F2A8D37660042A0A3 /* InfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InfoCell.swift; path = View/Mypage/Cell/InfoCell.swift; sourceTree = SOURCE_ROOT; };
 		7390EF612A8D37C80042A0A3 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InfoViewController.swift; path = View/Mypage/InfoViewController.swift; sourceTree = SOURCE_ROOT; };
+		7390EF642A8DE6EE0042A0A3 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewModel.swift; path = ViewModel/Login/LoginViewModel.swift; sourceTree = SOURCE_ROOT; };
+		7390EF672A8DE7470042A0A3 /* LoginProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProvider.swift; sourceTree = "<group>"; };
+		7390EF6A2A8DE8160042A0A3 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginService.swift; path = Service/Login/LoginService.swift; sourceTree = SOURCE_ROOT; };
+		7390EF6C2A8DF74E0042A0A3 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = APIManager.swift; path = Service/Login/APIManager.swift; sourceTree = SOURCE_ROOT; };
+		7390EF722A8DF7DF0042A0A3 /* GeneralModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GeneralModel.swift; path = Model/General/GeneralModel.swift; sourceTree = SOURCE_ROOT; };
 		7397F2A52A8A79480032CC21 /* MypageMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MypageMainViewController.swift; path = View/Mypage/MypageMainViewController.swift; sourceTree = SOURCE_ROOT; };
 		FD33CE2F2A69077000F4E5AE /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 		FDDCCF4F2A55930400FEDF8E /* MyChore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyChore.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,6 +106,38 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		7390EF632A8DE6D80042A0A3 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				7390EF642A8DE6EE0042A0A3 /* LoginViewModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		7390EF662A8DE7380042A0A3 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				7390EF672A8DE7470042A0A3 /* LoginProvider.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
+		7390EF692A8DE80C0042A0A3 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				7390EF6A2A8DE8160042A0A3 /* LoginService.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		7390EF712A8DF7C60042A0A3 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				7390EF722A8DF7DF0042A0A3 /* GeneralModel.swift */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
 		7397F2A22A8A79100032CC21 /* Mypage */ = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +179,7 @@
 		FD33CE1E2A69058C00F4E5AE /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				7390EF6C2A8DF74E0042A0A3 /* APIManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -144,6 +187,7 @@
 		FD33CE1F2A69059300F4E5AE /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				7390EF692A8DE80C0042A0A3 /* Login */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -151,6 +195,7 @@
 		FD33CE202A6905B600F4E5AE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7390EF712A8DF7C60042A0A3 /* General */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -158,6 +203,7 @@
 		FD33CE212A6905C700F4E5AE /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				7390EF632A8DE6D80042A0A3 /* Login */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -174,6 +220,7 @@
 		FD33CE2E2A69074000F4E5AE /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				7390EF662A8DE7380042A0A3 /* Enum */,
 				FD33CE312A69087700F4E5AE /* Extension */,
 			);
 			path = Utility;
@@ -311,19 +358,24 @@
 				FDDCCF572A55930400FEDF8E /* ViewController.swift in Sources */,
 				FD33CE302A69077000F4E5AE /* Color+.swift in Sources */,
 				73600E022A7B749700F9FE87 /* String+.swift in Sources */,
+				7390EF6D2A8DF74E0042A0A3 /* APIManager.swift in Sources */,
 				7390EF622A8D37C80042A0A3 /* InfoViewController.swift in Sources */,
 				7390EF5E2A8D2DD30042A0A3 /* CGFloat+.swift in Sources */,
+				7390EF682A8DE7470042A0A3 /* LoginProvider.swift in Sources */,
 				FDDCCF532A55930400FEDF8E /* AppDelegate.swift in Sources */,
 				73600E092A7F707800F9FE87 /* TeamCodeViewController.swift in Sources */,
 				7390EF552A8B45410042A0A3 /* UserInfoChangeViewController.swift in Sources */,
+				7390EF732A8DF7DF0042A0A3 /* GeneralModel.swift in Sources */,
 				73600E072A7B801E00F9FE87 /* UserInfoViewController.swift in Sources */,
 				7390EF5C2A8D0AD40042A0A3 /* MyPageCell.swift in Sources */,
 				7390EF572A8C8EF60042A0A3 /* UIButton+.swift in Sources */,
+				7390EF6B2A8DE8160042A0A3 /* LoginService.swift in Sources */,
 				73600DEA2A72C84100F9FE87 /* AgreementViewController.swift in Sources */,
 				7390EF602A8D37660042A0A3 /* InfoCell.swift in Sources */,
 				73600DE82A72B59C00F9FE87 /* LoginViewController.swift in Sources */,
 				73600DFE2A7B5C7600F9FE87 /* NicknameViewController.swift in Sources */,
 				FDDCCF552A55930400FEDF8E /* SceneDelegate.swift in Sources */,
+				7390EF652A8DE6EE0042A0A3 /* LoginViewModel.swift in Sources */,
 				7397F2A62A8A79490032CC21 /* MypageMainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -471,7 +523,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 4N97P5J52N;
+				DEVELOPMENT_TEAM = 643M65W7HH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MyChore/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -500,7 +552,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 4N97P5J52N;
+				DEVELOPMENT_TEAM = 643M65W7HH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MyChore/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
