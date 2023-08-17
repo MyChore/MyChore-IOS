@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import KakaoSDKAuth
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -20,13 +21,30 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         window?.makeKeyAndVisible()
         
-        let rootViewController = LoginViewController()
+        var navigationController = UINavigationController()
         
-        let navigationController = UINavigationController(rootViewController: rootViewController)
+//        if LoginViewModel.shared.loadToken() {
+//            // 메인 연결
+//            print("메인으로 가라")
+//            APIManger.shared.setHeaders()
+//        }else {
+            let rootViewController = NicknameViewController()
+            navigationController = UINavigationController(rootViewController: rootViewController)
+//        }
         
         window?.rootViewController = navigationController
         
+        
     }
+    
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+       if let url = URLContexts.first?.url {
+           if (AuthApi.isKakaoTalkLoginUrl(url)) {
+               _ = AuthController.handleOpenUrl(url: url)
+            }
+        }
+    }
+    
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.

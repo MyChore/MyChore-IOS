@@ -160,6 +160,12 @@ class UserInfoViewController: UIViewController {
                 $0.backgroundColor = .mcMainGreen
                 $0.setTitleColor(.white, for: .normal)
                 $0.isSelected = true
+                if sender == femaleButton {
+                    LoginViewModel.shared.setGender(gender: "여성")
+                }else if sender == maleButton {
+                    LoginViewModel.shared.setGender(gender: "남성")
+                }
+                
             }else {
                 $0.backgroundColor = UIColor.mcGrey200
                 $0.setTitleColor(.black, for: .normal)
@@ -181,6 +187,22 @@ class UserInfoViewController: UIViewController {
     }
 
     @objc private func nextAction() {
+        if let year = yearTextField.text {
+            if let month = monthTextField.text {
+                if let day = dayTextField.text {
+                    let birthString = year + "-" + month + "-" + day
+                    
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd"
+                    
+                    let date = dateFormatter.date(from: birthString)
+                    let birth = dateFormatter.string(from: date!)
+                    
+                    LoginViewModel.shared.setBirth(birth: birth)
+                }
+            }
+        }
+        
         let teamCodeVC = TeamCodeViewController()
         
         self.navigationController?.pushViewController(teamCodeVC, animated: true)
