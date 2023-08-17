@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         window?.makeKeyAndVisible()
         
-        let rootViewController = LoginViewController()
+        let rootViewController = MypageMainViewController()
         
         let navigationController = UINavigationController(rootViewController: rootViewController)
         

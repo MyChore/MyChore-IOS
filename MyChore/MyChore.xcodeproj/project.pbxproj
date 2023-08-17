@@ -14,6 +14,14 @@
 		73600E052A7B7D6600F9FE87 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 73600E042A7B7D6600F9FE87 /* IQKeyboardManagerSwift */; };
 		73600E072A7B801E00F9FE87 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73600E062A7B801E00F9FE87 /* UserInfoViewController.swift */; };
 		73600E092A7F707800F9FE87 /* TeamCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73600E082A7F707800F9FE87 /* TeamCodeViewController.swift */; };
+		7390EF552A8B45410042A0A3 /* UserInfoChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7390EF542A8B45410042A0A3 /* UserInfoChangeViewController.swift */; };
+		7390EF572A8C8EF60042A0A3 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7390EF562A8C8EF60042A0A3 /* UIButton+.swift */; };
+		7390EF592A8CB7680042A0A3 /* NotificationSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7390EF582A8CB7680042A0A3 /* NotificationSettingViewController.swift */; };
+		7390EF5C2A8D0AD40042A0A3 /* MyPageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7390EF5B2A8D0AD40042A0A3 /* MyPageCell.swift */; };
+		7390EF5E2A8D2DD30042A0A3 /* CGFloat+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7390EF5D2A8D2DD30042A0A3 /* CGFloat+.swift */; };
+		7390EF602A8D37660042A0A3 /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7390EF5F2A8D37660042A0A3 /* InfoCell.swift */; };
+		7390EF622A8D37C80042A0A3 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7390EF612A8D37C80042A0A3 /* InfoViewController.swift */; };
+		7397F2A62A8A79490032CC21 /* MypageMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7397F2A52A8A79480032CC21 /* MypageMainViewController.swift */; };
 		FD33CE252A69063A00F4E5AE /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FD33CE242A69063A00F4E5AE /* Alamofire */; };
 		FD33CE282A69067800F4E5AE /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FD33CE272A69067800F4E5AE /* SnapKit */; };
 		FD33CE2D2A6906F200F4E5AE /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = FD33CE2C2A6906F200F4E5AE /* KakaoSDK */; };
@@ -33,6 +41,14 @@
 		73600E012A7B749700F9FE87 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		73600E062A7B801E00F9FE87 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserInfoViewController.swift; path = View/Login/UserInfoViewController.swift; sourceTree = SOURCE_ROOT; };
 		73600E082A7F707800F9FE87 /* TeamCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TeamCodeViewController.swift; path = View/Login/TeamCodeViewController.swift; sourceTree = SOURCE_ROOT; };
+		7390EF542A8B45410042A0A3 /* UserInfoChangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserInfoChangeViewController.swift; path = View/Mypage/UserInfoChangeViewController.swift; sourceTree = SOURCE_ROOT; };
+		7390EF562A8C8EF60042A0A3 /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
+		7390EF582A8CB7680042A0A3 /* NotificationSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotificationSettingViewController.swift; path = View/Mypage/NotificationSettingViewController.swift; sourceTree = SOURCE_ROOT; };
+		7390EF5B2A8D0AD40042A0A3 /* MyPageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyPageCell.swift; path = View/Mypage/Cell/MyPageCell.swift; sourceTree = SOURCE_ROOT; };
+		7390EF5D2A8D2DD30042A0A3 /* CGFloat+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+.swift"; sourceTree = "<group>"; };
+		7390EF5F2A8D37660042A0A3 /* InfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InfoCell.swift; path = View/Mypage/Cell/InfoCell.swift; sourceTree = SOURCE_ROOT; };
+		7390EF612A8D37C80042A0A3 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InfoViewController.swift; path = View/Mypage/InfoViewController.swift; sourceTree = SOURCE_ROOT; };
+		7397F2A52A8A79480032CC21 /* MypageMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MypageMainViewController.swift; path = View/Mypage/MypageMainViewController.swift; sourceTree = SOURCE_ROOT; };
 		FD33CE2F2A69077000F4E5AE /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 		FDDCCF4F2A55930400FEDF8E /* MyChore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyChore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDDCCF522A55930400FEDF8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +85,27 @@
 				73600E082A7F707800F9FE87 /* TeamCodeViewController.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		7390EF5A2A8D0AB90042A0A3 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				7390EF5F2A8D37660042A0A3 /* InfoCell.swift */,
+				7390EF5B2A8D0AD40042A0A3 /* MyPageCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		7397F2A22A8A79100032CC21 /* Mypage */ = {
+			isa = PBXGroup;
+			children = (
+				7390EF5A2A8D0AB90042A0A3 /* Cell */,
+				7397F2A52A8A79480032CC21 /* MypageMainViewController.swift */,
+				7390EF542A8B45410042A0A3 /* UserInfoChangeViewController.swift */,
+				7390EF582A8CB7680042A0A3 /* NotificationSettingViewController.swift */,
+				7390EF612A8D37C80042A0A3 /* InfoViewController.swift */,
+			);
+			path = Mypage;
 			sourceTree = "<group>";
 		};
 		FD33CE1B2A69054000F4E5AE /* Domain */ = {
@@ -128,6 +165,7 @@
 		FD33CE222A6905CD00F4E5AE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7397F2A22A8A79100032CC21 /* Mypage */,
 				73600DE62A72B57C00F9FE87 /* Login */,
 			);
 			path = View;
@@ -146,6 +184,8 @@
 			children = (
 				FD33CE2F2A69077000F4E5AE /* Color+.swift */,
 				73600E012A7B749700F9FE87 /* String+.swift */,
+				7390EF562A8C8EF60042A0A3 /* UIButton+.swift */,
+				7390EF5D2A8D2DD30042A0A3 /* CGFloat+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -267,16 +307,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7390EF592A8CB7680042A0A3 /* NotificationSettingViewController.swift in Sources */,
 				FDDCCF572A55930400FEDF8E /* ViewController.swift in Sources */,
 				FD33CE302A69077000F4E5AE /* Color+.swift in Sources */,
 				73600E022A7B749700F9FE87 /* String+.swift in Sources */,
+				7390EF622A8D37C80042A0A3 /* InfoViewController.swift in Sources */,
+				7390EF5E2A8D2DD30042A0A3 /* CGFloat+.swift in Sources */,
 				FDDCCF532A55930400FEDF8E /* AppDelegate.swift in Sources */,
 				73600E092A7F707800F9FE87 /* TeamCodeViewController.swift in Sources */,
+				7390EF552A8B45410042A0A3 /* UserInfoChangeViewController.swift in Sources */,
 				73600E072A7B801E00F9FE87 /* UserInfoViewController.swift in Sources */,
+				7390EF5C2A8D0AD40042A0A3 /* MyPageCell.swift in Sources */,
+				7390EF572A8C8EF60042A0A3 /* UIButton+.swift in Sources */,
 				73600DEA2A72C84100F9FE87 /* AgreementViewController.swift in Sources */,
+				7390EF602A8D37660042A0A3 /* InfoCell.swift in Sources */,
 				73600DE82A72B59C00F9FE87 /* LoginViewController.swift in Sources */,
 				73600DFE2A7B5C7600F9FE87 /* NicknameViewController.swift in Sources */,
 				FDDCCF552A55930400FEDF8E /* SceneDelegate.swift in Sources */,
+				7397F2A62A8A79490032CC21 /* MypageMainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
