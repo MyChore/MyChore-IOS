@@ -9,6 +9,7 @@ import Foundation
 import KakaoSDKUser
 import KakaoSDKCommon
 import KakaoSDKAuth
+import Alamofire
 
 class LoginService {
     
@@ -49,6 +50,15 @@ class LoginService {
     
     func login(parameter: LoginReqModel, completion: @escaping (GeneralResponseModel<LoginRepModel>) -> Void) {
         APIManger.shared.postData(urlEndpointString: "users/login", responseDataType: LoginRepModel.self, requestDataType: LoginReqModel.self, parameter: parameter) { response in
+            completion(response)
+        }
+    }
+    
+    func checkNickname(nickname: String, completion: @escaping (GeneralResponseModel<Bool>) -> Void) {
+        let parameter = ["nickname" : nickname]
+        
+        APIManger.shared.getData(urlEndpointString: "users/check-nickname", responseDataType: Bool.self, parameter: parameter) { response in
+            print(response)
             completion(response)
         }
     }

@@ -22,6 +22,7 @@ class LoginViewModel: ObservableObject {
     @Published var accessToken: String?
     @Published var refreshToken: String?
     @Published var isJoin: Bool?
+    @Published var isOverlap: Bool?
     
     private var emailAgreeCheck = false
     private var profileImage: UIImage?
@@ -51,6 +52,14 @@ class LoginViewModel: ObservableObject {
             isJoin != nil
         }.sink { isJoin in
             completion(isJoin!)
+        }.store(in: &anyCancelLabels)
+    }
+    
+    func getIsOverlap(completion: @escaping (Bool) -> Void) {
+        $isOverlap.filter { isOverlap in
+            isOverlap != nil
+        }.sink { isOverlap in
+            completion(isOverlap!)
         }.store(in: &anyCancelLabels)
     }
     
@@ -107,6 +116,19 @@ extension LoginViewModel {
             }
         }
     }
+    
+    func checkNickname(nickname: String) {
+        print("닉네임: " + nickname)
+        loginService.checkNickname(nickname: nickname) { response in
+            print(nickname + "의 결과: \(response)")
+            if response.statusCode == 200 {
+                if let result = response.data {
+                    self.isOverlap = result
+                }
+            }
+        }
+    }
+    
     
     func join() {
         let parameter = JoinReqModel(email: userEmail!, birth: birth!, gender: gender!, nickname: nickname!, provider: provider?.rawValue ?? "", imgUrl: nil, is14Over: true, isAcceptEmail: emailAgreeCheck)

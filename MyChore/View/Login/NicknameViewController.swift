@@ -13,6 +13,7 @@ class NicknameViewController: UIViewController {
     
     private let succesText = "사용 가능한 닉네임입니다"
     private let waringText = "한글/영어/밑줄/숫자만 사용할 수 있습니다. (8글자 이내)"
+    private let overlapText = "이미 있는 닉네임입니다."
     
     
     private let titleLabel = UILabel()
@@ -36,6 +37,7 @@ class NicknameViewController: UIViewController {
         setup()
         setupView()
         setupConstraint()
+        setupObserver()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -147,6 +149,32 @@ class NicknameViewController: UIViewController {
         
     }
     
+    private func setupObserver() {
+        LoginViewModel.shared.getIsOverlap { [self] isOverlap in
+            if isOverlap {
+                lineView.backgroundColor = UIColor.mcMainGreen
+                
+                infoLabel.text = succesText
+                infoLabel.textColor = UIColor.mcMainGreen
+                infoLabel.isHidden = false
+                
+                nextButton.isEnabled = true
+                nextButton.backgroundColor = UIColor.mcMainGreen
+            }else {
+                lineView.backgroundColor = UIColor.red
+                
+                infoLabel.text = overlapText
+                infoLabel.textColor = UIColor.red
+                infoLabel.isHidden = false
+                
+                nextButton.isEnabled = false
+                nextButton.backgroundColor = UIColor.mcGrey400
+            }
+        }
+    }
+    
+    
+    
     @objc private func imageAdd() {
         print("이미지 추가")
         let imagePicker = UIImagePickerController()
@@ -199,18 +227,24 @@ extension NicknameViewController: UITextFieldDelegate {
             return true
         }
         
-        if text.count > 8 {
-            return false
-        }else {
-            if string.hasCharacters(){
-                infoChange(check: true)
-                return true
-            }else {
-                infoChange(check: false)
-                return true
-            }
+        if !string.hasCharacters(){
+            infoChange(check: false)
         }
+        
+        return !(text.count > 8)
     }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let nickname = textField.text else {return}
+        
+        LoginViewModel.shared.checkNickname(nickname: nickname)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+
 }
 
 extension NicknameViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
