@@ -178,8 +178,11 @@ class NicknameViewController: UIViewController {
     }
     
     @objc private func nextAction() {
-        let userInfoViewController = UserInfoViewController()
+        if let nickname = nicknameTextField.text {
+            LoginViewModel.shared.setNickname(nickname: nickname)
+        }
         
+        let userInfoViewController = UserInfoViewController()
         self.navigationController?.pushViewController(userInfoViewController, animated: true)
     }
 

@@ -24,6 +24,9 @@ class LoginViewModel: ObservableObject {
     
     private var emailAgreeCheck = false
     private var profileImage: UIImage?
+    private var nickname: String?
+    private var gender: String?
+    private var birth: String?
     
     func getUserEmail(completion: @escaping (String) -> Void) {
         $userEmail.filter { userEmail in
@@ -50,6 +53,18 @@ class LoginViewModel: ObservableObject {
         self.profileImage = image
     }
     
+    func setNickname(nickname: String) {
+        self.nickname = nickname
+    }
+    
+    func setGender(gender: String) {
+        self.gender = gender
+    }
+    
+    func setBirth(birth: String) {
+        self.birth = birth
+        print(self.birth)
+    }
 }
 
 
