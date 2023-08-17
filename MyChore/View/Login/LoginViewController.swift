@@ -25,6 +25,7 @@ class LoginViewController: UIViewController {
         setup()
         setupView()
         setupConstraint()
+        setupObserver()
     }
     
     private func setup() {
@@ -79,11 +80,20 @@ class LoginViewController: UIViewController {
         }
     }
     
+    private func setupObserver() {
+        LoginViewModel.shared.getIsJoin { isJoin in
+            if isJoin {
+                // 메인 화면으로 넘어가기
+            }else {
+                let agreementVC = AgreementViewController()
+                self.navigationController?.pushViewController(agreementVC, animated: true)
+            }
+        }
+    }
+    
     
     @objc private func login() {
-        let agreementVC = AgreementViewController()
-        
-        self.navigationController?.pushViewController(agreementVC, animated: true)
+        LoginViewModel.shared.loginWithKakao()
     }
     
 }
