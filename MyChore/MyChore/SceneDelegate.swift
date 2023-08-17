@@ -26,6 +26,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         if LoginViewModel.shared.loadToken() {
             // 메인 연결
+            print("메인으로 가라")
             APIManger.shared.setHeaders()
         }else {
             let rootViewController = LoginViewController()

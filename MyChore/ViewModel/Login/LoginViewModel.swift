@@ -30,6 +30,7 @@ class LoginViewModel: ObservableObject {
     private var nickname: String?
     private var gender: String?
     private var birth: String?
+    private var imageUrl: String?
     
     
     func getUserEmail(completion: @escaping (String) -> Void) {
@@ -93,7 +94,6 @@ class LoginViewModel: ObservableObject {
     func setBirth(birth: String) {
         self.birth = birth
     }
-    
     
 }
 
@@ -164,9 +164,21 @@ extension LoginViewModel {
         }
     }
     
+    func uploadImage(image: UIImage) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyMMdd_HHmmssss"
+        let pathRoot = dateFormatter.string(from: Date())
+        
+        FirebaseStorageManager.shared.uploadImage(image: image, pathRoot: pathRoot) { imageUrl in
+            if let imageUrl = imageUrl {
+                self.imageUrl = imageUrl.description
+            }
+        }
+    }
+    
     
     func join() {
-        let parameter = JoinReqModel(email: userEmail!, birth: birth!, gender: gender!, nickname: nickname!, provider: provider?.rawValue ?? "", imgUrl: nil, is14Over: true, isAcceptEmail: emailAgreeCheck)
+        let parameter = JoinReqModel(email: userEmail!, birth: birth!, gender: gender!, nickname: nickname!, provider: provider?.rawValue ?? "", imgUrl: imageUrl, is14Over: true, isAcceptEmail: emailAgreeCheck)
         
         loginService.join(parameter: parameter) { response in
             if response.statusCode == 200 {
