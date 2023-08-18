@@ -42,6 +42,9 @@
 		FD33CE282A69067800F4E5AE /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FD33CE272A69067800F4E5AE /* SnapKit */; };
 		FD33CE2D2A6906F200F4E5AE /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = FD33CE2C2A6906F200F4E5AE /* KakaoSDK */; };
 		FD33CE302A69077000F4E5AE /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD33CE2F2A69077000F4E5AE /* Color+.swift */; };
+		FD3C90742A8E7C9800CF5839 /* CheckBoxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3C90732A8E7C9800CF5839 /* CheckBoxButton.swift */; };
+		FD3C90762A8E7CA200CF5839 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3C90752A8E7CA200CF5839 /* CalendarViewController.swift */; };
+		FD3C90782A8E7CE600CF5839 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3C90772A8E7CE600CF5839 /* UIImage+.swift */; };
 		FDDCCF532A55930400FEDF8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDCCF522A55930400FEDF8E /* AppDelegate.swift */; };
 		FDDCCF552A55930400FEDF8E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDCCF542A55930400FEDF8E /* SceneDelegate.swift */; };
 		FDDCCF572A55930400FEDF8E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDCCF562A55930400FEDF8E /* ViewController.swift */; };
@@ -77,6 +80,9 @@
 		7390EF8B2A8E90D40042A0A3 /* MypageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MypageModel.swift; path = Model/Mypage/MypageModel.swift; sourceTree = SOURCE_ROOT; };
 		7397F2A52A8A79480032CC21 /* MypageMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MypageMainViewController.swift; path = View/Mypage/MypageMainViewController.swift; sourceTree = SOURCE_ROOT; };
 		FD33CE2F2A69077000F4E5AE /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
+		FD3C90732A8E7C9800CF5839 /* CheckBoxButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxButton.swift; sourceTree = "<group>"; };
+		FD3C90752A8E7CA200CF5839 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		FD3C90772A8E7CE600CF5839 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		FDDCCF4F2A55930400FEDF8E /* MyChore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyChore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDDCCF522A55930400FEDF8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FDDCCF542A55930400FEDF8E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -270,6 +276,7 @@
 		FD33CE222A6905CD00F4E5AE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FD3C90722A8E7C6F00CF5839 /* Calendar */,
 				7397F2A22A8A79100032CC21 /* Mypage */,
 				73600DE62A72B57C00F9FE87 /* Login */,
 			);
@@ -290,10 +297,20 @@
 			children = (
 				FD33CE2F2A69077000F4E5AE /* Color+.swift */,
 				73600E012A7B749700F9FE87 /* String+.swift */,
+				FD3C90772A8E7CE600CF5839 /* UIImage+.swift */,
 				7390EF562A8C8EF60042A0A3 /* UIButton+.swift */,
 				7390EF5D2A8D2DD30042A0A3 /* CGFloat+.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		FD3C90722A8E7C6F00CF5839 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				FD3C90752A8E7CA200CF5839 /* CalendarViewController.swift */,
+				FD3C90732A8E7C9800CF5839 /* CheckBoxButton.swift */,
+			);
+			path = Calendar;
 			sourceTree = "<group>";
 		};
 		FDDCCF462A55930400FEDF8E = {
@@ -422,6 +439,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD3C90762A8E7CA200CF5839 /* CalendarViewController.swift in Sources */,
 				7390EF592A8CB7680042A0A3 /* NotificationSettingViewController.swift in Sources */,
 				FDDCCF572A55930400FEDF8E /* ViewController.swift in Sources */,
 				FD33CE302A69077000F4E5AE /* Color+.swift in Sources */,
@@ -443,6 +461,8 @@
 				7390EF892A8E890D0042A0A3 /* MypageViewModel.swift in Sources */,
 				73600DEA2A72C84100F9FE87 /* AgreementViewController.swift in Sources */,
 				7390EF8C2A8E90D40042A0A3 /* MypageModel.swift in Sources */,
+				FD3C90742A8E7C9800CF5839 /* CheckBoxButton.swift in Sources */,
+				FD3C90782A8E7CE600CF5839 /* UIImage+.swift in Sources */,
 				7390EF602A8D37660042A0A3 /* InfoCell.swift in Sources */,
 				73600DE82A72B59C00F9FE87 /* LoginViewController.swift in Sources */,
 				73600DFE2A7B5C7600F9FE87 /* NicknameViewController.swift in Sources */,
