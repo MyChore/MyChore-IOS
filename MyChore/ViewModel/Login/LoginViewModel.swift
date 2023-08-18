@@ -205,8 +205,6 @@ extension LoginViewModel {
     }
     
     func logout() {
-        print("123")
-        
         provider = nil
         
         accessToken = ""
