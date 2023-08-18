@@ -17,29 +17,28 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let windowScene = (scene as? UIWindowScene) else { return }
+        LoginViewModel.shared.loadToken()
         
-        window = UIWindow(windowScene: windowScene)
-        window?.makeKeyAndVisible()
+       
         
-        var navigationController = UINavigationController()
-        
-        if LoginViewModel.shared.loadToken() {
-            // 메인 연결
-            APIManger.shared.setObserver()
-            
-            
-            MypageViewModel.shared.requestMyprofile()
-            
-            
-            let rootViewController = MypageMainViewController()
-            navigationController = UINavigationController(rootViewController: rootViewController)
-        }else {
-            let rootViewController = NicknameViewController()
-            navigationController = UINavigationController(rootViewController: rootViewController)
+        LoginViewModel.shared.getAccessToken { token in
+            guard let windowScene = (scene as? UIWindowScene) else { return }
+            self.window = UIWindow(windowScene: windowScene)
+            if token != "" {
+                APIManger.shared.setObserver()
+                
+                
+                // 메인 연결
+                let rootViewController = MypageMainViewController()
+                self.window?.rootViewController = UINavigationController(rootViewController: rootViewController)
+            }else {
+                let rootViewController = LoginViewController()
+                self.window?.rootViewController = UINavigationController(rootViewController: rootViewController)
+            }
+            self.window?.makeKeyAndVisible()
         }
         
-        window?.rootViewController = navigationController
+        
         
         
     }

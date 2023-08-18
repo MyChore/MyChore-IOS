@@ -18,6 +18,8 @@ class APIManger  {
     func setObserver() {
         LoginViewModel.shared.getAccessToken { token in
             self.headers = ["Authorization": token]
+            
+            MypageViewModel.shared.requestMyprofile()
         }
     }
     

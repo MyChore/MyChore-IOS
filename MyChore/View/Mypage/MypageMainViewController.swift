@@ -38,6 +38,8 @@ class MypageMainViewController: UIViewController {
         
         logoutButton.title = "로그아웃"
         logoutButton.tintColor = .mcGrey600
+        logoutButton.target = self
+        logoutButton.action = #selector(logout)
         
         
         self.navigationItem.rightBarButtonItem = logoutButton
@@ -123,6 +125,10 @@ class MypageMainViewController: UIViewController {
         let userInfoVC = UserInfoChangeViewController()
         
         self.navigationController?.pushViewController(userInfoVC, animated: true)
+    }
+    
+    @objc private func logout() {
+        MypageViewModel.shared.logout()
     }
 
 }

@@ -43,10 +43,8 @@ class LoginViewModel: ObservableObject {
     }
     
     func getAccessToken(completion: @escaping (String) -> Void) {
-        $accessToken.filter { accessToken in
-            accessToken != nil
-        }.sink { accessToken in
-            completion(accessToken!)
+        $accessToken.sink { accessToken in
+            completion(accessToken ?? "")
         }.store(in: &anyCancelLabels)
     }
     
@@ -109,19 +107,16 @@ extension LoginViewModel {
         }
     }
     
-    func loadToken() -> Bool {
+    func loadToken() {
         if UserDefaults.standard.value(forKey: "UserToken") != nil {
             if let userTokenData = UserDefaults.standard.object(forKey: "UserToken") as? Data {
                 let decoder = JSONDecoder()
                 if let userToken = try? decoder.decode(LoginRepModel.self, from: userTokenData) {
                     self.accessToken = userToken.accessToken
                     self.refreshToken = userToken.refreshToken
-                    
-                    return true
                 }
             }
         }
-        return false
     }
     
     func getNewToken() {
@@ -207,5 +202,28 @@ extension LoginViewModel {
                 self.refreshToken = ""
             }
         }
+    }
+    
+    func logout() {
+        print("123")
+        
+        provider = nil
+        
+        accessToken = ""
+        refreshToken = ""
+        
+        userEmail = nil
+        isLogin = nil
+        isJoin = nil
+        isOverlap = nil
+        isLoadToken = nil
+        
+        emailAgreeCheck = false
+        profileImage = nil
+        nickname = nil
+        gender = nil
+        birth = nil
+        imageUrl = nil
+        UserDefaults.standard.removeObject(forKey: "UserToken")
     }
 }

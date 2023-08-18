@@ -133,6 +133,7 @@ class UserInfoChangeViewController: UIViewController {
         deleteButton.setUnderline()
         deleteButton.tintColor = .mcGrey600
         deleteButton.titleLabel?.font = .systemFont(ofSize: 14)
+        deleteButton.addTarget(self, action: #selector(deleteUser), for: .touchDown)
     }
     
     private func setupView() {
@@ -417,6 +418,10 @@ class UserInfoChangeViewController: UIViewController {
     
     @objc private func backAction() {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc private func deleteUser() {
+        MypageViewModel.shared.deleteUser()
     }
 
 }

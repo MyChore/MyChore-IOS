@@ -285,6 +285,50 @@ extension MypageViewModel {
             return isChangeNickname || isChangeGender || isChangeYear || isChangeMonth || isChangeDay
         }
     }
+    
+    func logout() {
+        mypageService.logout { [self] response in
+            if response.statusCode == 200 {
+                userInfo = nil
+                isOverlap = nil
+                isSameNickname = true
+                isChangeMyInfo = false
+                
+                profileImage = nil
+                isImage = false
+                isChangeNickname = false
+                isChangeImage = false
+                isChangeGender = false
+                isChangeYear = false
+                isChangeMonth = false
+                isChangeDay = false
+                
+                LoginViewModel.shared.logout()
+            }
+        }
+    }
+    
+    func deleteUser() {
+        mypageService.deleteUser { [self] response in
+            if response.statusCode == 200 {
+                userInfo = nil
+                isOverlap = nil
+                isSameNickname = true
+                isChangeMyInfo = false
+                
+                profileImage = nil
+                isImage = false
+                isChangeNickname = false
+                isChangeImage = false
+                isChangeGender = false
+                isChangeYear = false
+                isChangeMonth = false
+                isChangeDay = false
+                
+                LoginViewModel.shared.logout()
+            }
+        }
+    }
 
     
 }

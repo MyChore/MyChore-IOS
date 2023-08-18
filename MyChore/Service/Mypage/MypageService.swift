@@ -36,4 +36,16 @@ class MypageService {
             completion(response)
         }
     }
+    
+    func logout(completion: @escaping (GeneralResponseModel<Bool>) -> Void) {
+        APIManger.shared.patchData(urlEndpointString: "users/logout", responseDataType: Bool.self) { response in
+            completion(response)
+        }
+    }
+    
+    func deleteUser(completion: @escaping (GeneralResponseModel<Bool>) -> Void) {
+        APIManger.shared.deleteData(urlEndpointString: "users", responseDataType: Bool.self) { response in
+            completion(response)
+        }
+    }
 }
