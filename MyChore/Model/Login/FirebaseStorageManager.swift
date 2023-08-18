@@ -12,10 +12,14 @@ import Firebase
 class FirebaseStorageManager {
     static let shared = FirebaseStorageManager()
     
-    func uploadImage(image: UIImage, pathRoot: String, completion: @escaping (URL?) -> Void) {
+    func uploadImage(image: UIImage, completion: @escaping (URL?) -> Void) {
         guard let imageData = image.jpegData(compressionQuality: 0.4) else { return }
         let metaData = StorageMetadata()
         metaData.contentType = "image/jpeg"
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyMMdd_HHmmssss"
+        let pathRoot = dateFormatter.string(from: Date())
         
         let imageName = pathRoot
         

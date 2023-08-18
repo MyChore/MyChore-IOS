@@ -17,10 +17,11 @@ class LoginViewModel: ObservableObject {
     
     var provider: LoginProvicer?
     
-    @Published var userEmail: String?
-    @Published var isLogin: Bool?
     @Published var accessToken: String?
     @Published var refreshToken: String?
+    
+    @Published var userEmail: String?
+    @Published var isLogin: Bool?
     @Published var isJoin: Bool?
     @Published var isOverlap: Bool?
     @Published var isLoadToken: Bool?
@@ -42,10 +43,8 @@ class LoginViewModel: ObservableObject {
     }
     
     func getAccessToken(completion: @escaping (String) -> Void) {
-        $accessToken.filter { accessToken in
-            accessToken != nil
-        }.sink { accessToken in
-            completion(accessToken!)
+        $accessToken.sink { accessToken in
+            completion(accessToken ?? "")
         }.store(in: &anyCancelLabels)
     }
     
@@ -108,19 +107,31 @@ extension LoginViewModel {
         }
     }
     
-    func loadToken() -> Bool {
+    func loadToken() {
         if UserDefaults.standard.value(forKey: "UserToken") != nil {
             if let userTokenData = UserDefaults.standard.object(forKey: "UserToken") as? Data {
                 let decoder = JSONDecoder()
                 if let userToken = try? decoder.decode(LoginRepModel.self, from: userTokenData) {
                     self.accessToken = userToken.accessToken
                     self.refreshToken = userToken.refreshToken
-                    
-                    return true
                 }
             }
         }
-        return false
+    }
+    
+    func getNewToken() {
+        if let refreshToken = refreshToken {
+            APIManger.shared.setRefreshToken(refreshToken: refreshToken)
+        }
+        
+        loginService.getNewToken { response in
+            if response.statusCode == 200 {
+                if let newToken = response.data {
+                    self.accessToken = newToken
+                    self.saveToken()
+                }
+            }
+        }
     }
     
     
@@ -153,9 +164,7 @@ extension LoginViewModel {
     }
     
     func checkNickname(nickname: String) {
-        print("닉네임: " + nickname)
         loginService.checkNickname(nickname: nickname) { response in
-            print(nickname + "의 결과: \(response)")
             if response.statusCode == 200 {
                 if let result = response.data {
                     self.isOverlap = result
@@ -167,11 +176,9 @@ extension LoginViewModel {
     func uploadImage() {
         guard let image = profileImage else {return}
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyMMdd_HHmmssss"
-        let pathRoot = dateFormatter.string(from: Date())
+
         
-        FirebaseStorageManager.shared.uploadImage(image: image, pathRoot: pathRoot) { imageUrl in
+        FirebaseStorageManager.shared.uploadImage(image: image) { imageUrl in
             if let imageUrl = imageUrl {
                 self.imageUrl = imageUrl.description
                 print(imageUrl)
@@ -195,5 +202,26 @@ extension LoginViewModel {
                 self.refreshToken = ""
             }
         }
+    }
+    
+    func logout() {
+        provider = nil
+        
+        accessToken = ""
+        refreshToken = ""
+        
+        userEmail = nil
+        isLogin = nil
+        isJoin = nil
+        isOverlap = nil
+        isLoadToken = nil
+        
+        emailAgreeCheck = false
+        profileImage = nil
+        nickname = nil
+        gender = nil
+        birth = nil
+        imageUrl = nil
+        UserDefaults.standard.removeObject(forKey: "UserToken")
     }
 }

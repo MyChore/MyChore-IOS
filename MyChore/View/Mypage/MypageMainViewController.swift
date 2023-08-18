@@ -7,6 +7,8 @@
 
 import UIKit
 import SnapKit
+import Kingfisher
+
 
 class MypageMainViewController: UIViewController {
     private let titleList = ["알림", "공지사항", "문의하기", "정보"]
@@ -28,6 +30,7 @@ class MypageMainViewController: UIViewController {
         setup()
         setupView()
         setupConstraint()
+        setupObserver()
     }
     
     private func setup() {
@@ -35,6 +38,8 @@ class MypageMainViewController: UIViewController {
         
         logoutButton.title = "로그아웃"
         logoutButton.tintColor = .mcGrey600
+        logoutButton.target = self
+        logoutButton.action = #selector(logout)
         
         
         self.navigationItem.rightBarButtonItem = logoutButton
@@ -46,7 +51,7 @@ class MypageMainViewController: UIViewController {
         profileImageView.layer.cornerRadius = 50
         
         nicknameLabel.font = .systemFont(ofSize: 24)
-        nicknameLabel.text = "삼공님"
+        nicknameLabel.text = "닉네임"
         
         profileChangeButton.backgroundColor = .mcMainGreen
         profileChangeButton.tintColor = .white
@@ -63,6 +68,10 @@ class MypageMainViewController: UIViewController {
         
         pageTableView.separatorInset.left = 35
         pageTableView.separatorInset.right = 35
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        MypageViewModel.shared.doneChnageMyprofile()
     }
     
     private func setupView() {
@@ -101,8 +110,25 @@ class MypageMainViewController: UIViewController {
         }
     }
     
+    private func setupObserver() {
+        MypageViewModel.shared.getUserInfo { [self] userInfo in
+            nicknameLabel.text = userInfo.nickname
+            
+            if let imgUrl = userInfo.imgUrl {
+                profileImageView.kf.setImage(with: URL(string: imgUrl))
+            }
+        }
+    }
+    
+    
     @objc private func changeMyInfo() {
-        pageTableView.reloadData()
+        let userInfoVC = UserInfoChangeViewController()
+        
+        self.navigationController?.pushViewController(userInfoVC, animated: true)
+    }
+    
+    @objc private func logout() {
+        MypageViewModel.shared.logout()
     }
 
 }

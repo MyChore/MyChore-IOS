@@ -176,7 +176,6 @@ class NicknameViewController: UIViewController {
     
     
     @objc private func imageAdd() {
-        print("이미지 추가")
         let imagePicker = UIImagePickerController()
         imagePicker.sourceType = .photoLibrary
         imagePicker.delegate = self
