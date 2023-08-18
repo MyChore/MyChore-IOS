@@ -131,7 +131,7 @@ extension APIManger {
         guard let url = URL(string: url) else { return }
         
         AF
-            .request(url, method: .get, parameters: parameter, headers: headers)
+            .request(url, method: .get, parameters: parameter, headers: self.headers)
             .responseDecodable(of: GeneralResponseModel<U>.self) { response in
                 print(response)
                 switch response.result {
@@ -154,7 +154,7 @@ extension APIManger {
         guard let url = URL(string: BASE_URL + urlEndpointString) else { return }
         
         AF
-            .request(url, method: .put, parameters: parameter, encoder: .json, headers: nil)
+            .request(url, method: .put, parameters: parameter, encoder: .json, headers: self.headers)
             .responseDecodable(of: GeneralResponseModel<U>.self) { response in
                 switch response.result {
                 case .success(let success):
@@ -247,4 +247,27 @@ extension APIManger {
             }
             .resume()
     }
+    
+    // patch (req)
+    func patchData<T: Codable, U: Decodable>(urlEndpointString: String,
+                                            responseDataType: U.Type,
+                                            requestDataType: T.Type,
+                                            parameter: T?,
+                                            completionHandler: @escaping (GeneralResponseModel<U>)->Void) {
+        
+        guard let url = URL(string: BASE_URL + urlEndpointString) else { return }
+        
+        AF
+            .request(url, method: .patch, parameters: parameter, encoder: .json, headers: self.headers)
+            .responseDecodable(of: GeneralResponseModel<U>.self) { response in
+                switch response.result {
+                case .success(let success):
+                    completionHandler(success)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+            .resume()
+    }
+    
 }

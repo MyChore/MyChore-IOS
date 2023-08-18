@@ -17,10 +17,11 @@ class LoginViewModel: ObservableObject {
     
     var provider: LoginProvicer?
     
-    @Published var userEmail: String?
-    @Published var isLogin: Bool?
     @Published var accessToken: String?
     @Published var refreshToken: String?
+    
+    @Published var userEmail: String?
+    @Published var isLogin: Bool?
     @Published var isJoin: Bool?
     @Published var isOverlap: Bool?
     @Published var isLoadToken: Bool?
@@ -168,9 +169,7 @@ extension LoginViewModel {
     }
     
     func checkNickname(nickname: String) {
-        print("닉네임: " + nickname)
         loginService.checkNickname(nickname: nickname) { response in
-            print(nickname + "의 결과: \(response)")
             if response.statusCode == 200 {
                 if let result = response.data {
                     self.isOverlap = result
@@ -182,11 +181,9 @@ extension LoginViewModel {
     func uploadImage() {
         guard let image = profileImage else {return}
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyMMdd_HHmmssss"
-        let pathRoot = dateFormatter.string(from: Date())
+
         
-        FirebaseStorageManager.shared.uploadImage(image: image, pathRoot: pathRoot) { imageUrl in
+        FirebaseStorageManager.shared.uploadImage(image: image) { imageUrl in
             if let imageUrl = imageUrl {
                 self.imageUrl = imageUrl.description
                 print(imageUrl)

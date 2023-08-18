@@ -68,6 +68,10 @@ class MypageMainViewController: UIViewController {
         pageTableView.separatorInset.right = 35
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        MypageViewModel.shared.doneChnageMyprofile()
+    }
+    
     private func setupView() {
         self.view.addSubview(profileImageView)
         self.view.addSubview(nicknameLabel)
@@ -116,7 +120,9 @@ class MypageMainViewController: UIViewController {
     
     
     @objc private func changeMyInfo() {
-        pageTableView.reloadData()
+        let userInfoVC = UserInfoChangeViewController()
+        
+        self.navigationController?.pushViewController(userInfoVC, animated: true)
     }
 
 }
