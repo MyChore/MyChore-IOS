@@ -122,7 +122,7 @@
 				73600E062A7B801E00F9FE87 /* UserInfoViewController.swift */,
 				73600E082A7F707800F9FE87 /* TeamCodeViewController.swift */,
 			);
-			path = Login;
+			name = Login;
 			sourceTree = "<group>";
 		};
 		7390EF5A2A8D0AB90042A0A3 /* Cell */ = {
@@ -139,7 +139,7 @@
 			children = (
 				7390EF642A8DE6EE0042A0A3 /* LoginViewModel.swift */,
 			);
-			path = Login;
+			name = Login;
 			sourceTree = "<group>";
 		};
 		7390EF662A8DE7380042A0A3 /* Enum */ = {
@@ -187,7 +187,7 @@
 			children = (
 				7390EF882A8E890D0042A0A3 /* MypageViewModel.swift */,
 			);
-			path = Mypage;
+			name = Mypage;
 			sourceTree = "<group>";
 		};
 		7390EF8A2A8E90C90042A0A3 /* Mypage */ = {
@@ -207,7 +207,7 @@
 				7390EF582A8CB7680042A0A3 /* NotificationSettingViewController.swift */,
 				7390EF612A8D37C80042A0A3 /* InfoViewController.swift */,
 			);
-			path = Mypage;
+			name = Mypage;
 			sourceTree = "<group>";
 		};
 		FD33CE1B2A69054000F4E5AE /* Domain */ = {
@@ -215,7 +215,8 @@
 			children = (
 				FD33CE202A6905B600F4E5AE /* Model */,
 			);
-			path = Domain;
+			name = Domain;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		FD33CE1C2A69057400F4E5AE /* Presentation */ = {
@@ -233,7 +234,8 @@
 				FD33CE1E2A69058C00F4E5AE /* Network */,
 				FD33CE1F2A69059300F4E5AE /* Service */,
 			);
-			path = Data;
+			name = Data;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		FD33CE1E2A69058C00F4E5AE /* Network */ = {
@@ -242,7 +244,7 @@
 				7390EF6C2A8DF74E0042A0A3 /* APIManager.swift */,
 				7390EF822A8E75F50042A0A3 /* FirebaseStorageManager.swift */,
 			);
-			path = Network;
+			name = Network;
 			sourceTree = "<group>";
 		};
 		FD33CE1F2A69059300F4E5AE /* Service */ = {
@@ -270,7 +272,7 @@
 				7390EF872A8E89000042A0A3 /* Mypage */,
 				7390EF632A8DE6D80042A0A3 /* Login */,
 			);
-			path = ViewModel;
+			name = ViewModel;
 			sourceTree = "<group>";
 		};
 		FD33CE222A6905CD00F4E5AE /* View */ = {
