@@ -6,22 +6,18 @@
 //
 
 import UIKit
+import SnapKit
 
 class AddFloorSecondViewController: UIViewController {
     private let waringText = "한글/영어/밑줄/숫자만 사용할 수 있습니다. (8글자 이내)"
     
-    
     private let titleLabel = UILabel()
-
-    
     private let floorNameTextField = UITextField()
-    
     private let lineView = UIView()
-    
     private let infoLabel = UILabel()
-    
     private let nextButton = UIButton()
     
+    private let backBarButton = UIBarButtonItem()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +33,13 @@ class AddFloorSecondViewController: UIViewController {
     
     
     private func setup() {
+        backBarButton.image = UIImage(named: "back")
+        backBarButton.tintColor = .black
+        backBarButton.target = self
+        backBarButton.action = #selector(backNavigationAction)
+        
+        self.navigationItem.leftBarButtonItem = backBarButton
+        
         self.view.backgroundColor = UIColor.white
         
         titleLabel.numberOfLines = 0
@@ -72,7 +75,7 @@ class AddFloorSecondViewController: UIViewController {
     
     private func setupConstraint() {
         titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(self.view.safeAreaInsets).offset(63)
+            make.top.equalTo(self.view.safeAreaLayoutGuide).offset(67)
             make.left.equalToSuperview().offset(24)
         }
         
@@ -119,6 +122,10 @@ class AddFloorSecondViewController: UIViewController {
             nextButton.isEnabled = false
             nextButton.backgroundColor = UIColor.mcGrey400
         }
+    }
+    
+    @objc private func backNavigationAction() {
+        self.navigationController?.popViewController(animated: true)
     }
     
     @objc private func nextAction() {

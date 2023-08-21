@@ -13,8 +13,6 @@
 		73370E792A93DF5C00ECF419 /* AddFloorSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73370E782A93DF5C00ECF419 /* AddFloorSecondViewController.swift */; };
 		73370E7A2A93E35A00ECF419 /* NicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5F95D32A93A726006573B2 /* NicknameViewController.swift */; };
 		73370E7B2A93E35D00ECF419 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5F95D22A93A726006573B2 /* LoginViewController.swift */; };
-		73600DE82A72B59C00F9FE87 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73600DE72A72B59C00F9FE87 /* LoginViewController.swift */; };
-		73600DFE2A7B5C7600F9FE87 /* NicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73600DFD2A7B5C7600F9FE87 /* NicknameViewController.swift */; };
 		73600E022A7B749700F9FE87 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73600E012A7B749700F9FE87 /* String+.swift */; };
 		73600E052A7B7D6600F9FE87 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 73600E042A7B7D6600F9FE87 /* IQKeyboardManagerSwift */; };
 		7390EF572A8C8EF60042A0A3 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7390EF562A8C8EF60042A0A3 /* UIButton+.swift */; };
@@ -616,8 +614,6 @@
 				FD5F95E52A93A73B006573B2 /* InfoViewController.swift in Sources */,
 				FD5F96002A93B217006573B2 /* ManageMainViewController.swift in Sources */,
 				FD3C90782A8E7CE600CF5839 /* UIImage+.swift in Sources */,
-				73600DE82A72B59C00F9FE87 /* LoginViewController.swift in Sources */,
-				73600DFE2A7B5C7600F9FE87 /* NicknameViewController.swift in Sources */,
 				73370E7B2A93E35D00ECF419 /* LoginViewController.swift in Sources */,
 				73370E762A93BBA700ECF419 /* RoomSelectCell.swift in Sources */,
 				FDDCCF552A55930400FEDF8E /* SceneDelegate.swift in Sources */,
