@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		73370E712A93AC1300ECF419 /* AddFloorFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73370E702A93AC1300ECF419 /* AddFloorFirstViewController.swift */; };
 		73600DE82A72B59C00F9FE87 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73600DE72A72B59C00F9FE87 /* LoginViewController.swift */; };
 		73600DEA2A72C84100F9FE87 /* AgreementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73600DE92A72C84100F9FE87 /* AgreementViewController.swift */; };
 		73600DFE2A7B5C7600F9FE87 /* NicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73600DFD2A7B5C7600F9FE87 /* NicknameViewController.swift */; };
@@ -59,6 +60,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		73370E702A93AC1300ECF419 /* AddFloorFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFloorFirstViewController.swift; sourceTree = "<group>"; };
 		73600DE72A72B59C00F9FE87 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = View/Login/LoginViewController.swift; sourceTree = SOURCE_ROOT; };
 		73600DE92A72C84100F9FE87 /* AgreementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AgreementViewController.swift; path = View/Login/AgreementViewController.swift; sourceTree = SOURCE_ROOT; };
 		73600DFD2A7B5C7600F9FE87 /* NicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NicknameViewController.swift; path = View/Login/NicknameViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -123,6 +125,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		73370E6F2A93ABEF00ECF419 /* AddFloor */ = {
+			isa = PBXGroup;
+			children = (
+				73370E702A93AC1300ECF419 /* AddFloorFirstViewController.swift */,
+			);
+			path = AddFloor;
+			sourceTree = "<group>";
+		};
 		73600DE62A72B57C00F9FE87 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -288,6 +298,7 @@
 		FD33CE222A6905CD00F4E5AE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				73370E6F2A93ABEF00ECF419 /* AddFloor */,
 				FD3C907E2A8E86C600CF5839 /* Components */,
 				FD3C90792A8E864500CF5839 /* Home */,
 				FD3C90722A8E7C6F00CF5839 /* Calendar */,
@@ -513,6 +524,7 @@
 				73600DE82A72B59C00F9FE87 /* LoginViewController.swift in Sources */,
 				73600DFE2A7B5C7600F9FE87 /* NicknameViewController.swift in Sources */,
 				FDDCCF552A55930400FEDF8E /* SceneDelegate.swift in Sources */,
+				73370E712A93AC1300ECF419 /* AddFloorFirstViewController.swift in Sources */,
 				7390EF832A8E75F50042A0A3 /* FirebaseStorageManager.swift in Sources */,
 				7390EF652A8DE6EE0042A0A3 /* LoginViewModel.swift in Sources */,
 				7397F2A62A8A79490032CC21 /* MypageMainViewController.swift in Sources */,

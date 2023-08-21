@@ -118,15 +118,6 @@
       }
     },
     {
-      "identity" : "pageboy",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/uias/Pageboy",
-      "state" : {
-        "revision" : "5522aa6ae88633f6c23cf504e9cd684e963822f1",
-        "version" : "4.0.2"
-      }
-    },
-    {
       "identity" : "promises",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/google/promises.git",
@@ -151,15 +142,6 @@
       "state" : {
         "revision" : "ce20dc083ee485524b802669890291c0d8090170",
         "version" : "1.22.1"
-      }
-    },
-    {
-      "identity" : "tabman",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/uias/Tabman.git",
-      "state" : {
-        "revision" : "e32c0d821b03566ed966753f941113883f268da0",
-        "version" : "3.0.2"
       }
     }
   ],
