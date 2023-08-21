@@ -63,34 +63,20 @@ class CalendarViewController: ViewController {
         super.viewDidLoad()
         title = "캘린더"
         // 내비게이션 바 숨김
-        navigationController?.navigationBar.isHidden = true
-        
+//        navigationController?.navigationBar.isHidden = true
         view.backgroundColor = .white
         
         let dailyAchievementsSection = dailyAchievementsSection(archivementRate: 40,
                                     nickName: "삼공")
-        
-        let todoRow = todoRow(todo: "침구 닦기",
-                              furnitureName: "침대",
-                              spaceName: "침실")
 
         let todoScrollView = todoScrollView(todos: todos)
-        
-        view.addSubview(titleBar)
+      
         view.addSubview(filterBar)
         view.addSubview(dailyAchievementsSection)
         view.addSubview(todoScrollView)
         
-        
-        
-        titleBar.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-            $0.width.equalToSuperview()
-            $0.height.equalTo(52)
-        }
-        
         dailyAchievementsSection.snp.makeConstraints {
-            $0.top.equalTo(titleBar.snp.bottom).inset(-20)
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(40)
             $0.left.right.equalToSuperview().inset(24)
         }
 
@@ -98,7 +84,6 @@ class CalendarViewController: ViewController {
             $0.top.equalTo(dailyAchievementsSection.snp.bottom).inset(-38)
             $0.width.equalToSuperview()
             $0.height.equalTo(52)
-            
         }
   
 
@@ -106,7 +91,8 @@ class CalendarViewController: ViewController {
             $0.top.equalTo(filterBar.snp.bottom).inset(-24)
             $0.left.right.equalToSuperview()
             $0.bottom.equalToSuperview()
-            $0.height.equalTo(400)
+            $0.height.greaterThanOrEqualTo(200)
+            $0.height.lessThanOrEqualTo(300)
            
         }
         
@@ -142,25 +128,21 @@ class CalendarViewController: ViewController {
         peopleFilterButton.layer.cornerRadius = 4
         peopleFilterButton.layer.borderWidth = 1
         peopleFilterButton.layer.borderColor = UIColor.mcMainGreen.cgColor
-        
+        peopleFilterButton.addTarget(self,
+                                     action: #selector(changeFilterStandard),
+                                     for: .touchUpInside)
         
 
         //FIXME: 임시 아이콘
         let peopleImageView: UIImageView = {
-            let peopleImage = UIImage(systemName: "person.2")
-            let resizedImage = peopleImage?.setSizeAndColor(width: 10,
-                                         height: 10,
-                                         color: .mcMainGreen)
-            return UIImageView(image: resizedImage)
+            let peopleImage = UIImage(named: "group")
+            return UIImageView(image: peopleImage)
         }()
         
         //FIXME: 임시 아이콘
         let downChevronImageView: UIImageView = {
-            let downChevronImage = UIImage(systemName: "chevron.down")
-            let resizedImage = downChevronImage?.setSizeAndColor(width: 10,
-                                         height: 10,
-                                         color: .mcMainGreen)
-            return UIImageView(image: resizedImage)
+            let downChevronImage = UIImage(named: "down_chevron")
+            return UIImageView(image: downChevronImage)
         }()
         
         let filterTextLabel = UILabel()
@@ -168,11 +150,14 @@ class CalendarViewController: ViewController {
         filterTextLabel.font = UIFont.systemFont(ofSize: 16,
                                              weight: .medium)
         
-        let upDownArrowImageView : UIImageView = {
-            let upDownArrowImage = UIImage(systemName: "arrow.up.arrow.down")
-            let result = UIImageView(image: upDownArrowImage)
-            result.tintColor = .black
-            return result
+        let upDownArrowImageView : UIButton = {
+            let button = UIButton()
+            let upDownArrowImage = UIImage(named: "up_and_down")
+            button.setImage(upDownArrowImage, for: .normal)
+            button.addTarget(self,
+                             action: #selector(changeFilterStandard),
+                             for: .touchUpInside)
+            return button
         }()
         
         
@@ -233,18 +218,20 @@ class CalendarViewController: ViewController {
         dateLabel.font = UIFont.systemFont(ofSize: 16,
                                            weight: .medium)
         
-        let leftChevronImageView: UIImageView = {
-            let leftChevronImage = UIImage(systemName: "chevron.backward")
-            let result = UIImageView(image: leftChevronImage)
-            result.tintColor = .black
-            return result
+        let leftButton: UIButton = {
+            let button = UIButton()
+            let leftChevronImage = UIImage(named: "back")
+            button.setImage(leftChevronImage, for: .normal)
+            button.addTarget(self, action: #selector(moveLastWeek), for: .touchUpInside)
+            return button
         }()
         
-        let rightChevronImageView: UIImageView = {
-            let rightChevronImage = UIImage(systemName: "chevron.right")
-            let result = UIImageView(image: rightChevronImage)
-            result.tintColor = .black
-            return result
+        let rightButton: UIButton = {
+            let button = UIButton()
+            let leftChevronImage = UIImage(named: "right_chevron")
+            button.setImage(leftChevronImage, for: .normal)
+            button.addTarget(self, action: #selector(moveNextWeek), for: .touchUpInside)
+            return button
         }()
         
         let nameLabel = UILabel()
@@ -276,8 +263,8 @@ class CalendarViewController: ViewController {
         }()
         
         frame.addSubview(dateLabel)
-        frame.addSubview(leftChevronImageView)
-        frame.addSubview(rightChevronImageView)
+        frame.addSubview(leftButton)
+        frame.addSubview(rightButton)
         frame.addSubview(nameLabel)
         frame.addSubview(statusTextLabel)
         frame.addSubview(rateText)
@@ -285,7 +272,8 @@ class CalendarViewController: ViewController {
         frame.addSubview(illustrationImageView)
        
         frame.snp.makeConstraints {
-            $0.height.lessThanOrEqualTo(216)
+            $0.height.lessThanOrEqualTo(230)
+            $0.height.greaterThanOrEqualTo(216)
         }
         
         dateLabel.snp.makeConstraints {
@@ -293,13 +281,13 @@ class CalendarViewController: ViewController {
             $0.right.equalToSuperview()
         }
         
-        leftChevronImageView.snp.makeConstraints {
+        leftButton.snp.makeConstraints {
             $0.width.height.lessThanOrEqualTo(32)
             $0.centerY.equalTo(dateLabel)
-            $0.right.equalTo(rightChevronImageView.snp.left).inset(-5)
+            $0.right.equalTo(rightButton.snp.left).inset(-5)
         }
         
-        rightChevronImageView.snp.makeConstraints {
+        rightButton.snp.makeConstraints {
             $0.width.height.lessThanOrEqualTo(32)
             $0.centerY.equalTo(dateLabel)
             $0.right.equalToSuperview()
@@ -492,6 +480,18 @@ class CalendarViewController: ViewController {
         }
         
         return scrollFrame
+    }
+    
+    @objc func moveNextWeek() {
+        print("next")
+    }
+    
+    @objc func moveLastWeek() {
+        print("last")
+    }
+    
+    @objc func changeFilterStandard() {
+        print("changeFilterStandard")
     }
     
 }
