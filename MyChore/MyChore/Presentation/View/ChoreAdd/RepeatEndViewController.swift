@@ -123,24 +123,3 @@ class RepeatEndViewController: UIViewController {
     }
 }
 
-/*
-import SwiftUI
-
-struct ViewControllerRepresentable: UIViewControllerRepresentable {
-    typealias UIViewControllerType = RepeatEndViewController //뷰 컨트롤러 이름
-    
-    func makeUIViewController(context: Context) -> RepeatEndViewController {
-            return RepeatEndViewController() // 뷰컨트롤러 이름
-        }
-
-        func updateUIViewController(_ uiViewController: RepeatEndViewController, context: Context) {
-        }
-}
-
-@available(iOS 16.0.0, *)
-struct ViewPreview: PreviewProvider {
-    static var previews: some View {
-            ViewControllerRepresentable()
-    }
-}
-*/

@@ -23,6 +23,11 @@ class FurnitureSelectViewController: UIViewController, UICollectionViewDelegate 
     
     let testdata = F_Test.data
     
+    var selectedFurniture = ""
+    var furniture: String?
+    weak var delegate: SendDelegate?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,6 +47,11 @@ class FurnitureSelectViewController: UIViewController, UICollectionViewDelegate 
             make.right.equalToSuperview().offset(-24)
         }
     }
+    
+//    override func viewDidAppear(_ animated: Bool) {
+//        
+//        ChoreAddViewModel.shared.getGroup()
+//    }
     
     private let furnitureCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
@@ -68,7 +78,9 @@ class FurnitureSelectViewController: UIViewController, UICollectionViewDelegate 
     }
     
     @objc func sendData() {
+        self.delegate?.sendFurniture(furniture: selectedFurniture)
         print("페이지 pop")
+        self.navigationController?.popViewController(animated: true)
     }
 }
 
@@ -88,6 +100,12 @@ extension FurnitureSelectViewController: UICollectionViewDataSource {
         cell.backgroundColor = .mcGrey200
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedFurniture = testdata[indexPath.row].furniture
+    }
+    
+    
 }
 
 extension FurnitureSelectViewController: UICollectionViewDelegateFlowLayout {
@@ -113,6 +131,19 @@ class FurnitureCollectionViewCell: UICollectionViewCell {
         setConstraints()
     }
     
+    override var isSelected: Bool {
+        didSet {
+            if isSelected == true {
+                furnitureLabel.textColor = UIColor.mcMainGreen
+                backgroundColor = UIColor.mcSubGreen100
+            }
+            else {
+                furnitureLabel.textColor = UIColor.black
+                backgroundColor = UIColor.mcGrey200
+            }
+        }
+    }
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setUpCell()
@@ -131,26 +162,3 @@ class FurnitureCollectionViewCell: UICollectionViewCell {
         }
     }
 }
-
-
-/*
-import SwiftUI
-
-struct ViewControllerRepresentable: UIViewControllerRepresentable {
-    typealias UIViewControllerType = FurnitureSelectViewController //뷰 컨트롤러 이름
-    
-    func makeUIViewController(context: Context) -> FurnitureSelectViewController {
-            return FurnitureSelectViewController() // 뷰컨트롤러 이름
-        }
-
-        func updateUIViewController(_ uiViewController: FurnitureSelectViewController, context: Context) {
-        }
-}
-
-@available(iOS 16.0.0, *)
-struct ViewPreview: PreviewProvider {
-    static var previews: some View {
-            ViewControllerRepresentable()
-    }
-}
-*/
