@@ -6,34 +6,23 @@
 //
 
 import UIKit
-import SnapKit
 
 class AddFloorSecondViewController: UIViewController {
+    private let waringText = "한글/영어/밑줄/숫자만 사용할 수 있습니다. (8글자 이내)"
+    
     
     private let titleLabel = UILabel()
+
     
-    private let contentCollectionView: UICollectionView = {
-        
-        let layout = UICollectionViewFlowLayout()
-        
-        layout.itemSize = CGSize(width: (CGFloat.screenWidth - (48+16)) / 2, height: 128)
-        layout.minimumLineSpacing = 16
-        layout.scrollDirection = .horizontal
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-       
-        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        
-        cv.register(RoomSelectCell.self, forCellWithReuseIdentifier: "cell")
-        
-        return cv
-    }()
+    private let floorNameTextField = UITextField()
+    
+    private let lineView = UIView()
+    
+    private let infoLabel = UILabel()
     
     private let nextButton = UIButton()
     
-    private let backBarButton = UIBarButtonItem()
     
-    private var selectedRoom: RoomKind?
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,49 +31,69 @@ class AddFloorSecondViewController: UIViewController {
         setupConstraint()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        lineView.backgroundColor = UIColor.mcGrey300
+    }
+    
+    
     private func setup() {
-        backBarButton.image = UIImage(named: "back")
-        backBarButton.tintColor = .black
-        backBarButton.target = self
-        backBarButton.action = #selector(backNavigationAction)
+        self.view.backgroundColor = UIColor.white
         
-        self.navigationItem.leftBarButtonItem = backBarButton
-
-        //myInfo Viewmodel 연결
-        titleLabel.text = "님,\n집 종류를 알려주세요."
-        titleLabel.font = .systemFont(ofSize: 28)
         titleLabel.numberOfLines = 0
+        titleLabel.text = "평면도 이름을\n정해주세요"
+        titleLabel.font = UIFont.systemFont(ofSize: 28)
         
-        contentCollectionView.dataSource = self
-        contentCollectionView.delegate = self
+        floorNameTextField.placeholder = "ex) 00이의 평면도"
+        floorNameTextField.font = UIFont.systemFont(ofSize: 18)
+        floorNameTextField.delegate = self
+        
+        infoLabel.font = UIFont.systemFont(ofSize: 12)
+        infoLabel.textColor = .mcGrey600
+        
         
         nextButton.setTitle("다음", for: .normal)
-        nextButton.backgroundColor = .mcMainGreen
-        nextButton.tintColor = .white
-        nextButton.layer.cornerRadius = 10
-        nextButton.addTarget(self, action: #selector(nextButtonAction), for: .touchDown)
+        nextButton.titleLabel?.font = UIFont.systemFont(ofSize: 20)
+        nextButton.tintColor = UIColor.white
+        nextButton.backgroundColor = UIColor.mcGrey400
+        nextButton.isEnabled = false
         
+        nextButton.addTarget(self, action: #selector(nextAction), for: .touchDown)
+        nextButton.layer.cornerRadius = 10
     }
     
     private func setupView() {
-        self.view.backgroundColor = .white
-        
         self.view.addSubview(titleLabel)
-        self.view.addSubview(contentCollectionView)
+        
+        self.view.addSubview(floorNameTextField)
+        self.view.addSubview(lineView)
+        self.view.addSubview(infoLabel)
         self.view.addSubview(nextButton)
     }
     
     private func setupConstraint() {
         titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(self.view.safeAreaLayoutGuide).offset(67)
-            make.leading.equalToSuperview().offset(24)
+            make.top.equalTo(self.view.safeAreaInsets).offset(63)
+            make.left.equalToSuperview().offset(24)
         }
         
-        contentCollectionView.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(50)
-            make.leading.equalToSuperview().offset(24)
-            make.trailing.equalToSuperview().offset(-24)
-            make.height.equalTo(280)
+        
+        floorNameTextField.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(64)
+            make.left.equalToSuperview().offset(24)
+            make.right.equalToSuperview().offset(-24)
+        }
+        
+        lineView.snp.makeConstraints { make in
+            make.top.equalTo(floorNameTextField.snp.bottom).offset(2)
+            make.left.equalToSuperview().offset(24)
+            make.right.equalToSuperview().offset(-24)
+            make.height.equalTo(2)
+        }
+        
+        infoLabel.snp.makeConstraints { make in
+            make.top.equalTo(lineView.snp.bottom).offset(4)
+            make.left.equalToSuperview().offset(24)
+            make.right.equalToSuperview().offset(-24)
         }
         
         nextButton.snp.makeConstraints { make in
@@ -93,44 +102,56 @@ class AddFloorSecondViewController: UIViewController {
             make.trailing.equalToSuperview().offset(-24)
             make.height.equalTo(58)
         }
+        
     }
     
-    @objc private func backNavigationAction() {
-        self.navigationController?.popViewController(animated: true)
+    
+    
+    func infoChange(check: Bool) {
+        if check {
+            lineView.backgroundColor = UIColor.mcMainGreen
+            
+            nextButton.isEnabled = true
+            nextButton.backgroundColor = UIColor.mcMainGreen
+        }else {
+            lineView.backgroundColor = UIColor.red
+            
+            nextButton.isEnabled = false
+            nextButton.backgroundColor = UIColor.mcGrey400
+        }
     }
     
-    @objc private func nextButtonAction() {
+    @objc private func nextAction() {
+        let nextVC = AddFloorThirdViewController()
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
 
 }
 
-extension AddFloorSecondViewController: UICollectionViewDataSource, UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return RoomKind.allCases.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! RoomSelectCell
+extension AddFloorSecondViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let text = textField.text else {return false}
         
-        cell.titleLabel.text = RoomKind.allCases[indexPath.row].rawValue
-        cell.contentLabel.text = RoomKind.allCases[indexPath.row].getRoomComposition()
-        cell.contentImageView.image = UIImage(named: RoomKind.allCases[indexPath.row].getRoomImage())
-        cell.contentView.backgroundColor = .mcGrey100
+        let utf8Char = string.cString(using: .utf8)
+        let isBackSpace = strcmp(utf8Char, "\\b")
         
-        if let selectedRoom = selectedRoom {
-            if RoomKind.allCases[indexPath.row] == selectedRoom {
-                cell.contentView.backgroundColor = UIColor(red: 0.929, green: 0.973, blue: 0.953, alpha: 1)
-                cell.contentImageView.image = UIImage(named: RoomKind.allCases[indexPath.row].getRoomSelectedImage())
-            }
+        if isBackSpace == -92 {
+            return true
         }
         
-        return cell
+        if !string.hasCharacters(){
+            infoChange(check: false)
+        }else {
+            infoChange(check: true)
+        }
+        
+        return !(text.count > 8)
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectedRoom = RoomKind.allCases[indexPath.row]
-        collectionView.reloadData()
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
-    
-    
+
 }
