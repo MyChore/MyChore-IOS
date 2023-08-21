@@ -141,7 +141,7 @@
 				7390EF5F2A8D37660042A0A3 /* InfoCell.swift */,
 				7390EF5B2A8D0AD40042A0A3 /* MyPageCell.swift */,
 			);
-			path = Cell;
+			name = Cell;
 			sourceTree = "<group>";
 		};
 		7390EF632A8DE6D80042A0A3 /* Login */ = {
