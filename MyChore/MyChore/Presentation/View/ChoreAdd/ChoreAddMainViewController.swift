@@ -109,9 +109,15 @@ class ChoreAddMainViewController: UIViewController, SendDelegate {
         placeButton.setTitle("거실", for: .normal)
         placeButton.setTitleColor(UIColor.mcGrey800, for: .normal)
         
+        //placeButton.addTarget(self, action: #selector(btnClicked), for: .touchUpInside)
         return placeButton
     }()
     
+//    @objc func btnClicked() {
+//        placeButton.backgroundColor = UIColor.mcSubGreen100
+//        placeButton.setTitleColor(UIColor.mcMainGreen, for: .normal)
+//    }
+
     lazy var placeButton1 = placeButton
     
     lazy var secondLine: UIView = {
@@ -263,7 +269,6 @@ class ChoreAddMainViewController: UIViewController, SendDelegate {
     
     @objc private func repeatSelect() {
         let repeatSelectVC = RepeatSelectViewController()
-        
         self.navigationController?.pushViewController(repeatSelectVC, animated: true)
     }
     
