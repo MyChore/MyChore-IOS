@@ -92,6 +92,8 @@ class LoginViewController: UIViewController {
         LoginViewModel.shared.getIsJoin { isJoin in
             if isJoin {
                 // 메인 화면으로 넘어가기
+                let homeVC = MCTabBarViewController()
+                self.navigationController?.pushViewController(homeVC, animated: true)
             }else {
                 let agreementVC = AgreementViewController()
                 self.navigationController?.pushViewController(agreementVC, animated: true)

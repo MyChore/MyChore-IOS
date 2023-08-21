@@ -29,7 +29,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 
                 
                 // 메인 연결
-                let rootViewController = MypageMainViewController()
+                let rootViewController = MCTabBarViewController()
                 self.window?.rootViewController = UINavigationController(rootViewController: rootViewController)
             }else {
                 let rootViewController = LoginViewController()
