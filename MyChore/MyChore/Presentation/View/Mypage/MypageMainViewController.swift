@@ -12,7 +12,7 @@ import Kingfisher
 
 class MypageMainViewController: UIViewController {
     private let titleList = ["알림", "공지사항", "문의하기", "정보"]
-    private let titleImageList = ["notification", "notice", "qa", "info"]
+    private let titleImageList = ["icon_bell", "icon_speaker", "icon_question", "icon_information"]
 
     
     private let logoutButton = UIBarButtonItem()
@@ -142,7 +142,7 @@ extension MypageMainViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MyPageCell
         
         cell.setupTitle(title: titleList[indexPath.row], image: titleImageList[indexPath.row])
-        
+        cell.selectionStyle = UITableViewCell.SelectionStyle.none
         return cell
     }
     
