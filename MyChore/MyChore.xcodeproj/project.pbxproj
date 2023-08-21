@@ -54,6 +54,7 @@
 		FD5F95F62A93A78E006573B2 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5F95F52A93A78E006573B2 /* LoginViewModel.swift */; };
 		FD5F95F92A93A793006573B2 /* MypageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5F95F82A93A793006573B2 /* MypageViewModel.swift */; };
 		FD5F95FC2A93ABDE006573B2 /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = FD5F95FB2A93ABDE006573B2 /* Tabman */; };
+		FD5F96002A93B217006573B2 /* ManageMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5F95FF2A93B217006573B2 /* ManageMainViewController.swift */; };
 		FD6438152A9235C200A6BBFD /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6438142A9235C200A6BBFD /* Date+.swift */; };
 		FD6438172A934D1E00A6BBFD /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6438162A934D1E00A6BBFD /* Tag.swift */; };
 		FD6438192A93608900A6BBFD /* MCTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6438182A93608900A6BBFD /* MCTabBarViewController.swift */; };
@@ -103,6 +104,7 @@
 		FD5F95ED2A93A743006573B2 /* FurnitureSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FurnitureSelectViewController.swift; sourceTree = "<group>"; };
 		FD5F95F52A93A78E006573B2 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		FD5F95F82A93A793006573B2 /* MypageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MypageViewModel.swift; sourceTree = "<group>"; };
+		FD5F95FF2A93B217006573B2 /* ManageMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageMainViewController.swift; sourceTree = "<group>"; };
 		FD6438142A9235C200A6BBFD /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 		FD6438162A934D1E00A6BBFD /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		FD6438182A93608900A6BBFD /* MCTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCTabBarViewController.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 		FD33CE222A6905CD00F4E5AE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FD5F95FE2A93B1FE006573B2 /* Manage */,
 				FD5F95E72A93A743006573B2 /* ChoreAdd */,
 				FD5F95D92A93A73B006573B2 /* Mypage */,
 				FD5F95CE2A93A726006573B2 /* Login */,
@@ -382,6 +385,14 @@
 			);
 			name = Mypage;
 			path = ViewModel/Mypage;
+			sourceTree = "<group>";
+		};
+		FD5F95FE2A93B1FE006573B2 /* Manage */ = {
+			isa = PBXGroup;
+			children = (
+				FD5F95FF2A93B217006573B2 /* ManageMainViewController.swift */,
+			);
+			path = Manage;
 			sourceTree = "<group>";
 		};
 		FDDCCF462A55930400FEDF8E = {
@@ -544,6 +555,7 @@
 				FD3C90742A8E7C9800CF5839 /* CheckBoxButton.swift in Sources */,
 				FD5F95D72A93A726006573B2 /* LoginViewController.swift in Sources */,
 				FD5F95E52A93A73B006573B2 /* InfoViewController.swift in Sources */,
+				FD5F96002A93B217006573B2 /* ManageMainViewController.swift in Sources */,
 				FD3C90782A8E7CE600CF5839 /* UIImage+.swift in Sources */,
 				FD5F95E12A93A73B006573B2 /* UserInfoChangeViewController.swift in Sources */,
 				FDDCCF552A55930400FEDF8E /* SceneDelegate.swift in Sources */,
