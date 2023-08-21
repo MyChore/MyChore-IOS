@@ -25,6 +25,7 @@ class HomeViewController: ViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "홈"
         
         todoTableView.register(TodoTableCell.self,
                                forCellReuseIdentifier: TodoTableCell.identifier)
@@ -66,7 +67,7 @@ class HomeViewController: ViewController {
         
         todoScrollView.snp.makeConstraints {
             $0.left.right.equalToSuperview()
-            $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(61)
+            $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
             $0.height.equalTo(300)
         }
         
