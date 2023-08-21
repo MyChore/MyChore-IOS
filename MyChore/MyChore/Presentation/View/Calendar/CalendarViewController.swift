@@ -61,7 +61,7 @@ class CalendarViewController: ViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        title = "캘린더"
         // 내비게이션 바 숨김
         navigationController?.navigationBar.isHidden = true
         
@@ -106,7 +106,8 @@ class CalendarViewController: ViewController {
             $0.top.equalTo(filterBar.snp.bottom).inset(-24)
             $0.left.right.equalToSuperview()
             $0.bottom.equalToSuperview()
-            $0.height.greaterThanOrEqualTo(400)
+            $0.height.equalTo(400)
+           
         }
         
         
@@ -117,7 +118,7 @@ class CalendarViewController: ViewController {
     let titleBar: UIView = {
         let titleFrame = UIView()
         let titleLabel = UILabel()
-        titleLabel.text = "기록"
+        titleLabel.text = "캘린더"
         titleLabel.font = UIFont.systemFont(ofSize: 20,
                                             weight: .semibold)
         
@@ -284,7 +285,7 @@ class CalendarViewController: ViewController {
         frame.addSubview(illustrationImageView)
        
         frame.snp.makeConstraints {
-            $0.height.greaterThanOrEqualTo(216)
+            $0.height.lessThanOrEqualTo(216)
         }
         
         dateLabel.snp.makeConstraints {
