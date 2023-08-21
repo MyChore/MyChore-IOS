@@ -55,29 +55,37 @@ class LoginViewController: UIViewController {
     
     private func setupConstraint() {
         logoTitleLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(252)
+            make.top.equalToSuperview().offset(CGFloat.screenHeight / 3)
             make.centerX.equalToSuperview()
         }
         
         logoImageView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(302)
+            make.top.equalTo(logoTitleLabel.snp.bottom).offset(0)
             make.centerX.equalToSuperview()
         }
         
-        messageImageView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(642)
+        
+        
+        appleButton.snp.makeConstraints { make in
+            make.bottom.equalToSuperview().offset(-69)
             make.centerX.equalToSuperview()
+            make.leading.equalToSuperview().offset(24)
+            make.trailing.equalToSuperview().offset(-24)
         }
         
         kakaoButton.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(703)
+            make.bottom.equalTo(appleButton.snp.top).offset(-10)
+            make.centerX.equalToSuperview()
+            make.leading.equalToSuperview().offset(24)
+            make.trailing.equalToSuperview().offset(-24)
+        }
+        
+        messageImageView.snp.makeConstraints { make in
+            make.bottom.equalTo(kakaoButton.snp.top).offset(-15)
             make.centerX.equalToSuperview()
         }
         
-        appleButton.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(765)
-            make.centerX.equalToSuperview()
-        }
+       
     }
     
     private func setupObserver() {
