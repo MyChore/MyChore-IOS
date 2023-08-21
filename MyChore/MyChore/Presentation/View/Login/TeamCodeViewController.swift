@@ -120,6 +120,8 @@ class TeamCodeViewController: UIViewController {
             }else {
                 // 메인 화면으로 넘어가기
                 print("회원 가입 성공 -> 메인화면으로 넘어가기")
+                let homeVC = HomeViewController()
+                self.navigationController?.pushViewController(homeVC, animated: true)
             }
         }
     }

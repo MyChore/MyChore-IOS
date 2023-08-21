@@ -27,7 +27,7 @@ class MCTabBarViewController: UIViewController {
                                            image: UIImage(named: "calendar"),
                                            selectedImage: UIImage(named: "calendar"))
         
-        let addFloorPlan = UINavigationController(rootViewController: addFloorPlan())
+        let addFloorPlan = UINavigationController(rootViewController: ChoreAddMainViewController())
         addFloorPlan.tabBarItem = UITabBarItem(title: "추가", image: UIImage(named: "add"),
                                        selectedImage: UIImage(named: "add"))
         let manage = UINavigationController(rootViewController: manage())

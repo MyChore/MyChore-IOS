@@ -9,7 +9,21 @@ import UIKit
 
 import SnapKit
 
-class ChoreAddMainViewController: UIViewController {
+protocol SendDelegate: AnyObject {
+    func sendManager(manager: String)
+    func sendFurniture(furniture: String)
+}
+
+class ChoreAddMainViewController: UIViewController, SendDelegate {
+    
+    func sendFurniture(furniture: String) {
+        self.furnitureSelectedLabel.text = furniture
+    }
+    
+    func sendManager(manager: String) {
+        self.managerSelectedLabel.text = manager
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,8 +37,6 @@ class ChoreAddMainViewController: UIViewController {
     
     // 네비게이션바
     func initNavigation() {
-        let backButton = UIBarButtonItem(image: UIImage(named: "icon_back"), style: .plain, target: self, action: #selector(backMainPage))
-        backButton.tintColor = UIColor.mcGrey800
         
         let titleLabel = UILabel()
         titleLabel.text = "집안일 추가"
@@ -32,8 +44,6 @@ class ChoreAddMainViewController: UIViewController {
         
         let doneButton = UIBarButtonItem(title: "완료", style: .done, target: self, action: #selector(sendData))
         
-        
-        self.navigationItem.leftBarButtonItem = backButton
         self.navigationItem.titleView = titleLabel
         self.navigationItem.rightBarButtonItem = doneButton
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.mcMainGreen
@@ -41,6 +51,7 @@ class ChoreAddMainViewController: UIViewController {
     
     @objc func backMainPage() {
         print("페이지 pop") // pop 표시
+        self.navigationController?.popViewController(animated: true)
     }
     
     @objc func sendData() {
@@ -138,7 +149,7 @@ class ChoreAddMainViewController: UIViewController {
     
     @objc private func furnitureSelect() {
         let furnitureSelectVC = FurnitureSelectViewController()
-        
+        furnitureSelectVC.delegate = self
         self.navigationController?.pushViewController(furnitureSelectVC, animated: true)
     }
     
@@ -291,7 +302,7 @@ class ChoreAddMainViewController: UIViewController {
     
     @objc private func managerSelect() {
         let managerSelectVC = ManagerSelectViewController()
-        
+        managerSelectVC.delegate = self
         self.navigationController?.pushViewController(managerSelectVC, animated: true)
     }
     
@@ -493,25 +504,11 @@ class ChoreAddMainViewController: UIViewController {
             make.right.equalTo(self.view.safeAreaLayoutGuide).offset(-24)
         }
     }
-}
-/*
-import SwiftUI
-
-struct ViewControllerRepresentable: UIViewControllerRepresentable {
-    typealias UIViewControllerType = ChoreAddMainViewController //뷰 컨트롤러 이름
     
-    func makeUIViewController(context: Context) -> ChoreAddMainViewController {
-            return ChoreAddMainViewController() // 뷰컨트롤러 이름
+    @objc func handleTap(sender: UITapGestureRecognizer) {
+        if sender.state == .ended {
+            view.endEditing(true)
         }
-
-        func updateUIViewController(_ uiViewController: ChoreAddMainViewController, context: Context) {
-        }
-}
-
-@available(iOS 16.0.0, *)
-struct ViewPreview: PreviewProvider {
-    static var previews: some View {
-            ViewControllerRepresentable()
+        sender.cancelsTouchesInView = false
     }
 }
-*/
