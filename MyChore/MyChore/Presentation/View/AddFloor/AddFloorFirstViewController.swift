@@ -94,7 +94,8 @@ class AddFloorFirstViewController: UIViewController {
     }
     
     @objc private func nextButtonAction() {
-        
+        let nextVC = AddFloorSecondViewController()
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
 
 }

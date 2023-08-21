@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		73370E712A93AC1300ECF419 /* AddFloorFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73370E702A93AC1300ECF419 /* AddFloorFirstViewController.swift */; };
+		73370E732A93B55700ECF419 /* AddFloorSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73370E722A93B55700ECF419 /* AddFloorSecondViewController.swift */; };
+		73370E762A93BBA700ECF419 /* RoomSelectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73370E752A93BBA700ECF419 /* RoomSelectCell.swift */; };
 		73600DE82A72B59C00F9FE87 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73600DE72A72B59C00F9FE87 /* LoginViewController.swift */; };
 		73600DEA2A72C84100F9FE87 /* AgreementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73600DE92A72C84100F9FE87 /* AgreementViewController.swift */; };
 		73600DFE2A7B5C7600F9FE87 /* NicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73600DFD2A7B5C7600F9FE87 /* NicknameViewController.swift */; };
@@ -61,6 +63,8 @@
 
 /* Begin PBXFileReference section */
 		73370E702A93AC1300ECF419 /* AddFloorFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFloorFirstViewController.swift; sourceTree = "<group>"; };
+		73370E722A93B55700ECF419 /* AddFloorSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFloorSecondViewController.swift; sourceTree = "<group>"; };
+		73370E752A93BBA700ECF419 /* RoomSelectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomSelectCell.swift; sourceTree = "<group>"; };
 		73600DE72A72B59C00F9FE87 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = View/Login/LoginViewController.swift; sourceTree = SOURCE_ROOT; };
 		73600DE92A72C84100F9FE87 /* AgreementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AgreementViewController.swift; path = View/Login/AgreementViewController.swift; sourceTree = SOURCE_ROOT; };
 		73600DFD2A7B5C7600F9FE87 /* NicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NicknameViewController.swift; path = View/Login/NicknameViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -128,9 +132,19 @@
 		73370E6F2A93ABEF00ECF419 /* AddFloor */ = {
 			isa = PBXGroup;
 			children = (
+				73370E742A93BB8800ECF419 /* Cell */,
 				73370E702A93AC1300ECF419 /* AddFloorFirstViewController.swift */,
+				73370E722A93B55700ECF419 /* AddFloorSecondViewController.swift */,
 			);
 			path = AddFloor;
+			sourceTree = "<group>";
+		};
+		73370E742A93BB8800ECF419 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				73370E752A93BBA700ECF419 /* RoomSelectCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		73600DE62A72B57C00F9FE87 /* Login */ = {
@@ -506,6 +520,7 @@
 				7390EF682A8DE7470042A0A3 /* LoginProvider.swift in Sources */,
 				FDDCCF532A55930400FEDF8E /* AppDelegate.swift in Sources */,
 				73600E092A7F707800F9FE87 /* TeamCodeViewController.swift in Sources */,
+				73370E732A93B55700ECF419 /* AddFloorSecondViewController.swift in Sources */,
 				FD3C90852A9103A200CF5839 /* TodoTableCell.swift in Sources */,
 				7390EF552A8B45410042A0A3 /* UserInfoChangeViewController.swift in Sources */,
 				7390EF732A8DF7DF0042A0A3 /* GeneralModel.swift in Sources */,
@@ -523,6 +538,7 @@
 				7390EF602A8D37660042A0A3 /* InfoCell.swift in Sources */,
 				73600DE82A72B59C00F9FE87 /* LoginViewController.swift in Sources */,
 				73600DFE2A7B5C7600F9FE87 /* NicknameViewController.swift in Sources */,
+				73370E762A93BBA700ECF419 /* RoomSelectCell.swift in Sources */,
 				FDDCCF552A55930400FEDF8E /* SceneDelegate.swift in Sources */,
 				73370E712A93AC1300ECF419 /* AddFloorFirstViewController.swift in Sources */,
 				7390EF832A8E75F50042A0A3 /* FirebaseStorageManager.swift in Sources */,
