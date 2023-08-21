@@ -13,6 +13,8 @@ import Tabman
 
 class RepeatSelectViewController: UIViewController {
     
+    var completionHandler: ((String) -> (String))?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,9 +47,12 @@ class RepeatSelectViewController: UIViewController {
         print("페이지 pop") // pop 표시
     }
     
+    
     @objc func sendData() {
-        print("페이지 pop")
+        self.navigationController?.popViewController(animated: true)
     }
+    
+    
     
     lazy var containerView: UIView = {
         let containerView = UIView()
@@ -86,6 +91,7 @@ class TabViewController: TabmanViewController {
     func setUpTab() {
         let firstVC = RepeatPeriodViewController()
         let secondVC = RepeatEndViewController()
+        
         
         viewControllers.append(firstVC)
         viewControllers.append(secondVC)
@@ -140,26 +146,5 @@ extension TabViewController: PageboyViewControllerDataSource, TMBarDataSource {
             let title = "Page: \(index)"
             return TMBarItem(title: title)
         }
-    }
-}
-
-
-import SwiftUI
-
-struct ViewControllerRepresentable: UIViewControllerRepresentable {
-    typealias UIViewControllerType = RepeatSelectViewController //뷰 컨트롤러 이름
-    
-    func makeUIViewController(context: Context) -> RepeatSelectViewController {
-            return RepeatSelectViewController() // 뷰컨트롤러 이름
-        }
-
-        func updateUIViewController(_ uiViewController: RepeatSelectViewController, context: Context) {
-        }
-}
-
-@available(iOS 16.0.0, *)
-struct ViewPreview: PreviewProvider {
-    static var previews: some View {
-            ViewControllerRepresentable()
     }
 }

@@ -26,6 +26,10 @@ class ManagerSelectViewController: UIViewController {
     
     let testdata = M_Test.data
     
+    var selectedManager = ""
+    var manager: String?
+    weak var delegate: SendDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
@@ -70,8 +74,11 @@ class ManagerSelectViewController: UIViewController {
     }
     
     @objc func sendData() {
+        self.delegate?.sendManager(manager: selectedManager)
         print("페이지 pop")
+        self.navigationController?.popViewController(animated: true)
     }
+    
 }
 
 extension ManagerSelectViewController: UICollectionViewDataSource {
@@ -89,6 +96,10 @@ extension ManagerSelectViewController: UICollectionViewDataSource {
         cell.peopleLabel.text = testdata[indexPath.row].peopleName
         cell.backgroundColor = .mcGrey200
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedManager = testdata[indexPath.row].peopleName
     }
 }
 
@@ -116,6 +127,20 @@ class ManagerCollectionViewCell: UICollectionViewCell {
         peopleLabel.font = UIFont.systemFont(ofSize: 18)
         return peopleLabel
     }()
+    
+    override var isSelected: Bool {
+        didSet {
+            if isSelected == true {
+                peopleLabel.textColor = UIColor.mcMainGreen
+                backgroundColor = UIColor.mcSubGreen100
+                
+            }
+            else {
+                peopleLabel.textColor = UIColor.black
+                backgroundColor = UIColor.mcGrey200
+            }
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -147,24 +172,3 @@ class ManagerCollectionViewCell: UICollectionViewCell {
         }
     }
 }
-
-
-//import SwiftUI
-//
-//struct ViewControllerRepresentable: UIViewControllerRepresentable {
-//    typealias UIViewControllerType = ManagerSelectViewController //뷰 컨트롤러 이름
-//
-//    func makeUIViewController(context: Context) -> ManagerSelectViewController {
-//            return ManagerSelectViewController() // 뷰컨트롤러 이름
-//        }
-//
-//        func updateUIViewController(_ uiViewController: ManagerSelectViewController, context: Context) {
-//        }
-//}
-//
-//@available(iOS 16.0.0, *)
-//struct ViewPreview: PreviewProvider {
-//    static var previews: some View {
-//            ViewControllerRepresentable()
-//    }
-//}

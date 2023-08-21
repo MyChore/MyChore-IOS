@@ -108,24 +108,3 @@ class RepeatPeriodTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 }
-
-/*
-import SwiftUI
-
-struct ViewControllerRepresentable: UIViewControllerRepresentable {
-    typealias UIViewControllerType = RepeatPeriodViewController //뷰 컨트롤러 이름
-    
-    func makeUIViewController(context: Context) -> RepeatPeriodViewController {
-            return RepeatPeriodViewController() // 뷰컨트롤러 이름
-        }
-
-    func updateUIViewController(_ uiViewController: RepeatPeriodViewController, context: Context) {
-    }
-}
-
-@available(iOS 16.0.0, *)
-struct ViewPreview: PreviewProvider {
-    static var previews: some View {
-            ViewControllerRepresentable()
-    }
-}*/
