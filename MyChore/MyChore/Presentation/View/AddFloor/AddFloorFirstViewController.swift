@@ -16,6 +16,8 @@ class AddFloorFirstViewController: UIViewController {
     private let contentImageView = UIImageView()
     
     private let nextButton = UIButton()
+    
+    private let backBarButton = UIBarButtonItem()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +28,13 @@ class AddFloorFirstViewController: UIViewController {
     }
     
     private func setup() {
+        backBarButton.image = UIImage(named: "back")
+        backBarButton.tintColor = .black
+        backBarButton.target = self
+        backBarButton.action = #selector(backNavigationAction)
+        
+        self.navigationItem.leftBarButtonItem = backBarButton
+
         
         titleLabel.text = "평면도도 내게 맞춰서,"
         titleLabel.font = .systemFont(ofSize: 28)
@@ -41,6 +50,7 @@ class AddFloorFirstViewController: UIViewController {
         nextButton.backgroundColor = .mcMainGreen
         nextButton.tintColor = .white
         nextButton.layer.cornerRadius = 10
+        nextButton.addTarget(self, action: #selector(nextButtonAction), for: .touchDown)
         
     }
     
@@ -55,7 +65,7 @@ class AddFloorFirstViewController: UIViewController {
     
     private func setupConstraint() {
         titleLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(67)
+            make.top.equalTo(self.view.safeAreaLayoutGuide).offset(67)
             make.leading.equalToSuperview().offset(24)
         }
         
