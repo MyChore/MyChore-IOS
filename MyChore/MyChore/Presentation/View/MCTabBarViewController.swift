@@ -30,7 +30,7 @@ class MCTabBarViewController: UIViewController {
         let addFloorPlan = UINavigationController(rootViewController: ChoreAddMainViewController())
         addFloorPlan.tabBarItem = UITabBarItem(title: "추가", image: UIImage(named: "add"),
                                        selectedImage: UIImage(named: "add"))
-        let manage = UINavigationController(rootViewController: manage())
+        let manage = UINavigationController(rootViewController: ManageMasterViewController())
         manage.tabBarItem = UITabBarItem(title: "관리", image: UIImage(named: "manage"),
                                        selectedImage: UIImage(named: "manage"))
         
