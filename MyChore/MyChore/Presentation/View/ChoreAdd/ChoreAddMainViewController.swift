@@ -70,7 +70,7 @@ class ChoreAddMainViewController: UIViewController, SendDelegate {
     lazy var choreTextField: UITextField = {
         let choreTextField = UITextField()
         //choreTextField.placeholder = "입력하세요"
-        choreTextField.tintColor = UIColor.mcSubGreen100
+        choreTextField.tintColor = UIColor.mcSubGreen200
         choreTextField.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         choreTextField.clearButtonMode = UITextField.ViewMode.whileEditing
         return choreTextField
@@ -101,19 +101,69 @@ class ChoreAddMainViewController: UIViewController, SendDelegate {
         return placeLabel
     }()
     
-    let placeButton: UIButton = {
-        let placeButton = UIButton()
-        placeButton.backgroundColor = UIColor.mcGrey200
-        placeButton.layer.cornerRadius = 10.0
+    lazy var livingRoomButton: UIButton = {
+        let livingRoomButton = UIButton()
+        livingRoomButton.backgroundColor = UIColor.mcGrey200
+        livingRoomButton.layer.cornerRadius = 10.0
         
-        placeButton.setTitle("거실", for: .normal)
-        placeButton.setTitleColor(UIColor.mcGrey800, for: .normal)
+        livingRoomButton.setTitle("거실", for: .normal)
+        livingRoomButton.setTitleColor(UIColor.mcGrey800, for: .normal)
         
-        return placeButton
+        livingRoomButton.addTarget(self, action: #selector(btnClicked), for: .touchUpInside)
+        return livingRoomButton
     }()
     
-    lazy var placeButton1 = placeButton
+    lazy var room1Button: UIButton = {
+        let room1Button = UIButton()
+        room1Button.backgroundColor = UIColor.mcGrey200
+        room1Button.layer.cornerRadius = 10.0
+        
+        room1Button.setTitle("방1", for: .normal)
+        room1Button.setTitleColor(UIColor.mcGrey800, for: .normal)
+        room1Button.addTarget(self, action: #selector(btnClicked), for: .touchUpInside)
+        return room1Button
+    }()
     
+    lazy var room2Button: UIButton = {
+        let room2Button = UIButton()
+        room2Button.backgroundColor = UIColor.mcGrey200
+        room2Button.layer.cornerRadius = 10.0
+        
+        room2Button.setTitle("방2", for: .normal)
+        room2Button.setTitleColor(UIColor.mcGrey800, for: .normal)
+        room2Button.addTarget(self, action: #selector(btnClicked), for: .touchUpInside)
+        return room2Button
+    }()
+    
+    lazy var room3Button: UIButton = {
+        let room3Button = UIButton()
+        room3Button.backgroundColor = UIColor.mcGrey200
+        room3Button.layer.cornerRadius = 10.0
+        
+        room3Button.setTitle("방3", for: .normal)
+        room3Button.setTitleColor(UIColor.mcGrey800, for: .normal)
+        room3Button.addTarget(self, action: #selector(btnClicked), for: .touchUpInside)
+        return room3Button
+    }()
+    
+    lazy var btnArray: [UIButton] = [livingRoomButton, room1Button, room2Button, room3Button]
+    
+    @objc func btnClicked(_ sender: UIButton) {
+        for Btn in btnArray {
+            if Btn == sender {
+                // 만약 현재 버튼이 이 함수를 호출한 버튼이라면
+                Btn.isSelected = true
+                Btn.backgroundColor = UIColor.mcSubGreen100
+                Btn.setTitleColor(UIColor.mcMainGreen, for: .normal)
+            } else {
+                // 이 함수를 호출한 버튼이 아니라면
+                Btn.isSelected = false
+                Btn.backgroundColor = UIColor.mcGrey200
+                Btn.setTitleColor(UIColor.mcGrey800, for: .normal)
+            }
+        }
+    }
+
     lazy var secondLine: UIView = {
         let secondLine = UIView()
         secondLine.backgroundColor = UIColor.mcGrey100
@@ -263,7 +313,6 @@ class ChoreAddMainViewController: UIViewController, SendDelegate {
     
     @objc private func repeatSelect() {
         let repeatSelectVC = RepeatSelectViewController()
-        
         self.navigationController?.pushViewController(repeatSelectVC, animated: true)
     }
     
@@ -320,7 +369,10 @@ class ChoreAddMainViewController: UIViewController, SendDelegate {
         view.addSubview(firstLine)
         view.addSubview(placeIconView)
         view.addSubview(placeLabel)
-        view.addSubview(placeButton1)
+        view.addSubview(livingRoomButton)
+        view.addSubview(room1Button)
+        view.addSubview(room2Button)
+        view.addSubview(room3Button)
         view.addSubview(secondLine)
         view.addSubview(furnitureIconView)
         view.addSubview(furnitureLabel)
@@ -380,15 +432,33 @@ class ChoreAddMainViewController: UIViewController, SendDelegate {
             make.centerY.equalTo(placeIconView.snp.centerY)
             make.left.equalTo(placeIconView.snp.right).offset(8)
         }
-        placeButton1.snp.makeConstraints { make in
+        livingRoomButton.snp.makeConstraints { make in
             make.height.equalTo(38)
             make.width.equalTo(72)
             make.top.equalTo(placeIconView.snp.bottom).offset(11)
             make.left.equalTo(self.view.safeAreaLayoutGuide).offset(24)
         }
+        room1Button.snp.makeConstraints { make in
+            make.height.equalTo(38)
+            make.width.equalTo(72)
+            make.centerY.equalTo(livingRoomButton.snp.centerY)
+            make.left.equalTo(livingRoomButton.snp.right).offset(10)
+        }
+        room2Button.snp.makeConstraints { make in
+            make.height.equalTo(38)
+            make.width.equalTo(72)
+            make.centerY.equalTo(livingRoomButton.snp.centerY)
+            make.left.equalTo(room1Button.snp.right).offset(10)
+        }
+        room3Button.snp.makeConstraints { make in
+            make.height.equalTo(38)
+            make.width.equalTo(72)
+            make.centerY.equalTo(livingRoomButton.snp.centerY)
+            make.left.equalTo(room2Button.snp.right).offset(10)
+        }
         secondLine.snp.makeConstraints { make in
             make.height.equalTo(2)
-            make.top.equalTo(placeButton1.snp.bottom).offset(18)
+            make.top.equalTo(livingRoomButton.snp.bottom).offset(18)
             make.left.equalTo(self.view.safeAreaLayoutGuide).offset(24)
             make.right.equalTo(self.view.safeAreaLayoutGuide).offset(-24)
         }
