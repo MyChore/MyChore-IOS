@@ -18,7 +18,7 @@ struct Group {
     var createdDate: Date
 }
 
-let group = Group(name: "우리집 좋아요",
+var group = Group(name: "우리집 좋아요",
                   roomType: "쓰리룸",
                   rooms: "방3 욕실2",
                   members: members,
@@ -27,14 +27,21 @@ let group = Group(name: "우리집 좋아요",
                   createdDate: Date())
 
 class ManageMasterViewController: ViewController {
+    let titleLabel = UILabel()
+    let groupNameLabel = UILabel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .mcSubGreen100
         self.navigationController?.navigationBar.isHidden = true
         
         let titleBar = titleBar(title: "우리집 좋아요")
-        let floorPlan = UIView()
-        floorPlan.backgroundColor = .mcMainGreen
+        
+        let floorPlan: UIImageView = {
+            let image = UIImage(named: "floor_one_demension")
+            return UIImageView(image: image)
+        }()
+        
         let groupSection = groupInformationSection(group: group)
         
         view.addSubview(titleBar)
@@ -66,13 +73,9 @@ class ManageMasterViewController: ViewController {
         let frame = UIView()
         frame.backgroundColor = .clear
         
-        let titleLabel: UILabel = {
-            let label = UILabel()
-            label.text = title
-            label.font = .systemFont(ofSize: 20,
-                                     weight: .semibold)
-            return label 
-        }()
+        titleLabel.text = title
+        titleLabel.font = .systemFont(ofSize: 20,
+                                      weight: .semibold)
         
         let menuButton: UIButton = {
             let button = UIButton()
@@ -129,13 +132,9 @@ class ManageMasterViewController: ViewController {
         frame.backgroundColor = .white
         frame.layer.cornerRadius = 20
         
-        let groupNameLabel: UILabel = {
-            let label = UILabel()
-            label.text = group.name
-            label.font = .systemFont(ofSize: 20,
-                                     weight: .semibold)
-            return label
-        }()
+        groupNameLabel.text = group.name
+        groupNameLabel.font = .systemFont(ofSize: 20,
+                                          weight: .semibold)
         
         let roomTypeLabel: UILabel = {
             let label = UILabel()
@@ -200,24 +199,7 @@ class ManageMasterViewController: ViewController {
                              for: .touchUpInside)
             return button
         }()
-        
-        
-//        let startDateTextLabel: UILabel = {
-//            let label = UILabel()
-//            label.text = "시작일"
-//            label.font = .systemFont(ofSize: 16,
-//                                     weight: .medium)
-//            return label
-//        }()
-//
-//        let startDateLabel: UILabel = {
-//            let label = UILabel()
-//            label.text = group.createdDate.formatUntilDay()
-//            return label
-//        }()
-        
-        
-        
+           
         frame.addSubview(groupNameLabel)
         frame.addSubview(roomTypeLabel)
         frame.addSubview(roomsLabel)
@@ -231,9 +213,6 @@ class ManageMasterViewController: ViewController {
         frame.addSubview(groupInviteCodeTextLabel)
         frame.addSubview(groupInviteCodeButton)
         
-//        frame.addSubview(startDateTextLabel)
-//        frame.addSubview(startDateLabel)
-        
         groupNameLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(26)
             $0.left.equalToSuperview().inset(24)
@@ -246,7 +225,7 @@ class ManageMasterViewController: ViewController {
         
         roomsLabel.snp.makeConstraints {
             $0.centerY.equalTo(groupNameLabel)
-            $0.right.equalToSuperview().inset(20)
+            $0.right.equalToSuperview().inset(24)
         }
         
         divider.snp.makeConstraints {
@@ -286,16 +265,6 @@ class ManageMasterViewController: ViewController {
             $0.top.equalTo(groupInviteCodeButton.snp.top)
             $0.right.equalToSuperview().inset(24)
         }
-        
-//        startDateTextLabel.snp.makeConstraints {
-//            $0.top.equalTo(groupInviteCodeTextLabel.snp.bottom).inset(-10)
-//            $0.left.equalToSuperview().inset(24)
-//        }
-//
-//        startDateLabel.snp.makeConstraints {
-//            $0.top.equalTo(startDateTextLabel.snp.top)
-//            $0.right.equalToSuperview().inset(24)
-//        }
         
         return frame
     }
@@ -387,13 +356,62 @@ class ManageMasterViewController: ViewController {
         
         let editGroupName = UIAlertAction(title: "그룹 이름 수정",
                                           style: .default) { _ in
-            print("edit group name")
             
+            let textFieldAlert = UIAlertController(title: "그룹 이름 변경",
+                                                   message: "변경할 그룹 이름을 작성해주세요.",
+                                                   preferredStyle: .alert)
+            textFieldAlert.addTextField() { textField in
+                textField.placeholder = "그룹 이름을 작성해주세요(ex. 마춰 사랑해)"
+            }
+            
+            let confirm = UIAlertAction(title: "확인",
+                                        style: .default) { _ in
+                guard let textField = textFieldAlert.textFields?.first,
+                      let changedName = textField.text,
+                      !changedName.isEmpty
+                else { return }
+                
+                
+                self.updateGroupName(changedName: changedName, group: group)
+            }
+            
+            let cancel = UIAlertAction(title: "취소",
+                                       style: .cancel)
+            
+            
+            textFieldAlert.addAction(confirm)
+            textFieldAlert.addAction(cancel)
+            
+            self.present(textFieldAlert, animated: true)
         }
         
         let editFloorPlanName = UIAlertAction(title: "평면도 이름 수정",
                                               style: .default) { _ in
-            print("edit floor plan name")
+            
+            let textFieldAlert = UIAlertController(title: "평면도 이름 변경",
+                                                   message: "변경할 평면도 이름을 작성해주세요.",
+                                                   preferredStyle: .alert)
+            textFieldAlert.addTextField() { textField in
+                textField.placeholder = "평면도 이름을 작성해주세요(ex. 우리집 평면도)"
+            }
+            
+            let confirm = UIAlertAction(title: "확인",
+                                        style: .default) { _ in
+                guard let textField = textFieldAlert.textFields?.first,
+                      let changedName = textField.text,
+                      !changedName.isEmpty
+                else { return }
+                // change floorPlanName 
+            }
+            
+            let cancel = UIAlertAction(title: "취소",
+                                       style: .cancel)
+            
+            
+            textFieldAlert.addAction(confirm)
+            textFieldAlert.addAction(cancel)
+            
+            self.present(textFieldAlert, animated: true)
         }
         
         let cancel = UIAlertAction(title: "취소",
@@ -411,6 +429,14 @@ class ManageMasterViewController: ViewController {
     func navigateToGroupSettingView() {
         self.navigationController?.pushViewController(GroupMemberSettingViewController(),
                                                       animated: true)
+    }
+    
+    func updateGroupName(changedName: String,
+                         group: Group) {
+        groupNameLabel.text = changedName
+        titleLabel.text = changedName
+//        group.name = changedName
+        // update group data
     }
     
     @objc func copyInviteCode() {
