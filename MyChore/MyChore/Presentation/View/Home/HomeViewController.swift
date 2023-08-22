@@ -42,8 +42,11 @@ class HomeViewController: ViewController {
         let informationView = informationTopSection(groupName: "마초사랑해")
         let todoScrollView = todoScrollView(name: "삼공")
         //FIXME: 평면도로 대체해야 함.
-        let floorPlanView = UIView()
-        floorPlanView.backgroundColor = .mcMainGreen
+        let floorPlanView: UIImageView = {
+            let image = UIImage(named: "floor_one_demension")
+            return UIImageView(image: image)
+        }()
+        
         
         
         view.addSubview(informationView)
@@ -57,18 +60,20 @@ class HomeViewController: ViewController {
         }
         
         floorPlanView.snp.makeConstraints {
-            $0.height.greaterThanOrEqualTo(200)
-            $0.height.lessThanOrEqualTo(200)
-            $0.top.equalTo(informationView.snp.bottom)
+            $0.height.greaterThanOrEqualTo(150)
+            $0.height.lessThanOrEqualTo(300)
+            $0.width.equalTo(floorPlanView.snp.height)
+            $0.top.equalTo(informationView.snp.bottom).inset(-10)
             $0.bottom.equalTo(todoScrollView.snp.top).inset(-10)
-            $0.left.equalToSuperview().inset(19)
-            $0.right.equalToSuperview().inset(21)
+            
+            $0.centerX.equalToSuperview()
         }
         
         todoScrollView.snp.makeConstraints {
             $0.left.right.equalToSuperview()
             $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
-            $0.height.equalTo(300)
+            $0.height.lessThanOrEqualTo(250)
+            $0.height.greaterThanOrEqualTo(200)
         }
         
     }
@@ -110,7 +115,7 @@ class HomeViewController: ViewController {
         groupMemberSection.snp.makeConstraints {
             $0.top.equalTo(groupNameLabel.snp.bottom).inset(-10)
             $0.left.equalToSuperview()
-            $0.width.lessThanOrEqualTo(176)
+//            $0.width.lessThanOrEqualTo(176)
             $0.height.equalTo(64)
             
         }
@@ -127,13 +132,9 @@ class HomeViewController: ViewController {
     
     //MARK: - groupMemberSection
     func groupMemberSection(memberList: [Member]) -> UIView {
-        let scrollView = UIScrollView()
-        
         let contentView = UIStackView()
         contentView.axis = .horizontal
         contentView.spacing = 8
-        
-        scrollView.addSubview(contentView)
         
         
         memberList.forEach { member in
@@ -147,13 +148,11 @@ class HomeViewController: ViewController {
         }
 
         contentView.snp.makeConstraints {
-            $0.edges.equalTo(scrollView.contentLayoutGuide.snp.edges)
-            $0.height.equalToSuperview()
-            $0.width.greaterThanOrEqualToSuperview()
+            $0.height.equalTo(64)
         }
         
         
-        return scrollView
+        return contentView
     }
     
     //MARK: - todoScrollView
@@ -234,6 +233,7 @@ class HomeViewController: ViewController {
                                  size: circleSize)
             return result
         }()
+        memberImageView.backgroundColor = .mcGrey400
     
         memberImageView.layer.cornerRadius = memberImageView.frame.width / 2
         memberImageView.clipsToBounds = true
