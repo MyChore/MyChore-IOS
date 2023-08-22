@@ -129,6 +129,10 @@ class AddFloorSecondViewController: UIViewController {
     }
     
     @objc private func nextAction() {
+        if let floorName = floorNameTextField.text {
+            FloorViewModel.shared._floorName = floorName
+        }
+        
         let nextVC = AddFloorThirdViewController()
         self.navigationController?.pushViewController(nextVC, animated: true)
     }

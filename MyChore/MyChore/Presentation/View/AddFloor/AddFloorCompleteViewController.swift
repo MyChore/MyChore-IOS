@@ -96,10 +96,14 @@ class AddFloorCompleteViewController: UIViewController {
     
     private func setupObserver() {
         //mvvm 연결 하여 이름, 팀 코드 가져오기
+        let floorName = FloorViewModel.shared._floorName
+        titleLabel.text = "\(floorName) 평면도가\n생성되었어요!"
         
-        let underlineAttriString = NSAttributedString(string: "팀코드",
-                                                  attributes: [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue])
-        teamCodeLabel.attributedText = underlineAttriString
+        FloorViewModel.shared.getInviteCode { [self] inviteCode in
+            let underlineAttriString = NSAttributedString(string: inviteCode,
+                                                      attributes: [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue])
+            teamCodeLabel.attributedText = underlineAttriString
+        }
     }
     
     @objc private func copyButtonAction() {

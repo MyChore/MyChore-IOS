@@ -59,7 +59,8 @@ class AddFloorThirdViewController: UIViewController {
         contentCollectionView.delegate = self
         
         nextButton.setTitle("다음", for: .normal)
-        nextButton.backgroundColor = .mcMainGreen
+        nextButton.backgroundColor = UIColor.mcGrey400
+        nextButton.isEnabled = false
         nextButton.tintColor = .white
         nextButton.layer.cornerRadius = 10
         nextButton.addTarget(self, action: #selector(nextButtonAction), for: .touchDown)
@@ -100,6 +101,12 @@ class AddFloorThirdViewController: UIViewController {
     }
     
     @objc private func nextButtonAction() {
+        if let roomKind = selectedRoom {
+            FloorViewModel.shared.setFloorType(roomKind: roomKind)
+            
+            FloorViewModel.shared.addFloor()
+        }
+        
         let nextVC = AddFloorCompleteViewController()
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
@@ -131,6 +138,8 @@ extension AddFloorThirdViewController: UICollectionViewDataSource, UICollectionV
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedRoom = RoomKind.allCases[indexPath.row]
+        nextButton.isEnabled = true
+        nextButton.backgroundColor = UIColor.mcMainGreen
         collectionView.reloadData()
     }
     
