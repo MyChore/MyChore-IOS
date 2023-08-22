@@ -32,6 +32,9 @@
 		7390EF8C2A8E90D40042A0A3 /* MypageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7390EF8B2A8E90D40042A0A3 /* MypageModel.swift */; };
 		7390EF8F2A8E92FB0042A0A3 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 7390EF8E2A8E92FB0042A0A3 /* Kingfisher */; };
 		73DF1D7E2A94CAD40097DB63 /* AddFloorCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DF1D7D2A94CAD40097DB63 /* AddFloorCompleteViewController.swift */; };
+		73DF1D812A94D3B00097DB63 /* FloorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DF1D802A94D3B00097DB63 /* FloorViewModel.swift */; };
+		73DF1D842A94D40E0097DB63 /* FloorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DF1D832A94D40E0097DB63 /* FloorModel.swift */; };
+		73DF1D872A94D4E40097DB63 /* FloorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DF1D862A94D4E40097DB63 /* FloorService.swift */; };
 		FD33CE252A69063A00F4E5AE /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FD33CE242A69063A00F4E5AE /* Alamofire */; };
 		FD33CE282A69067800F4E5AE /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FD33CE272A69067800F4E5AE /* SnapKit */; };
 		FD33CE2D2A6906F200F4E5AE /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = FD33CE2C2A6906F200F4E5AE /* KakaoSDK */; };
@@ -93,6 +96,9 @@
 		7390EF852A8E88FA0042A0A3 /* MypageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MypageService.swift; path = Service/Mypage/MypageService.swift; sourceTree = SOURCE_ROOT; };
 		7390EF8B2A8E90D40042A0A3 /* MypageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MypageModel.swift; path = Model/Mypage/MypageModel.swift; sourceTree = SOURCE_ROOT; };
 		73DF1D7D2A94CAD40097DB63 /* AddFloorCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFloorCompleteViewController.swift; sourceTree = "<group>"; };
+		73DF1D802A94D3B00097DB63 /* FloorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloorViewModel.swift; sourceTree = "<group>"; };
+		73DF1D832A94D40E0097DB63 /* FloorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloorModel.swift; sourceTree = "<group>"; };
+		73DF1D862A94D4E40097DB63 /* FloorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloorService.swift; sourceTree = "<group>"; };
 		FD33CE2F2A69077000F4E5AE /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 		FD3C90732A8E7C9800CF5839 /* CheckBoxButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxButton.swift; sourceTree = "<group>"; };
 		FD3C90752A8E7CA200CF5839 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
@@ -232,6 +238,30 @@
 			path = Mypage;
 			sourceTree = "<group>";
 		};
+		73DF1D7F2A94D29B0097DB63 /* Floor */ = {
+			isa = PBXGroup;
+			children = (
+				73DF1D802A94D3B00097DB63 /* FloorViewModel.swift */,
+			);
+			path = Floor;
+			sourceTree = "<group>";
+		};
+		73DF1D822A94D4020097DB63 /* Floor */ = {
+			isa = PBXGroup;
+			children = (
+				73DF1D832A94D40E0097DB63 /* FloorModel.swift */,
+			);
+			path = Floor;
+			sourceTree = "<group>";
+		};
+		73DF1D852A94D4D70097DB63 /* Floor */ = {
+			isa = PBXGroup;
+			children = (
+				73DF1D862A94D4E40097DB63 /* FloorService.swift */,
+			);
+			path = Floor;
+			sourceTree = "<group>";
+		};
 		FD33CE1B2A69054000F4E5AE /* Domain */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,6 +302,7 @@
 		FD33CE1F2A69059300F4E5AE /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				73DF1D852A94D4D70097DB63 /* Floor */,
 				7390EF842A8E88EE0042A0A3 /* Mypage */,
 				7390EF692A8DE80C0042A0A3 /* Login */,
 			);
@@ -281,6 +312,7 @@
 		FD33CE202A6905B600F4E5AE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				73DF1D822A94D4020097DB63 /* Floor */,
 				7390EF8A2A8E90C90042A0A3 /* Mypage */,
 				7390EF742A8DFC410042A0A3 /* Login */,
 				7390EF712A8DF7C60042A0A3 /* General */,
@@ -291,6 +323,7 @@
 		FD33CE212A6905C700F4E5AE /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				73DF1D7F2A94D29B0097DB63 /* Floor */,
 				FD5F95F72A93A793006573B2 /* Mypage */,
 				FD5F95F42A93A78E006573B2 /* Login */,
 			);
@@ -583,6 +616,7 @@
 				FD6438172A934D1E00A6BBFD /* Tag.swift in Sources */,
 				FD6438152A9235C200A6BBFD /* Date+.swift in Sources */,
 				FD3C90762A8E7CA200CF5839 /* CalendarViewController.swift in Sources */,
+				73DF1D842A94D40E0097DB63 /* FloorModel.swift in Sources */,
 				FD5F95F92A93A793006573B2 /* MypageViewModel.swift in Sources */,
 				FDDCCF572A55930400FEDF8E /* ViewController.swift in Sources */,
 				FD5F95E62A93A73B006573B2 /* MypageMainViewController.swift in Sources */,
@@ -601,6 +635,7 @@
 				FD5F95F32A93A743006573B2 /* FurnitureSelectViewController.swift in Sources */,
 				FD6438192A93608900A6BBFD /* MCTabBarViewController.swift in Sources */,
 				73370E792A93DF5C00ECF419 /* AddFloorSecondViewController.swift in Sources */,
+				73DF1D812A94D3B00097DB63 /* FloorViewModel.swift in Sources */,
 				7390EF5E2A8D2DD30042A0A3 /* CGFloat+.swift in Sources */,
 				7390EF682A8DE7470042A0A3 /* LoginProvider.swift in Sources */,
 				FDDCCF532A55930400FEDF8E /* AppDelegate.swift in Sources */,
@@ -614,6 +649,7 @@
 				FD5F95E42A93A73B006573B2 /* MyPageCell.swift in Sources */,
 				FD3C907D2A8E865D00CF5839 /* HomeViewController.swift in Sources */,
 				7390EF8C2A8E90D40042A0A3 /* MypageModel.swift in Sources */,
+				73DF1D872A94D4E40097DB63 /* FloorService.swift in Sources */,
 				FD3C90742A8E7C9800CF5839 /* CheckBoxButton.swift in Sources */,
 				FD5F95E52A93A73B006573B2 /* InfoViewController.swift in Sources */,
 				FD5F96002A93B217006573B2 /* ManageMainViewController.swift in Sources */,
