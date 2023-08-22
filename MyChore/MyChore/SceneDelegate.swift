@@ -20,35 +20,35 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: windowScene)
         
-        let rootViewController = AddFloorFirstViewController()
-        self.window?.rootViewController = UINavigationController(rootViewController: rootViewController)
-        self.window?.makeKeyAndVisible()
+//        let rootViewController = AddFloorFirstViewController()
+//        self.window?.rootViewController = UINavigationController(rootViewController: rootViewController)
+//        self.window?.makeKeyAndVisible()
         
         
-//        LoginViewModel.shared.loadToken()
+        LoginViewModel.shared.loadToken()
         
        
         
-//        LoginViewModel.shared.getAccessToken { token in
-//            guard let windowScene = (scene as? UIWindowScene) else { return }
-//            self.window = UIWindow(windowScene: windowScene)
-//
-//            let rootViewController = AddFloorFirstViewController()
-//            self.window?.rootViewController = UINavigationController(rootViewController: rootViewController)
-//
-////            if token != "" {
-////                APIManger.shared.setObserver()
-////
-////
-////                // 메인 연결
-////                let rootViewController = MCTabBarViewController()
-////                self.window?.rootViewController = UINavigationController(rootViewController: rootViewController)
-////            }else {
-////                let rootViewController = LoginViewController()
-////                self.window?.rootViewController = UINavigationController(rootViewController: rootViewController)
-////            }
-//            self.window?.makeKeyAndVisible()
-//        }
+        LoginViewModel.shared.getAccessToken { token in
+            guard let windowScene = (scene as? UIWindowScene) else { return }
+            self.window = UIWindow(windowScene: windowScene)
+
+            let rootViewController = AddFloorFirstViewController()
+            self.window?.rootViewController = UINavigationController(rootViewController: rootViewController)
+
+            if token != "" {
+                APIManger.shared.setObserver()
+
+
+                // 메인 연결
+                let rootViewController = MCTabBarViewController()
+                self.window?.rootViewController = UINavigationController(rootViewController: rootViewController)
+            }else {
+                let rootViewController = LoginViewController()
+                self.window?.rootViewController = UINavigationController(rootViewController: rootViewController)
+            }
+            self.window?.makeKeyAndVisible()
+        }
         
         
         

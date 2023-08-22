@@ -13,7 +13,7 @@ private let BASE_URL = "http://3.39.106.144:8080/"
 
 class APIManger  {
     static let shared = APIManger()
-    private var headers: HTTPHeaders = ["Authorization" : "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJSRUZSRVNILVRPS0VOIiwiaWF0IjoxNjkyMzQzMjA3LCJ1c2VySWQiOjYsIm5pY2tuYW1lIjoiMTIzIiwiZXhwIjoxNjkzNTUyODA3fQ._iIakzR1E7P_pc9tFp-dMHGPHaJLVTewSPhK9ujeAdo"]
+    private var headers: HTTPHeaders?
     
     func setObserver() {
         LoginViewModel.shared.getAccessToken { token in
