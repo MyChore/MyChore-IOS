@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		73370E712A93AC1300ECF419 /* AddFloorFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73370E702A93AC1300ECF419 /* AddFloorFirstViewController.swift */; };
+		73370E732A93B55700ECF419 /* AddFloorThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73370E722A93B55700ECF419 /* AddFloorThirdViewController.swift */; };
+		73370E762A93BBA700ECF419 /* RoomSelectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73370E752A93BBA700ECF419 /* RoomSelectCell.swift */; };
+		73370E792A93DF5C00ECF419 /* AddFloorSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73370E782A93DF5C00ECF419 /* AddFloorSecondViewController.swift */; };
+		73370E7A2A93E35A00ECF419 /* NicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5F95D32A93A726006573B2 /* NicknameViewController.swift */; };
+		73370E7B2A93E35D00ECF419 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5F95D22A93A726006573B2 /* LoginViewController.swift */; };
 		73600E022A7B749700F9FE87 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73600E012A7B749700F9FE87 /* String+.swift */; };
 		73600E052A7B7D6600F9FE87 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 73600E042A7B7D6600F9FE87 /* IQKeyboardManagerSwift */; };
 		7390EF572A8C8EF60042A0A3 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7390EF562A8C8EF60042A0A3 /* UIButton+.swift */; };
@@ -25,6 +31,7 @@
 		7390EF862A8E88FB0042A0A3 /* MypageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7390EF852A8E88FA0042A0A3 /* MypageService.swift */; };
 		7390EF8C2A8E90D40042A0A3 /* MypageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7390EF8B2A8E90D40042A0A3 /* MypageModel.swift */; };
 		7390EF8F2A8E92FB0042A0A3 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 7390EF8E2A8E92FB0042A0A3 /* Kingfisher */; };
+		73DF1D7E2A94CAD40097DB63 /* AddFloorCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DF1D7D2A94CAD40097DB63 /* AddFloorCompleteViewController.swift */; };
 		FD33CE252A69063A00F4E5AE /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FD33CE242A69063A00F4E5AE /* Alamofire */; };
 		FD33CE282A69067800F4E5AE /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FD33CE272A69067800F4E5AE /* SnapKit */; };
 		FD33CE2D2A6906F200F4E5AE /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = FD33CE2C2A6906F200F4E5AE /* KakaoSDK */; };
@@ -37,8 +44,6 @@
 		FD5F95D42A93A726006573B2 /* AgreementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5F95CF2A93A726006573B2 /* AgreementViewController.swift */; };
 		FD5F95D52A93A726006573B2 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5F95D02A93A726006573B2 /* UserInfoViewController.swift */; };
 		FD5F95D62A93A726006573B2 /* TeamCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5F95D12A93A726006573B2 /* TeamCodeViewController.swift */; };
-		FD5F95D72A93A726006573B2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5F95D22A93A726006573B2 /* LoginViewController.swift */; };
-		FD5F95D82A93A726006573B2 /* NicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5F95D32A93A726006573B2 /* NicknameViewController.swift */; };
 		FD5F95E12A93A73B006573B2 /* UserInfoChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5F95DA2A93A73B006573B2 /* UserInfoChangeViewController.swift */; };
 		FD5F95E22A93A73B006573B2 /* NotificationSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5F95DB2A93A73B006573B2 /* NotificationSettingViewController.swift */; };
 		FD5F95E32A93A73B006573B2 /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5F95DD2A93A73B006573B2 /* InfoCell.swift */; };
@@ -69,6 +74,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		73370E702A93AC1300ECF419 /* AddFloorFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFloorFirstViewController.swift; sourceTree = "<group>"; };
+		73370E722A93B55700ECF419 /* AddFloorThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFloorThirdViewController.swift; sourceTree = "<group>"; };
+		73370E752A93BBA700ECF419 /* RoomSelectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomSelectCell.swift; sourceTree = "<group>"; };
+		73370E782A93DF5C00ECF419 /* AddFloorSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFloorSecondViewController.swift; sourceTree = "<group>"; };
+		73600DE72A72B59C00F9FE87 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = View/Login/LoginViewController.swift; sourceTree = SOURCE_ROOT; };
+		73600DFD2A7B5C7600F9FE87 /* NicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NicknameViewController.swift; path = View/Login/NicknameViewController.swift; sourceTree = SOURCE_ROOT; };
 		73600E012A7B749700F9FE87 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		7390EF562A8C8EF60042A0A3 /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		7390EF5D2A8D2DD30042A0A3 /* CGFloat+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+.swift"; sourceTree = "<group>"; };
@@ -81,6 +92,7 @@
 		7390EF822A8E75F50042A0A3 /* FirebaseStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FirebaseStorageManager.swift; path = Model/Login/FirebaseStorageManager.swift; sourceTree = SOURCE_ROOT; };
 		7390EF852A8E88FA0042A0A3 /* MypageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MypageService.swift; path = Service/Mypage/MypageService.swift; sourceTree = SOURCE_ROOT; };
 		7390EF8B2A8E90D40042A0A3 /* MypageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MypageModel.swift; path = Model/Mypage/MypageModel.swift; sourceTree = SOURCE_ROOT; };
+		73DF1D7D2A94CAD40097DB63 /* AddFloorCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFloorCompleteViewController.swift; sourceTree = "<group>"; };
 		FD33CE2F2A69077000F4E5AE /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 		FD3C90732A8E7C9800CF5839 /* CheckBoxButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxButton.swift; sourceTree = "<group>"; };
 		FD3C90752A8E7CA200CF5839 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +155,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		73370E6F2A93ABEF00ECF419 /* AddFloor */ = {
+			isa = PBXGroup;
+			children = (
+				73370E742A93BB8800ECF419 /* Cell */,
+				73370E702A93AC1300ECF419 /* AddFloorFirstViewController.swift */,
+				73370E782A93DF5C00ECF419 /* AddFloorSecondViewController.swift */,
+				73370E722A93B55700ECF419 /* AddFloorThirdViewController.swift */,
+				73DF1D7D2A94CAD40097DB63 /* AddFloorCompleteViewController.swift */,
+			);
+			path = AddFloor;
+			sourceTree = "<group>";
+		};
+		73370E742A93BB8800ECF419 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				73370E752A93BBA700ECF419 /* RoomSelectCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		73370E772A93D70D00ECF419 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				73600DE72A72B59C00F9FE87 /* LoginViewController.swift */,
+				73600DFD2A7B5C7600F9FE87 /* NicknameViewController.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		7390EF662A8DE7380042A0A3 /* Enum */ = {
 			isa = PBXGroup;
 			children = (
@@ -259,6 +300,7 @@
 		FD33CE222A6905CD00F4E5AE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				73370E6F2A93ABEF00ECF419 /* AddFloor */,
 				FD5F95FE2A93B1FE006573B2 /* Manage */,
 				FD5F95E72A93A743006573B2 /* ChoreAdd */,
 				FD5F95D92A93A73B006573B2 /* Mypage */,
@@ -414,6 +456,7 @@
 			children = (
 				FDDCCF512A55930400FEDF8E /* MyChore */,
 				FDDCCF502A55930400FEDF8E /* Products */,
+				73370E772A93D70D00ECF419 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -549,15 +592,19 @@
 				FD5F95F12A93A743006573B2 /* RepeatEndViewController.swift in Sources */,
 				FD5F95E22A93A73B006573B2 /* NotificationSettingViewController.swift in Sources */,
 				7390EF862A8E88FB0042A0A3 /* MypageService.swift in Sources */,
+				73370E7A2A93E35A00ECF419 /* NicknameViewController.swift in Sources */,
+				73DF1D7E2A94CAD40097DB63 /* AddFloorCompleteViewController.swift in Sources */,
 				FD5F96052A93B494006573B2 /* ManageMasterViewController.swift in Sources */,
 				7390EF6D2A8DF74E0042A0A3 /* APIManager.swift in Sources */,
 				FD5F95F02A93A743006573B2 /* RepeatPeriodViewController.swift in Sources */,
 				FD5F95EF2A93A743006573B2 /* ManagerSelectViewController.swift in Sources */,
 				FD5F95F32A93A743006573B2 /* FurnitureSelectViewController.swift in Sources */,
 				FD6438192A93608900A6BBFD /* MCTabBarViewController.swift in Sources */,
+				73370E792A93DF5C00ECF419 /* AddFloorSecondViewController.swift in Sources */,
 				7390EF5E2A8D2DD30042A0A3 /* CGFloat+.swift in Sources */,
 				7390EF682A8DE7470042A0A3 /* LoginProvider.swift in Sources */,
 				FDDCCF532A55930400FEDF8E /* AppDelegate.swift in Sources */,
+				73370E732A93B55700ECF419 /* AddFloorThirdViewController.swift in Sources */,
 				FD3C90852A9103A200CF5839 /* TodoTableCell.swift in Sources */,
 				7390EF732A8DF7DF0042A0A3 /* GeneralModel.swift in Sources */,
 				7390EF762A8DFC4A0042A0A3 /* LoginModel.swift in Sources */,
@@ -568,15 +615,17 @@
 				FD3C907D2A8E865D00CF5839 /* HomeViewController.swift in Sources */,
 				7390EF8C2A8E90D40042A0A3 /* MypageModel.swift in Sources */,
 				FD3C90742A8E7C9800CF5839 /* CheckBoxButton.swift in Sources */,
-				FD5F95D72A93A726006573B2 /* LoginViewController.swift in Sources */,
 				FD5F95E52A93A73B006573B2 /* InfoViewController.swift in Sources */,
 				FD5F96002A93B217006573B2 /* ManageMainViewController.swift in Sources */,
 				FD3C90782A8E7CE600CF5839 /* UIImage+.swift in Sources */,
+				73370E7B2A93E35D00ECF419 /* LoginViewController.swift in Sources */,
+				73370E762A93BBA700ECF419 /* RoomSelectCell.swift in Sources */,
+				FDDCCF552A55930400FEDF8E /* SceneDelegate.swift in Sources */,
+				73370E712A93AC1300ECF419 /* AddFloorFirstViewController.swift in Sources */,
 				FD5F95E12A93A73B006573B2 /* UserInfoChangeViewController.swift in Sources */,
 				FDDCCF552A55930400FEDF8E /* SceneDelegate.swift in Sources */,
 				FD5F96072A93DDB7006573B2 /* GroupMemberSettingViewController.swift in Sources */,
 				FD5F95D62A93A726006573B2 /* TeamCodeViewController.swift in Sources */,
-				FD5F95D82A93A726006573B2 /* NicknameViewController.swift in Sources */,
 				FD5F95D42A93A726006573B2 /* AgreementViewController.swift in Sources */,
 				FD5F95EE2A93A743006573B2 /* ChoreAddMainViewController.swift in Sources */,
 				7390EF832A8E75F50042A0A3 /* FirebaseStorageManager.swift in Sources */,
