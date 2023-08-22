@@ -366,6 +366,18 @@ class ManageMasterViewController: ViewController {
         let deleteGroup = UIAlertAction(title: "그룹 삭제",
                                         style: .destructive) { _ in
             print("delete Group")
+            let alert = UIAlertController(title: "그룹을 삭제하시겠습니까?",
+                                          message: nil,
+                                          preferredStyle: .alert)
+            
+            let delete = UIAlertAction(title: "삭제",
+                                       style: .destructive)
+            let cancel = UIAlertAction(title: "취소",
+                                       style: .cancel)
+            
+            alert.addAction(delete)
+            alert.addAction(cancel)
+            self.present(alert, animated: true)
         }
         let settingOfGroupMember = UIAlertAction(title: "그룹원 설정",
                                                  style: .default) { _ in
