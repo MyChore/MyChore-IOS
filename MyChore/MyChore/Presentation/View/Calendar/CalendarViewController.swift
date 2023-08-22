@@ -58,12 +58,12 @@ var todos = [Todo(todo: "침구 정리",
 
 
 class CalendarViewController: ViewController {
+    let todoStackView = UIStackView()
+    let nameLabel = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "캘린더"
-        // 내비게이션 바 숨김
-//        navigationController?.navigationBar.isHidden = true
         view.backgroundColor = .white
         
         let dailyAchievementsSection = dailyAchievementsSection(archivementRate: 40,
@@ -76,7 +76,7 @@ class CalendarViewController: ViewController {
         view.addSubview(todoScrollView)
         
         dailyAchievementsSection.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(40)
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(20)
             $0.left.right.equalToSuperview().inset(24)
         }
 
@@ -93,7 +93,6 @@ class CalendarViewController: ViewController {
             $0.bottom.equalToSuperview()
             $0.height.greaterThanOrEqualTo(200)
             $0.height.lessThanOrEqualTo(300)
-           
         }
         
         
@@ -129,7 +128,7 @@ class CalendarViewController: ViewController {
         peopleFilterButton.layer.borderWidth = 1
         peopleFilterButton.layer.borderColor = UIColor.mcMainGreen.cgColor
         peopleFilterButton.addTarget(self,
-                                     action: #selector(changeFilterStandard),
+                                     action: #selector(changeFilterGroupMember),
                                      for: .touchUpInside)
         
 
@@ -197,7 +196,7 @@ class CalendarViewController: ViewController {
         upDownArrowImageView.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.width.height.equalTo(32)
-            $0.right.equalTo(filterTextLabel.snp.left).inset(-5)
+            $0.right.equalTo(filterTextLabel.snp.left)
         }
         
         
@@ -214,7 +213,7 @@ class CalendarViewController: ViewController {
         let frame = UIView()
         
         let dateLabel = UILabel()
-        dateLabel.text = "2023년 7월 2주차"
+        dateLabel.text = "2023년 8월 3주차"
         dateLabel.font = UIFont.systemFont(ofSize: 16,
                                            weight: .medium)
         
@@ -234,7 +233,6 @@ class CalendarViewController: ViewController {
             return button
         }()
         
-        let nameLabel = UILabel()
         nameLabel.text = "\(nickName)님"
         nameLabel.textColor = .mcMainGreen
         nameLabel.font = UIFont.systemFont(ofSize: 26,
@@ -256,7 +254,7 @@ class CalendarViewController: ViewController {
         progressView.progress = Float(Double(archivementRate) / 100.0)
         
         let illustrationImageView: UIImageView = {
-            let image = UIImage(systemName: "paperclip.circle.fill")
+            let image = UIImage(named: "illustration")
             let result = UIImageView(image: image)
             result.tintColor = .mcMainGreen
             return result
@@ -299,7 +297,7 @@ class CalendarViewController: ViewController {
         }
 
         statusTextLabel.snp.makeConstraints {
-            $0.top.equalTo(nameLabel.snp.bottom).inset(-5)
+            $0.top.equalTo(nameLabel.snp.bottom)
             $0.left.equalToSuperview()
         }
         
@@ -317,9 +315,11 @@ class CalendarViewController: ViewController {
         }
         
         illustrationImageView.snp.makeConstraints {
-            $0.width.height.lessThanOrEqualTo(150)
+            $0.width.equalTo(150)
+            $0.height.equalTo(250)
+//            $0.height.equalTo(illustrationImageView.snp.width)
             $0.right.equalToSuperview()
-            $0.bottom.equalTo(progressView.snp.bottom)
+            $0.bottom.equalTo(progressView.snp.bottom).offset(40)
         }
         
         return frame
@@ -451,13 +451,13 @@ class CalendarViewController: ViewController {
     func todoScrollView(todos: [Todo]) -> UIView {
         let scrollFrame = UIScrollView()
         
-        let content = UIStackView()
-        content.axis = .vertical
+//        let content = UIStackView()
+        todoStackView.axis = .vertical
         
         
-        scrollFrame.addSubview(content)
+        scrollFrame.addSubview(todoStackView)
         scrollFrame.contentSize = CGSize(width: scrollFrame.frame.width,
-                                         height: content.frame.height)
+                                         height: todoStackView.frame.height)
         
         
         todos.map { todo in
@@ -465,13 +465,13 @@ class CalendarViewController: ViewController {
                            furnitureName: todo.furnitureName,
                            spaceName: todo.spaceName)
         }.forEach { todoRow in
-            content.addArrangedSubview(todoRow)
+            todoStackView.addArrangedSubview(todoRow)
             todoRow.snp.makeConstraints {
                 $0.height.greaterThanOrEqualTo(56)
             }
         }
         
-        content.snp.makeConstraints {
+        todoStackView.snp.makeConstraints {
             $0.top.equalTo(scrollFrame.contentLayoutGuide.snp.top)
             $0.bottom.equalTo(scrollFrame.contentLayoutGuide.snp.bottom)
             $0.left.equalTo(scrollFrame.contentLayoutGuide.snp.left).inset(24)
@@ -490,8 +490,59 @@ class CalendarViewController: ViewController {
         print("last")
     }
     
+    @objc func changeFilterGroupMember() {
+        let actionSheet = UIAlertController(title: nil,
+                                            message: nil,
+                                            preferredStyle: .actionSheet)
+        
+        let allGroupMember = UIAlertAction(title: "그룹원 전체",
+                                           style: .default)
+        
+        actionSheet.addAction(allGroupMember)
+        
+        for member in members {
+            let groupMember = UIAlertAction(title: member.name,
+                                            style: .default) { _ in
+                self.updateNameLabel(name: member.name)
+            }
+            
+            actionSheet.addAction(groupMember)
+        }
+        
+        let cancel = UIAlertAction(title: "취소",
+                                   style: .cancel)
+        
+        actionSheet.addAction(cancel)
+        
+        self.present(actionSheet, animated: true)
+        
+    }
+    
     @objc func changeFilterStandard() {
-        print("changeFilterStandard")
+        todos.reverse()
+        updateTodoList()
+    }
+    
+    func updateTodoList() {
+        todoStackView.arrangedSubviews.forEach {
+            $0.removeFromSuperview()
+        }
+        
+        todos.map { todo in
+            return todoRow(todo: todo.todo,
+                           furnitureName: todo.furnitureName,
+                           spaceName: todo.spaceName)
+        }.forEach { todoRow in
+            todoStackView.addArrangedSubview(todoRow)
+            todoRow.snp.makeConstraints {
+                $0.height.greaterThanOrEqualTo(56)
+            }
+        }
+        
+    }
+    
+    func updateNameLabel(name: String) {
+        nameLabel.text = "\(name)님"
     }
     
 }
