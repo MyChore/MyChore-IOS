@@ -100,6 +100,8 @@ class AddFloorThirdViewController: UIViewController {
     }
     
     @objc private func nextButtonAction() {
+        let nextVC = AddFloorCompleteViewController()
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
 
 }

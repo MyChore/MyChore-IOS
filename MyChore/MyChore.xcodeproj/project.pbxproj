@@ -31,6 +31,7 @@
 		7390EF862A8E88FB0042A0A3 /* MypageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7390EF852A8E88FA0042A0A3 /* MypageService.swift */; };
 		7390EF8C2A8E90D40042A0A3 /* MypageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7390EF8B2A8E90D40042A0A3 /* MypageModel.swift */; };
 		7390EF8F2A8E92FB0042A0A3 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 7390EF8E2A8E92FB0042A0A3 /* Kingfisher */; };
+		73DF1D7E2A94CAD40097DB63 /* AddFloorCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DF1D7D2A94CAD40097DB63 /* AddFloorCompleteViewController.swift */; };
 		FD33CE252A69063A00F4E5AE /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FD33CE242A69063A00F4E5AE /* Alamofire */; };
 		FD33CE282A69067800F4E5AE /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FD33CE272A69067800F4E5AE /* SnapKit */; };
 		FD33CE2D2A6906F200F4E5AE /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = FD33CE2C2A6906F200F4E5AE /* KakaoSDK */; };
@@ -91,6 +92,7 @@
 		7390EF822A8E75F50042A0A3 /* FirebaseStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FirebaseStorageManager.swift; path = Model/Login/FirebaseStorageManager.swift; sourceTree = SOURCE_ROOT; };
 		7390EF852A8E88FA0042A0A3 /* MypageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MypageService.swift; path = Service/Mypage/MypageService.swift; sourceTree = SOURCE_ROOT; };
 		7390EF8B2A8E90D40042A0A3 /* MypageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MypageModel.swift; path = Model/Mypage/MypageModel.swift; sourceTree = SOURCE_ROOT; };
+		73DF1D7D2A94CAD40097DB63 /* AddFloorCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFloorCompleteViewController.swift; sourceTree = "<group>"; };
 		FD33CE2F2A69077000F4E5AE /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 		FD3C90732A8E7C9800CF5839 /* CheckBoxButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxButton.swift; sourceTree = "<group>"; };
 		FD3C90752A8E7CA200CF5839 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				73370E702A93AC1300ECF419 /* AddFloorFirstViewController.swift */,
 				73370E782A93DF5C00ECF419 /* AddFloorSecondViewController.swift */,
 				73370E722A93B55700ECF419 /* AddFloorThirdViewController.swift */,
+				73DF1D7D2A94CAD40097DB63 /* AddFloorCompleteViewController.swift */,
 			);
 			path = AddFloor;
 			sourceTree = "<group>";
@@ -590,6 +593,7 @@
 				FD5F95E22A93A73B006573B2 /* NotificationSettingViewController.swift in Sources */,
 				7390EF862A8E88FB0042A0A3 /* MypageService.swift in Sources */,
 				73370E7A2A93E35A00ECF419 /* NicknameViewController.swift in Sources */,
+				73DF1D7E2A94CAD40097DB63 /* AddFloorCompleteViewController.swift in Sources */,
 				FD5F96052A93B494006573B2 /* ManageMasterViewController.swift in Sources */,
 				7390EF6D2A8DF74E0042A0A3 /* APIManager.swift in Sources */,
 				FD5F95F02A93A743006573B2 /* RepeatPeriodViewController.swift in Sources */,
