@@ -100,16 +100,20 @@ class TodoTableCell: UITableViewCell {
     ///
     func todoRow() -> UIView {
         let frame = UIView()
-        let spaceTag = makeTag()
+        if spaceTagLabel.text != nil {
+            let spaceTag = makeTag()
+            frame.addSubview(spaceTag)
+            spaceTag.snp.makeConstraints {
+                $0.left.equalToSuperview()
+                $0.top.equalToSuperview()
+            }
+        }
+        
+        
         let todoElement = todoElement()
         
-        frame.addSubview(spaceTag)
         frame.addSubview(todoElement)
         
-        spaceTag.snp.makeConstraints {
-            $0.left.equalToSuperview()
-            $0.top.equalToSuperview()
-        }
         
         todoElement.snp.makeConstraints {
             $0.top.equalToSuperview()
