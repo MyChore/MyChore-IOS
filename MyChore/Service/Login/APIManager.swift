@@ -64,7 +64,8 @@ extension APIManger {
         guard let url = URL(string: BASE_URL + urlEndpointString) else { return }
         
         AF
-            .request(url, method: .get, parameters: parameter, encoding: URLEncoding.queryString, headers: self.headers)
+            //.request(url, method: .get, parameters: parameter, encoding: URLEncoding.queryString, headers: self.headers)
+            .request(url, method: .get, parameters: parameter, encoding: URLEncoding.queryString, headers: ["Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJSRUZSRVNILVRPS0VOIiwiaWF0IjoxNjkyNzE4NzgyLCJ1c2VySWQiOjEsIm5pY2tuYW1lIjoi7YWM7Iqk7Yq4IiwiZXhwIjoxNjkzOTI4MzgyfQ.fcg3yGzUQiIdOw_W9bwl4DTGYdvjMvLFohpnf494iOk"])
             .responseDecodable(of: GeneralResponseModel<U>.self) { response in
                 print(response)
                 switch response.result {
@@ -88,6 +89,7 @@ extension APIManger {
         
         AF
             .request(url, method: .get, parameters: parameter, encoding: URLEncoding.queryString, headers: self.headers)
+            //.request(url, method: .get, parameters: parameter, encoding: URLEncoding.queryString, headers: ["Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJSRUZSRVNILVRPS0VOIiwiaWF0IjoxNjkyNzE4NzgyLCJ1c2VySWQiOjEsIm5pY2tuYW1lIjoi7YWM7Iqk7Yq4IiwiZXhwIjoxNjkzOTI4MzgyfQ.fcg3yGzUQiIdOw_W9bwl4DTGYdvjMvLFohpnf494iOk"])
             .responseDecodable(of: GeneralResponseListModel<U>.self) { response in
                 print(response)
                 switch response.result {
