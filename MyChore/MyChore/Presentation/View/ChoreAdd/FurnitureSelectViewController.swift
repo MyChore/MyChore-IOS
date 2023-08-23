@@ -48,11 +48,6 @@ class FurnitureSelectViewController: UIViewController, UICollectionViewDelegate 
         }
     }
     
-//    override func viewDidAppear(_ animated: Bool) {
-//        
-//        ChoreAddViewModel.shared.getGroup()
-//    }
-    
     private let furnitureCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
     func initNavigation() {

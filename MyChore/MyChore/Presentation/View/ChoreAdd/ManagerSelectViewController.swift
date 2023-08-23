@@ -14,11 +14,11 @@ struct M_Test {
     let peopleName: String
     
     static var data = [
+        M_Test(peopleImg: UIImage(named: ""), peopleName: "일공"),
+        M_Test(peopleImg: UIImage(named: ""), peopleName: "이공"),
         M_Test(peopleImg: UIImage(named: ""), peopleName: "삼공"),
-        M_Test(peopleImg: UIImage(named: ""), peopleName: "삼공"),
-        M_Test(peopleImg: UIImage(named: ""), peopleName: "삼공"),
-        M_Test(peopleImg: UIImage(named: ""), peopleName: "삼공"),
-        M_Test(peopleImg: UIImage(named: ""), peopleName: "삼공")
+        M_Test(peopleImg: UIImage(named: ""), peopleName: "사공"),
+        M_Test(peopleImg: UIImage(named: ""), peopleName: "오공")
         ]
 }
 
@@ -84,6 +84,7 @@ class ManagerSelectViewController: UIViewController {
 extension ManagerSelectViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        //ChoreAddViewModel.shared.member.count
         testdata.count
     }
     
@@ -93,12 +94,14 @@ extension ManagerSelectViewController: UICollectionViewDataSource {
                         return UICollectionViewCell()
                     }
         cell.peopleImage.image = testdata[indexPath.row].peopleImg
+        //cell.peopleLabel.text = ChoreAddViewModel.shared.member[indexPath.row].nickname
         cell.peopleLabel.text = testdata[indexPath.row].peopleName
         cell.backgroundColor = .mcGrey200
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //selectedManager = ChoreAddViewModel.shared.member[indexPath.row].nickname
         selectedManager = testdata[indexPath.row].peopleName
     }
 }

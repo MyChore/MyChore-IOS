@@ -29,10 +29,15 @@ class ChoreAddMainViewController: UIViewController, SendDelegate {
         super.viewDidLoad()
         
         view.backgroundColor = UIColor.white
-        
+        ChoreAddViewModel.shared.getGroupInfo()
         initNavigation()
         setUpView()
         setConstraints()
+        setRoomButton()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+//        ChoreAddViewModel.shared.getGroupInfo()
     }
     
     // 네비게이션바
@@ -49,13 +54,29 @@ class ChoreAddMainViewController: UIViewController, SendDelegate {
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.mcMainGreen
     }
     
-    @objc func backMainPage() {
-        print("페이지 pop") // pop 표시
-        self.navigationController?.popViewController(animated: true)
-    }
-    
     @objc func sendData() {
-        print("페이지 pop")
+        print("post")
+        viewDidLoad()
+        alert()
+        choreTextField.text = ""
+        furnitureSelectedLabel.text = "지정안함"
+        managerSelectedLabel.text = "지정안함"
+        
+//        ChoreAddViewModel.shared.userId =
+//        ChoreAddViewModel.shared.groupId =
+//        ChoreAddViewModel.shared.roomFurnitureId = furnitureSelectedLabel.text
+//        ChoreAddViewModel.shared.name = choreTextField.text
+//        ChoreAddViewModel.shared.notiTime = alarmTimePicker.
+//        ChoreAddViewModel.shared.room = chore
+//
+//        ChoreAddViewModel.shared.isAcceptNoti = alarmSwitch.isOn
+//        ChoreAddViewModel.shared.
+    }
+    func alert() {
+        let sheet = UIAlertController(title: "추가 완료", message: "집안일이 추가되었습니다", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "확인", style: .default)
+        sheet.addAction(okAction)
+        present(sheet, animated: false, completion: nil)
     }
     
     // Mark: - Views 정의
@@ -110,7 +131,21 @@ class ChoreAddMainViewController: UIViewController, SendDelegate {
         livingRoomButton.setTitleColor(UIColor.mcGrey800, for: .normal)
         
         livingRoomButton.addTarget(self, action: #selector(btnClicked), for: .touchUpInside)
+        livingRoomButton.snp.makeConstraints { make in
+            make.height.equalTo(38)
+            make.width.equalTo(68)
+        }
         return livingRoomButton
+    }()
+    
+    lazy var roomBtnStackView: UIStackView = {
+        let roomBtnStackView = UIStackView()
+        roomBtnStackView.alignment = .fill
+        roomBtnStackView.spacing = 10
+        roomBtnStackView.addArrangedSubview(livingRoomButton)
+        roomBtnStackView.addArrangedSubview(room1Button)
+        roomBtnStackView.addArrangedSubview(room2Button)
+        return roomBtnStackView
     }()
     
     lazy var room1Button: UIButton = {
@@ -121,6 +156,11 @@ class ChoreAddMainViewController: UIViewController, SendDelegate {
         room1Button.setTitle("방1", for: .normal)
         room1Button.setTitleColor(UIColor.mcGrey800, for: .normal)
         room1Button.addTarget(self, action: #selector(btnClicked), for: .touchUpInside)
+        
+        room1Button.snp.makeConstraints { make in
+            make.height.equalTo(38)
+            make.width.equalTo(68)
+        }
         return room1Button
     }()
     
@@ -132,6 +172,10 @@ class ChoreAddMainViewController: UIViewController, SendDelegate {
         room2Button.setTitle("방2", for: .normal)
         room2Button.setTitleColor(UIColor.mcGrey800, for: .normal)
         room2Button.addTarget(self, action: #selector(btnClicked), for: .touchUpInside)
+        room2Button.snp.makeConstraints { make in
+            make.height.equalTo(38)
+            make.width.equalTo(68)
+        }
         return room2Button
     }()
     
@@ -146,8 +190,19 @@ class ChoreAddMainViewController: UIViewController, SendDelegate {
         return room3Button
     }()
     
+    var roomData: [RoomList] = ChoreAddViewModel.shared.room
+    
+    func setRoomButton() {
+        for title in roomData {
+            let button = UIButton(type: .system)
+            button.setTitle(title.roomTypeName, for: .normal)
+            button.addTarget(self, action: #selector(btnClicked), for: .touchUpInside)
+            self.roomBtnStackView.addArrangedSubview(button)
+        }
+    }
     lazy var btnArray: [UIButton] = [livingRoomButton, room1Button, room2Button, room3Button]
     
+    var selectedRoom: String? = ""
     @objc func btnClicked(_ sender: UIButton) {
         for Btn in btnArray {
             if Btn == sender {
@@ -155,6 +210,7 @@ class ChoreAddMainViewController: UIViewController, SendDelegate {
                 Btn.isSelected = true
                 Btn.backgroundColor = UIColor.mcSubGreen100
                 Btn.setTitleColor(UIColor.mcMainGreen, for: .normal)
+                
             } else {
                 // 이 함수를 호출한 버튼이 아니라면
                 Btn.isSelected = false
@@ -369,10 +425,11 @@ class ChoreAddMainViewController: UIViewController, SendDelegate {
         view.addSubview(firstLine)
         view.addSubview(placeIconView)
         view.addSubview(placeLabel)
-        view.addSubview(livingRoomButton)
-        view.addSubview(room1Button)
-        view.addSubview(room2Button)
-        view.addSubview(room3Button)
+//        view.addSubview(livingRoomButton)
+//        view.addSubview(room1Button)
+//        view.addSubview(room2Button)
+//        view.addSubview(room3Button)
+        view.addSubview(roomBtnStackView)
         view.addSubview(secondLine)
         view.addSubview(furnitureIconView)
         view.addSubview(furnitureLabel)
@@ -432,33 +489,14 @@ class ChoreAddMainViewController: UIViewController, SendDelegate {
             make.centerY.equalTo(placeIconView.snp.centerY)
             make.left.equalTo(placeIconView.snp.right).offset(8)
         }
-        livingRoomButton.snp.makeConstraints { make in
-            make.height.equalTo(38)
-            make.width.equalTo(72)
+        roomBtnStackView.snp.makeConstraints { make in
             make.top.equalTo(placeIconView.snp.bottom).offset(11)
+            make.height.equalTo(38)
             make.left.equalTo(self.view.safeAreaLayoutGuide).offset(24)
-        }
-        room1Button.snp.makeConstraints { make in
-            make.height.equalTo(38)
-            make.width.equalTo(72)
-            make.centerY.equalTo(livingRoomButton.snp.centerY)
-            make.left.equalTo(livingRoomButton.snp.right).offset(10)
-        }
-        room2Button.snp.makeConstraints { make in
-            make.height.equalTo(38)
-            make.width.equalTo(72)
-            make.centerY.equalTo(livingRoomButton.snp.centerY)
-            make.left.equalTo(room1Button.snp.right).offset(10)
-        }
-        room3Button.snp.makeConstraints { make in
-            make.height.equalTo(38)
-            make.width.equalTo(72)
-            make.centerY.equalTo(livingRoomButton.snp.centerY)
-            make.left.equalTo(room2Button.snp.right).offset(10)
         }
         secondLine.snp.makeConstraints { make in
             make.height.equalTo(2)
-            make.top.equalTo(livingRoomButton.snp.bottom).offset(18)
+            make.top.equalTo(roomBtnStackView.snp.bottom).offset(14)
             make.left.equalTo(self.view.safeAreaLayoutGuide).offset(24)
             make.right.equalTo(self.view.safeAreaLayoutGuide).offset(-24)
         }
